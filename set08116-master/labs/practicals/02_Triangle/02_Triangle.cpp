@@ -12,7 +12,8 @@ target_camera cam;
 bool load_content() {
   // Create triangle data
   // Positions
-  vector<vec3> positions{
+  vector<vec3> positions
+  {
       // *********************************
       // Add the three positions of the triangle corners here
 
