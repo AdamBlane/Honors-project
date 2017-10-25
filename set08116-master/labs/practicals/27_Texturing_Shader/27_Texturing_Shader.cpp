@@ -36,9 +36,10 @@ bool load_content() {
   eff.add_shader("27_Texturing_Shader/simple_texture.frag", GL_FRAGMENT_SHADER);
   // *********************************
   // Build effect
-
+  eff.build();
   // Load texture "textures/sign.jpg"
-
+  // Load texture
+  tex = texture("textures/checker.png");
   // *********************************
 
   // Set camera properties

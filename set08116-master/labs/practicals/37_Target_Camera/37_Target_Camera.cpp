@@ -41,7 +41,7 @@ bool load_content() {
   meshes["torus"].get_transform().rotate(vec3(half_pi<float>(), 0.0f, 0.0f));
 
   // Load texture
-  tex = texture("textures/checker.png");
+  tex = texture("textures/checked.png");
 
   // Load in shaders
   eff.add_shader("27_Texturing_Shader/simple_texture.vert", GL_VERTEX_SHADER);
@@ -61,8 +61,8 @@ bool update(float delta_time) {
   // *********************************
   // Use keyboard to change camera location
   // 1 - (50, 10, 50)
-
-
+	if (glfwGetKey(renderer::get_window(), GLFW_KEY_W))
+		cam.set_position(vec3(50.0f, 10.0f,50 ));
 
   // 2 - (-50, 10, 50)
 
@@ -77,7 +77,7 @@ bool update(float delta_time) {
 
 
   // Update the camera
-
+	cam.update(delta_time);
   // *********************************
 
   return true;
