@@ -29,7 +29,7 @@ bool load_content() {
   geom4 = geometry_builder::create_box();
 
   // Load in model
-  auto src = "../../assimp-src/test/models/OBJ/box.obj";
+  auto src = "../../assimp-src/test/models/OBJ/teapot.obj";
   geom3 = geometry(src);
 
   src = "../../assimp-src/test/models/LWO/LWO2/uvtest.png";

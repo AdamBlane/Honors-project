@@ -11,7 +11,7 @@ texture tex;
 free_camera cam;
 double cursor_x = 0.0;
 double cursor_y = 0.0;
-float WASDSPEED = .01f;
+float WASDSPEED = 1.0f;
 vec3 pos;
 
 bool initialise() {
@@ -53,7 +53,7 @@ bool load_content() {
   meshes["torus"].get_transform().rotate(vec3(half_pi<float>(), 0.0f, 0.0f));
 
   // Load texture
-  tex = texture("textures/checker.png");
+  tex = texture("textures/checked.gif");
 
   // Load in shaders
   eff.add_shader("27_Texturing_Shader/simple_texture.vert", GL_VERTEX_SHADER);
@@ -63,7 +63,7 @@ bool load_content() {
   eff.build();
 
   // Set camera properties
-  cam.set_position(vec3(0.0f, 10.0f, 10.0f));
+  cam.set_position(vec3(0.0f, 100.0f, 100.0f));
   cam.set_target(vec3(0.0f, 0.0f, 0.0f));
   cam.set_projection(quarter_pi<float>(), renderer::get_screen_aspect(), 0.1f, 1000.0f);
   return true;
@@ -83,11 +83,11 @@ bool update(float delta_time) {
 	double delta_x = current_x - cursor_x;
 	double delta_y = current_y - cursor_y;
 	//// Multiply deltas by ratios - gets actual change in orientation
-	delta_x = delta_x * ratio_width / 1000;
-	delta_y = delta_y * ratio_height * -1 / 1000;
+	delta_x = delta_x * ratio_width ;
+	delta_y = delta_y * ratio_height * -1 ;
 	//// Rotate cameras by delta
 	cam.rotate(delta_x, delta_y);
-	cam.update(0.001);
+	cam.update(delta_time);
 	//// Update cursor pos
 	cursor_x = current_x;
 	cursor_y = current_y;
