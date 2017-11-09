@@ -1,8 +1,0 @@
-24/10 Matt: Merging chase cam and player control code from A & C
-- Overwritten mesh.h & mesh.cpp with mesh contents from c branch
-- Added chase_cam.h & .cpp
-- Tidied gameScene.h/cpp (moved input to a separate function, more explicit var names)
-- Added ball; add force code works find, but chase cam has an issue - not sure what to change.
-
-
-oh harro dere
