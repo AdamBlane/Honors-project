@@ -1,0 +1,17 @@
+C:/Users/mrnew/Documents/Uni/4th Year/Advanced Games/mainProject/glmBuild/CMakeFiles/RUN_TESTS.dir
+C:/Users/mrnew/Documents/Uni/4th Year/Advanced Games/mainProject/glmBuild/CMakeFiles/INSTALL.dir
+C:/Users/mrnew/Documents/Uni/4th Year/Advanced Games/mainProject/glmBuild/CMakeFiles/ALL_BUILD.dir
+C:/Users/mrnew/Documents/Uni/4th Year/Advanced Games/mainProject/glmBuild/CMakeFiles/ZERO_CHECK.dir
+C:/Users/mrnew/Documents/Uni/4th Year/Advanced Games/mainProject/glmBuild/glm/CMakeFiles/RUN_TESTS.dir
+C:/Users/mrnew/Documents/Uni/4th Year/Advanced Games/mainProject/glmBuild/glm/CMakeFiles/glm_dummy.dir
+C:/Users/mrnew/Documents/Uni/4th Year/Advanced Games/mainProject/glmBuild/glm/CMakeFiles/INSTALL.dir
+C:/Users/mrnew/Documents/Uni/4th Year/Advanced Games/mainProject/glmBuild/test/CMakeFiles/RUN_TESTS.dir
+C:/Users/mrnew/Documents/Uni/4th Year/Advanced Games/mainProject/glmBuild/test/CMakeFiles/INSTALL.dir
+C:/Users/mrnew/Documents/Uni/4th Year/Advanced Games/mainProject/glmBuild/test/bug/CMakeFiles/RUN_TESTS.dir
+C:/Users/mrnew/Documents/Uni/4th Year/Advanced Games/mainProject/glmBuild/test/bug/CMakeFiles/INSTALL.dir
+C:/Users/mrnew/Documents/Uni/4th Year/Advanced Games/mainProject/glmBuild/test/core/CMakeFiles/RUN_TESTS.dir
+C:/Users/mrnew/Documents/Uni/4th Year/Advanced Games/mainProject/glmBuild/test/core/CMakeFiles/INSTALL.dir
+C:/Users/mrnew/Documents/Uni/4th Year/Advanced Games/mainProject/glmBuild/test/gtc/CMakeFiles/RUN_TESTS.dir
+C:/Users/mrnew/Documents/Uni/4th Year/Advanced Games/mainProject/glmBuild/test/gtc/CMakeFiles/INSTALL.dir
+C:/Users/mrnew/Documents/Uni/4th Year/Advanced Games/mainProject/glmBuild/test/gtx/CMakeFiles/RUN_TESTS.dir
+C:/Users/mrnew/Documents/Uni/4th Year/Advanced Games/mainProject/glmBuild/test/gtx/CMakeFiles/INSTALL.dir
