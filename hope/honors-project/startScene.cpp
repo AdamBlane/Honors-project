@@ -20,11 +20,11 @@ void startScene::Init(GLFWwindow* window)
 	glfwSetCursorPos(window, cursor_x, cursor_y);
 
 	// Setup texture shader
-	textureShader = new Shader("..\\NuttyPutters\\textureShader");
+	textureShader = new Shader("..\\honors-project\\textureShader");
 
 	// Arrow
-	arrowMesh = new Mesh(Mesh::CUBOID, "..\\NuttyPutters\\box.jpg", vec3(1.8f,  2.6f, 0.0f), 3.0f, 0.5f, 0.5f);
-	arrowTexture = new Texture("..\\NuttyPutters\\grass.png");
+	arrowMesh = new Mesh(Mesh::CUBOID, "..\\honors-project\\box.jpg", vec3(1.8f,  2.6f, 0.0f), 3.0f, 0.5f, 0.5f);
+	arrowTexture = new Texture("..\\honors-project\\grass.png");
 	arrowTransform.getScale() = vec3(0.5);
 	// Setup cameras
 	freeCam = new free_camera();
