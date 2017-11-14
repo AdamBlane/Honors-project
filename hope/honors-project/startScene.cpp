@@ -12,41 +12,49 @@ startScene::~startScene() { }
 // Setup scene; seed is an optional param passed in by loadGameScene
 void startScene::Init(GLFWwindow* window)
 {
-	// Set GL properties 
-	glEnable(GL_DEPTH_TEST);
-	glEnable(GL_CULL_FACE);
-	glCullFace(GL_BACK);
+	srand(time(NULL));
 	glfwSetInputMode(window, GLFW_CURSOR, GLFW_CURSOR_DISABLED);
 	glfwSetCursorPos(window, cursor_x, cursor_y);
 
-	// Setup texture shader
-	textureShader = new Shader("..\\honors-project\\textureShader");
+	CreateScene(window);
+	Algortithm(window);
 
-	// Arrow
-	arrowMesh = new Mesh(Mesh::CUBOID, "..\\honors-project\\box.jpg", vec3(1.8f,  2.6f, 0.0f), 3.0f, 0.5f, 0.5f);
-	arrowTexture = new Texture("..\\honors-project\\grass.png");
-	arrowTransform.getScale() = vec3(0.5);
-	// Setup cameras
+	textureShader = new Shader("..\\honors-project\\textureShader");
+	plainMesh = new Mesh(Mesh::CUBOID, "..\\honors-project\\box.jpg", vec3(0.0f, 0.0f, 0.0f), coordx, 0.1f, coordy);
+	plainTexture = new Texture("..\\honors-project\\grass.png");
+
+	startMesh = new Mesh(Mesh::CUBOID, "..\\honors-project\\box.jpg", vec3(0.0f, 0.0f, 0.0f), 5.0f, 10.0f, 5.0f);
+	startTexture = new Texture("..\\honors-project\\ballRed.jpg");
+
+	endMesh = new Mesh(Mesh::CUBOID, "..\\honors-project\\box.jpg", vec3(coordx, 0.0f, coordy), 5.0f, 10.0f, 5.0f);
+	endTexture = new Texture("..\\honors-project\\ballBlue.jpg");
+
+	plainTransform.setPos(vec3(coordx/2, 0, coordy/2));
 	freeCam = new free_camera();
 	freeCam->set_Posistion(vec3(0, 10, -10));
 	freeCam->rotate(-10.0, 0.0);
 	freeCam->set_Target(vec3(0, 0, 0));
-	freeCam->set_projection(quarter_pi<float>(), (float)1600 / (float)900, 0.414f, 1000.0f);
-	glEnable(GL_BLEND);
-	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+	freeCam->set_projection(quarter_pi<float>(), (float)1600 / (float)900, 0.414f, 30000.0f);
 }
 
-// Main game loop 
+void startScene::CreateScene(GLFWwindow* window)
+{
+	coordx = rand() % 20000 + 1000;
+	coordy = rand() % 20000 + 1000;
+	camSpeed = rand() % 10 + 1;
+}
+
+void startScene::Algortithm(GLFWwindow* window) 
+{
+	std::cout << "size of map = (" << coordx << " , " << coordy << ")" << std::endl;
+	std::cout << "speed of player = (" << camSpeed << ")" << std::endl;
+}
 void startScene::Loop(GLFWwindow* window)
 {
-	// Scene background
 	glClearColor(0.1f, 0.2f, 0.4f, 1.0f);
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-	// Input
 	Input(window);
-	// Update
 	Update(window);
-	// Render
 	Render(window);
 
 }
@@ -54,63 +62,41 @@ void startScene::Loop(GLFWwindow* window)
 // Act on input
 void startScene::Input(GLFWwindow* window)
 {
-	// Exit
-	if (glfwGetKey(window, GLFW_KEY_B))
-	{
-		// Access singleton instance to update it's sceneManager's state
-		windowMgr::getInstance()->sceneManager.changeScene(0);
-	}
-
-	// Create vector to apply to current cam pos
 	vec3 freeCamPos = vec3(0, 0, 0);
-
-	// Camera controls
 	if (glfwGetKey(window, GLFW_KEY_W))
 	{
-		freeCamPos = (vec3(0, 0, camSpeed * dt));
+		freeCamPos = (vec3(0, 0, camSpeed));
 	}
 	if (glfwGetKey(window, GLFW_KEY_A))
 	{
-		freeCamPos = (vec3(-camSpeed * dt, 0, 0));
+		freeCamPos = (vec3(-camSpeed, 0, 0));
 	}
 	if (glfwGetKey(window, GLFW_KEY_S))
 	{
-		freeCamPos = (vec3(0, 0, -camSpeed * dt));
+		freeCamPos = (vec3(0, 0, -camSpeed));
 	}
 	if (glfwGetKey(window, GLFW_KEY_D))
 	{
-		freeCamPos = (vec3(camSpeed * dt, 0, 0));
+		freeCamPos = (vec3(camSpeed, 0, 0));
 	}
 	if (glfwGetKey(window, GLFW_KEY_Q))
 	{
-		freeCamPos = (vec3(0, camSpeed * dt, 0));
+		freeCamPos = (vec3(0, camSpeed, 0));
 	}
 	if (glfwGetKey(window, GLFW_KEY_E))
 	{
-		freeCamPos = (vec3(0, -camSpeed * dt, 0));
+		freeCamPos = (vec3(0, -camSpeed, 0));
 	}
-	if (glfwGetKey(window, GLFW_KEY_LEFT_SHIFT))
+	if (glfwGetKey(window, GLFW_KEY_M))
 	{
-		camSpeed = 10.0f;
+		camSpeed = 100.0f;
 	}
-	else
-		camSpeed = 2.0f;
 
-	// Move camera by new pos after input
 	freeCam->move(freeCamPos);
 }
 
-// Update positions
 void startScene::Update(GLFWwindow* window)
 {
-	// Calculate dt
-	lastFrame = thisFrame;
-	thisFrame = glfwGetTime();
-	dt = (float)(thisFrame - lastFrame);
-	if (dt > 0.03)
-		dt = 0.016;
-
-	// Free cam stuff
 	static double ratio_width = quarter_pi<float>() / 1600.0;
 	static double ratio_height = (quarter_pi<float>() * (1600 / 900)) / static_cast<float>(1600);
 	double current_x, current_y;
@@ -120,8 +106,7 @@ void startScene::Update(GLFWwindow* window)
 	double delta_y = current_y - cursor_y;
 	// Multiply deltas by ratios
 	delta_x *= ratio_width;
-	delta_y *= ratio_height * -1; // -1 to invert on y axis
-								  // Rotate camera by delta
+	delta_y *= ratio_height * -1; 
 	freeCam->rotate(delta_x, delta_y);
 	freeCam->update(0.001);
 	// Update cursor pos
@@ -130,7 +115,6 @@ void startScene::Update(GLFWwindow* window)
 }
 
 
-// Draw stuff
 void startScene::Render(GLFWwindow* window)
 {
 	// Calculate mvp matrix
@@ -138,11 +122,19 @@ void startScene::Render(GLFWwindow* window)
 	// If camera type is free camera then
 	mvp = freeCam->get_Projection() * freeCam->get_View();
 	textureShader->Bind();
-	arrowTexture->Bind(0);
-	textureShader->Update(arrowTransform, mvp);
-	arrowMesh->Draw();
+	plainTexture->Bind(0);
+	textureShader->Update(plainTransform, mvp);
+	plainMesh->Draw();
+
+	startTexture->Bind(0);
+	textureShader->Update(startTransform, mvp);
+	startMesh->Draw();
+
+	endTexture->Bind(0);
+	textureShader->Update(endTransform, mvp);
+	endMesh->Draw();
+
 	textureShader->Update(shaderTrans, (freeCam->get_Projection() * freeCam->get_View()));
-	glDepthRange(0, 1.0);
 	glfwSwapBuffers(window);
 	glfwPollEvents();
 }
