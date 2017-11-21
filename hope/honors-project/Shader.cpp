@@ -87,8 +87,6 @@ static std::string LoadShader(const std::string& fileName)
 
 	if (file.is_open())
 	{
-		std::cout << "Shader loaded successfully! " << fileName << "\n" << std::endl;
-
 		while (file.good())
 		{
 			getline(file, line);

@@ -2,7 +2,8 @@
 
 // Internals
 #include "startScene.h"
-#include "windowMgr.h" // to access singleton
+#include "windowMgr.h"
+#include "FastNoise.h"
 
 // Default constructor
 startScene::startScene() { }
@@ -46,8 +47,13 @@ void startScene::CreateScene(GLFWwindow* window)
 
 void startScene::Algortithm(GLFWwindow* window) 
 {
-	std::cout << "size of map = (" << coordx << " , " << coordy << ")" << std::endl;
+	float length_of_map = (coordx * coordx) + (coordy * coordy);
+	length_of_map = std::sqrtf(length_of_map);
+	float time = length_of_map / camSpeed;
+	std::cout << "map co-ordinates = (" << coordx << " , " << coordy << ")" << std::endl;
+	std::cout << "length of map = " << length_of_map << std::endl;
 	std::cout << "speed of player = (" << camSpeed << ")" << std::endl;
+	std::cout << "time = (" << time << ")" << std::endl;
 }
 void startScene::Loop(GLFWwindow* window)
 {
