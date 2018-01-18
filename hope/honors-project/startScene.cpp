@@ -4,7 +4,7 @@
 #include "startScene.h"
 #include "windowMgr.h"
 #include "FastNoise.h"
-
+#include <time.h>
 // Default constructor
 startScene::startScene() { }
 // Deconstructor
@@ -13,13 +13,14 @@ startScene::~startScene() { }
 // Setup scene; seed is an optional param passed in by loadGameScene
 void startScene::Init(GLFWwindow* window)
 {
-	srand(time(NULL));
 	glfwSetInputMode(window, GLFW_CURSOR, GLFW_CURSOR_DISABLED);
 	glfwSetCursorPos(window, cursor_x, cursor_y);
-
-	CreateScene(window);
-	Algortithm(window);
-
+	for (int i = 0; i < 100; i++) 
+	{
+		CreateScene(window);
+		Algortithm(window);
+	}
+	
 	textureShader = new Shader("..\\honors-project\\textureShader");
 	plainMesh = new Mesh(Mesh::CUBOID, "..\\honors-project\\box.jpg", vec3(0.0f, 0.0f, 0.0f), coordx, 0.1f, coordy);
 	plainTexture = new Texture("..\\honors-project\\grass.png");
@@ -40,9 +41,13 @@ void startScene::Init(GLFWwindow* window)
 
 void startScene::CreateScene(GLFWwindow* window)
 {
-	coordx = rand() % 20000 + 1000;
-	coordy = rand() % 20000 + 1000;
-	camSpeed = rand() % 10 + 1;
+	std::srand(time(0));
+	std::default_random_engine gen;
+	std::binomial_distribution<int> spped(11, 0.5);
+	std::binomial_distribution<int> dist(20000, 0.5);
+	coordx = dist(gen)+1000;
+	coordy = dist(gen)+1000;
+	camSpeed = spped(gen);
 }
 
 void startScene::Algortithm(GLFWwindow* window) 

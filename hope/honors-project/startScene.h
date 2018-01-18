@@ -50,7 +50,7 @@ class startScene
 	//values for size
 	int coordx;
 	int coordy;
-	float camSpeed;
+	int camSpeed;
 
 	// Setup scene. Last seed params is optional; = denotes default value
 	// If called from loadGameScene, requires seed value(as string)
