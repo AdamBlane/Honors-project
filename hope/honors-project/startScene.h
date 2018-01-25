@@ -61,4 +61,6 @@ class startScene
 	void Render(GLFWwindow* window);
 	void Algortithm(GLFWwindow* window);
 	void CreateScene(GLFWwindow* window);
+	void CreatePath(GLFWwindow* window);
+	
 };

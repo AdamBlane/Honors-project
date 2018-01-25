@@ -5,21 +5,28 @@
 #include "windowMgr.h"
 #include "FastNoise.h"
 #include <time.h>
+#include<list>
 // Default constructor
 startScene::startScene() { }
 // Deconstructor
 startScene::~startScene() { }
-
+struct node 
+{
+	int x_coord, y_coord;
+};
+std::list<node> nodes;
+std::list <node> wanted_nodes;
 // Setup scene; seed is an optional param passed in by loadGameScene
 void startScene::Init(GLFWwindow* window)
 {
 	glfwSetInputMode(window, GLFW_CURSOR, GLFW_CURSOR_DISABLED);
 	glfwSetCursorPos(window, cursor_x, cursor_y);
-	for (int i = 0; i < 100; i++) 
-	{
+	//for (int i = 0; i < 100; i++) 
+	//{
 		CreateScene(window);
+		CreatePath(window);
 		Algortithm(window);
-	}
+	//}
 	
 	textureShader = new Shader("..\\honors-project\\textureShader");
 	plainMesh = new Mesh(Mesh::CUBOID, "..\\honors-project\\box.jpg", vec3(0.0f, 0.0f, 0.0f), coordx, 0.1f, coordy);
@@ -31,6 +38,10 @@ void startScene::Init(GLFWwindow* window)
 	endMesh = new Mesh(Mesh::CUBOID, "..\\honors-project\\box.jpg", vec3(coordx, 0.0f, coordy), 5.0f, 10.0f, 5.0f);
 	endTexture = new Texture("..\\honors-project\\ballBlue.jpg");
 
+	for (int i = 0; i < 30; i++)
+	{
+		
+	}
 	plainTransform.setPos(vec3(coordx/2, 0, coordy/2));
 	freeCam = new free_camera();
 	freeCam->set_Posistion(vec3(0, 10, -10));
@@ -38,7 +49,20 @@ void startScene::Init(GLFWwindow* window)
 	freeCam->set_Target(vec3(0, 0, 0));
 	freeCam->set_projection(quarter_pi<float>(), (float)1600 / (float)900, 0.414f, 30000.0f);
 }
+void startScene::CreatePath(GLFWwindow* window) 
+{
+	for (int i = 0; i < 30; i++) 
+	{
+		node a;
+		a.x_coord = rand() % coordx;
+		a.y_coord = rand() % coordy;
+		nodes.push_back(a);
+	}
+	/*while (nodes.size != 0) 
+	{
 
+	}*/
+}
 void startScene::CreateScene(GLFWwindow* window)
 {
 	std::srand(time(0));
@@ -136,7 +160,10 @@ void startScene::Render(GLFWwindow* window)
 	plainTexture->Bind(0);
 	textureShader->Update(plainTransform, mvp);
 	plainMesh->Draw();
+	for (int i = 0; i > 30; i++) 
+	{
 
+	}
 	startTexture->Bind(0);
 	textureShader->Update(startTransform, mvp);
 	startMesh->Draw();

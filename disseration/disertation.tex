@@ -21,7 +21,12 @@
 \begin{abstract}
 The abstract text goes here.
 \end{abstract}
-
+\newpage
+\renewcommand{\abstractname}{Acknowledgements}
+\begin{abstract}
+Shout out to my bois 
+\end{abstract}
+\newpage
 \section{Introduction}
 From the beginning of the project the objective has been to develop a mathematical equation to evaluate escort mission maps. Then to procedurally generate maps that can successfully follow the evaluation technique created. The dissertation produced underneath documents the work that was involved in achieving this.
 \subsection{Motivation}
@@ -44,15 +49,13 @@ There are two main aims of the project, the first is to create, implement and ev
 \subsection{Scope}
 \subsubsection{Deliverable}
 The items to be delivered from this project are: An algorithm that can evaluate any escort mission map and inform the user of the strengths and weakness of the map; A C++ program that can procedurally generate maps that can be tested by the algorithm; the results and analysis of the surveys that examine the credibility of the evaluation algorithm.  
-\subsubsection{Boundaries}
-When testing a map there are a large amount variables to be evaluated, as time is one of the limiting factors in this project it was decided that 3 major factors would be tested. They are:
+\subsubsection{Boundaries and Constraints}
+When testing a map there are a large amount variables to be evaluated, as time is one of the limiting factors in this project, it was decided that 3 major factors would be tested. They are:
 \begin{itemize}
 	\item The size of the map.
 	\item The quality of the object that will be escorted's (payload) path.
-	\item The overall balance"\"fairness of the map 	
+	\item The overall balance\textbackslash fairness of the map 	
 \end{itemize}
-\subsection{Constraints}
-There are several factors that could limit the success of the project. The most important of these being time.
 \subsection{Chapter Outlines}
 \begin{itemize}
 	\item Background - Discusses the research made into the topic.
@@ -60,14 +63,22 @@ There are several factors that could limit the success of the project. The most 
 	\item Results – Displays the results from the tests carried out.
 	\item Conclusion – Summarises results, assess s	
 \end{itemize}
-\section{Lit Riview/Background}
-
+\newpage
+\section{Background and Literature Review}
+\subsection{Introduction}
+In this chapter we will introduce the ideas behind this project and take a more in depth look  
+\subsection{Escort Missions}
+An escort mission is a game-mode in team based shooters such as Overwatch and Loadout. In this mode there are two teams, the attacking and the defending team. The two teams have different aims in order to win. The attacking team attempts to escort the payload across the map to an objective while the defending team tries to stop them. While it is difficult to pin down the first game to have escort missions, one of the more notable uses was in 2007 with Team Fortress 2 by Valve, while it was not originally included in the game it was added in the first free update. It is important to note that the original Team Fortress had a game mode called Escort but this has many differences with its sequel such as the payload being a controllable player and there being three teams. Other games that use this game mode are Global Agenda and Wolfenstein: Enemy Territory.    
+\subsubsection{Maps}
+Maps for escort mission maps have some specific requirements that they must adhere to, so they can be classified as escort mission maps. Some of these requirements are 
+\subsection{Path-Finding}
 \section{Methodolgy}
-
+\subsection{Introduction}
+This section looks at the methods used during the implementation of the project. 
 \section{Results}
 
 \section{Conclusion}
-Write your conclusion here.
+
 
 \bibliographystyle{plain}
 \bibliography{bib}
