@@ -10,7 +10,10 @@
 \BOOKMARK [2][-]{subsection.2.2}{Escort Missions}{section.2}% 10
 \BOOKMARK [3][-]{subsubsection.2.2.1}{Maps}{subsection.2.2}% 11
 \BOOKMARK [2][-]{subsection.2.3}{Path-Finding}{section.2}% 12
-\BOOKMARK [1][-]{section.3}{Methodolgy}{}% 13
-\BOOKMARK [2][-]{subsection.3.1}{Introduction}{section.3}% 14
-\BOOKMARK [1][-]{section.4}{Results}{}% 15
-\BOOKMARK [1][-]{section.5}{Conclusion}{}% 16
+\BOOKMARK [3][-]{subsubsection.2.3.1}{Dijkstra\220s Algorithm}{subsection.2.3}% 13
+\BOOKMARK [3][-]{subsubsection.2.3.2}{A Star Pathfinding \(A*\)}{subsection.2.3}% 14
+\BOOKMARK [2][-]{subsection.2.4}{Exsiting Work}{section.2}% 15
+\BOOKMARK [1][-]{section.3}{Methodolgy}{}% 16
+\BOOKMARK [2][-]{subsection.3.1}{Introduction}{section.3}% 17
+\BOOKMARK [1][-]{section.4}{Results}{}% 18
+\BOOKMARK [1][-]{section.5}{Conclusion}{}% 19
