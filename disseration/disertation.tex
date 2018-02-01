@@ -65,18 +65,30 @@ When testing a map there are a large amount variables to be evaluated, as time i
 \end{itemize}
 \newpage
 \section{Background and Literature Review}
-\subsection{Introduction}
-In this chapter we will introduce the ideas behind this project and take a more in depth look  
+The
+In this section the theory behind the honours project will be discussed and the areas of research that are used will be explained.
+ 
 \subsection{Escort Missions}
 An escort mission is a game-mode in team based shooters such as Overwatch and Loadout. In this mode there are two teams, the attacking and the defending team. The two teams have different aims in order to win. The attacking team attempts to escort the payload across the map to an objective while the defending team tries to stop them. While it is difficult to pin down the first game to have escort missions, one of the more notable uses was in 2007 with Team Fortress 2 by Valve, while it was not originally included in the game it was added in the first free update. It is important to note that the original Team Fortress had a game mode called Escort but this has many differences with its sequel such as the payload being a controllable player and there being three teams. Other games that use this game mode are Global Agenda and Wolfenstein: Enemy Territory.    
 \subsubsection{Maps}
-Maps for escort mission maps have some specific requirements that they must adhere to, so they can be classified as escort mission maps. Some of these requirements are 
+Escort mission maps are the play areas that escort missions are performed in. Between each game these maps can vary greatly so for this project, the definition of an escort mission map must be stated. The maps must have an attacking and defending spawn area. This is the place where the teams start at the beginning of the match and will return too whenever they die. The map must also have an unobstructed route that runs between the spawns, which the payload will be moved through. This route will be generated through pathfinding which is discussed below. 
 \subsection{Path-Finding}
+	
 \subsubsection{Dijkstra’s Algorithm}
  Published by Edsger W. Dijkstra in 1959, Dijkstra’s algorithm is a way to calculate the shortest path between nodes on a graph. Solving the single-source shortest path problem. Nodes on a graph can represent either a 2-dimensional grid or points in a 3-D space. The most common example of a real life application of Dijkstra’s algorithm is being used in geographical maps to plot the fastest route between two cities, where each city is a node and the roads are associated with a weight. 
  \newline
- The algorithm works by initially marking the distance from the starting point to ever other vertex on the graph. --------------------------Add how it works---------------------------
+ The algorithm works by initially marking the distance from the starting point to ever other vertex on the graph. 
+ --------------------------Add how it works---------------------------
 \subsubsection{A Star Pathfinding (A*)}
+The A* algorithm was first presented in 1968 by Peter E. Hart as an improvement on Nils Nilsson’s A1 algorithm. A1 was designed to be a heuristic approach to increase the speed of Dijkstra’s algorithm invented back in 1964. A* is a search based algorithm that attempts to calculate the most optimal route to a specified goal by travelling through a weighted graph. 
+\newline
+The algorithm works by searching the nodes surrounding the current node using heuristic that estimate the distance from the end node.  A* contains two lists which are used to sort the nodes, open and closed. The open list contains all the nodes yet to be evaluated, while the closed list contains the nodes that have been assessed. Each node is given their own cost which is used to find the best path with the smaller cost the better. The score is calculated using the formula:
+ \[f(n) = g(n) + h(n)\]  
+ Where G is cost of travelling to the node and the h cost also known as the Heuristic cost is the cost to travel to the goal. This can be calculated in several ways and determines the efficiency and effectiveness of the algorithm. The F cost is the total cost of adding the two values together.
+ \newline
+ The total cost is used by A* to guide the algorithm towards the goal. At each iteration of the algorithm the node with the lowest total cost is removed from the open list and its neighbours are evaluated. This involves searching the closed list to see if the neighbour has already been evaluated and checking if the node cannot be passed. If either of these cases are true then ignore the node, otherwise the node is checked to see if it exists in the open list, if it isn’t its F cost is calculated and the node is added to the open list. If the node already exists in the open list then its G cost is compared with the current lowest G cost, if the new G cost is lower than this is the better path. This process progresses until the goal has been evaluated and added to the open list or all nodes have been evaluated and the open list is empty, if this happens the goal cannot be reached from the start point. 
+ \newline
+ 
 \subsection{Exsiting Work}
 \section{Methodolgy}
 \subsection{Introduction}
