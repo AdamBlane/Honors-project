@@ -3,9 +3,12 @@
 // Internals
 #include "startScene.h"
 #include "windowMgr.h"
-#include "FastNoise.h"
+#include "PerlinNoise.h"
+#include "ppm.h"
+
 #include <time.h>
 #include<list>
+
 // Default constructor
 startScene::startScene() { }
 // Deconstructor
@@ -27,10 +30,10 @@ void startScene::Init(GLFWwindow* window)
 		CreatePath(window);
 		Algortithm(window);
 	//}
-	
+	CreateNoise();
 	textureShader = new Shader("..\\honors-project\\textureShader");
 	plainMesh = new Mesh(Mesh::CUBOID, "..\\honors-project\\box.jpg", vec3(0.0f, 0.0f, 0.0f), coordx, 0.1f, coordy);
-	plainTexture = new Texture("..\\honors-project\\grass.png");
+	plainTexture = new Texture("..\\honors-project\\RESULT.png");
 
 	startMesh = new Mesh(Mesh::CUBOID, "..\\honors-project\\box.jpg", vec3(0.0f, 0.0f, 0.0f), 5.0f, 10.0f, 5.0f);
 	startTexture = new Texture("..\\honors-project\\ballRed.jpg");
@@ -38,16 +41,43 @@ void startScene::Init(GLFWwindow* window)
 	endMesh = new Mesh(Mesh::CUBOID, "..\\honors-project\\box.jpg", vec3(coordx, 0.0f, coordy), 5.0f, 10.0f, 5.0f);
 	endTexture = new Texture("..\\honors-project\\ballBlue.jpg");
 
-	for (int i = 0; i < 30; i++)
-	{
-		
-	}
 	plainTransform.setPos(vec3(coordx/2, 0, coordy/2));
 	freeCam = new free_camera();
 	freeCam->set_Posistion(vec3(0, 10, -10));
 	freeCam->rotate(-10.0, 0.0);
 	freeCam->set_Target(vec3(0, 0, 0));
 	freeCam->set_projection(quarter_pi<float>(), (float)1600 / (float)900, 0.414f, 30000.0f);
+}
+void startScene::CreateNoise() 
+{
+    int wi = 1000, he = 1000;
+	ppm image(wi, he);
+	unsigned int seed = 7;
+	PerlinNoise pn(seed);
+
+	unsigned int kk = 0;
+	for (int i = 0; i < he; i++) 
+	{
+		for (int j = 0; j < wi; j++)
+		{
+			double x = (double)j / ((double)wi);
+			double y = (double)i / ((double)he);
+
+			double n = 20 * pn.noise(x/0.1, y/0.1, 0);
+			n = n - floor(n * n);
+
+			image.r[kk] = floor(255 * n);
+			image.g[kk] = floor(255 * n);
+			image.b[kk] = floor(255 * n);
+			kk++;
+		}
+	}
+	image.write("RESULT.ppm");
+	
+}
+void startScene::CreateTerrain()
+{
+
 }
 void startScene::CreatePath(GLFWwindow* window) 
 {
@@ -71,7 +101,7 @@ void startScene::CreateScene(GLFWwindow* window)
 	std::binomial_distribution<int> dist(20000, 0.5);
 	coordx = dist(gen)+1000;
 	coordy = dist(gen)+1000;
-	camSpeed = spped(gen);
+	camSpeed = 10 * spped(gen);
 }
 
 void startScene::Algortithm(GLFWwindow* window) 

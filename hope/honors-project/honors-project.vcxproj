@@ -20,6 +20,8 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="free_camera.cpp" />
+    <ClCompile Include="include\OpenGLDep\headers\PerlinNoise.cpp" />
+    <ClCompile Include="include\OpenGLDep\headers\ppm.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Mesh.cpp" />
     <ClCompile Include="obj_loader.cpp" />
@@ -35,6 +37,8 @@
     <ClInclude Include="checkError.h" />
     <ClInclude Include="free_camera.h" />
     <ClInclude Include="glew_glfw.h" />
+    <ClInclude Include="include\OpenGLDep\headers\PerlinNoise.h" />
+    <ClInclude Include="include\OpenGLDep\headers\ppm.h" />
     <ClInclude Include="Mesh.h" />
     <ClInclude Include="obj_loader.h" />
     <ClInclude Include="sceneMgr.h" />

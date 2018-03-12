@@ -62,5 +62,5 @@ class startScene
 	void Algortithm(GLFWwindow* window);
 	void CreateScene(GLFWwindow* window);
 	void CreatePath(GLFWwindow* window);
-	
+	void CreateNoise();
 };
