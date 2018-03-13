@@ -63,4 +63,5 @@ class startScene
 	void CreateScene(GLFWwindow* window);
 	void CreatePath(GLFWwindow* window);
 	void CreateNoise();
+	void CreateTerrain();
 };

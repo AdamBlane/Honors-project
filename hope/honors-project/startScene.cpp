@@ -5,9 +5,9 @@
 #include "windowMgr.h"
 #include "PerlinNoise.h"
 #include "ppm.h"
-
+#include <vector>
 #include <time.h>
-#include<list>
+#include <list>
 
 // Default constructor
 startScene::startScene() { }
@@ -35,10 +35,10 @@ void startScene::Init(GLFWwindow* window)
 	plainMesh = new Mesh(Mesh::CUBOID, "..\\honors-project\\box.jpg", vec3(0.0f, 0.0f, 0.0f), coordx, 0.1f, coordy);
 	plainTexture = new Texture("..\\honors-project\\RESULT.png");
 
-	startMesh = new Mesh(Mesh::CUBOID, "..\\honors-project\\box.jpg", vec3(0.0f, 0.0f, 0.0f), 5.0f, 10.0f, 5.0f);
+	startMesh = new Mesh(Mesh::CUBOID, "..\\honors-project\\box.jpg", vec3(coordx - 100.0f, 200.0f, 100.0f), 200.0f, 400.0f, 200.0f);
 	startTexture = new Texture("..\\honors-project\\ballRed.jpg");
 
-	endMesh = new Mesh(Mesh::CUBOID, "..\\honors-project\\box.jpg", vec3(coordx, 0.0f, coordy), 5.0f, 10.0f, 5.0f);
+	endMesh = new Mesh(Mesh::CUBOID, "..\\honors-project\\box.jpg", vec3(100.0f, 200.0f, coordy - 100.0f), 200.0f, 400.0f, 200.0f);
 	endTexture = new Texture("..\\honors-project\\ballBlue.jpg");
 
 	plainTransform.setPos(vec3(coordx/2, 0, coordy/2));
@@ -50,7 +50,7 @@ void startScene::Init(GLFWwindow* window)
 }
 void startScene::CreateNoise() 
 {
-    int wi = 1000, he = 1000;
+    int wi = coordx/10, he = coordy / 10;
 	ppm image(wi, he);
 	unsigned int seed = 7;
 	PerlinNoise pn(seed);
@@ -62,10 +62,16 @@ void startScene::CreateNoise()
 		{
 			double x = (double)j / ((double)wi);
 			double y = (double)i / ((double)he);
-
-			double n = 20 * pn.noise(x/0.1, y/0.1, 0);
-			n = n - floor(n * n);
-
+			double n = 1;
+			if ((i <= j - 40 || i >= j + 40))
+			{
+				n = 10 * pn.noise(x/0.5 , y/0.5 , 0);
+				n = n - floor(n * n);
+				if (n > 0.5) 
+				{
+					n = 1;
+				}
+			}
 			image.r[kk] = floor(255 * n);
 			image.g[kk] = floor(255 * n);
 			image.b[kk] = floor(255 * n);
@@ -77,7 +83,17 @@ void startScene::CreateNoise()
 }
 void startScene::CreateTerrain()
 {
-
+	// Contains our position data
+	vec
+	// Contains our normal data
+	vector<vec3> normals;
+	// Contains our texture coordinate data
+	vector<vec2> tex_coords;
+	// Contains our texture weights
+	vector<vec4> tex_weights;
+	// Contains our index data
+	vector<unsigned int> indices;
+	// Extract the texture data from the image
 }
 void startScene::CreatePath(GLFWwindow* window) 
 {
@@ -190,10 +206,7 @@ void startScene::Render(GLFWwindow* window)
 	plainTexture->Bind(0);
 	textureShader->Update(plainTransform, mvp);
 	plainMesh->Draw();
-	for (int i = 0; i > 30; i++) 
-	{
 
-	}
 	startTexture->Bind(0);
 	textureShader->Update(startTransform, mvp);
 	startMesh->Draw();

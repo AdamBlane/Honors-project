@@ -58,10 +58,10 @@
       <Filter>Source Files\Cameras</Filter>
     </ClCompile>
     <ClCompile Include="include\OpenGLDep\headers\PerlinNoise.cpp">
-      <Filter>Header Files</Filter>
+      <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="include\OpenGLDep\headers\ppm.cpp">
-      <Filter>Header Files</Filter>
+      <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
