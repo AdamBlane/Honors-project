@@ -63,5 +63,5 @@ class startScene
 	void CreateScene(GLFWwindow* window);
 	void CreatePath(GLFWwindow* window);
 	void CreateNoise();
-	void CreateTerrain();
+	void CreateTerrain(const Texture &height_map, unsigned int width, unsigned int depth, float height_scale);
 };

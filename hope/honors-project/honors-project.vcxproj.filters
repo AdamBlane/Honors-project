@@ -63,6 +63,9 @@
     <ClCompile Include="include\OpenGLDep\headers\ppm.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="geomtry.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="windowMgr.h">
@@ -108,6 +111,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="include\OpenGLDep\headers\ppm.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="geomtry.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
