@@ -202,7 +202,7 @@ void startScene::CreateTerrain(const Texture &height_map, unsigned int width, un
 	geom.add_buffer(tex_coords, BUFFER_INDEXES::TEXTURE_COORDS_0);
 	geom.add_buffer(tex_weights, BUFFER_INDEXES::TEXTURE_COORDS_1);
 	geom.add_index_buffer(indices);
-
+	///add in geomtry class
 	// Delete data
 	delete[] data
 }
