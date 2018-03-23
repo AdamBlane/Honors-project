@@ -10,11 +10,18 @@
 #include <windows.h>
 #include <atlimage.h>
 #include <gdiplusimaging.h>
+#include <vector>
+#include <time.h>
+#include <list>
+
 
 #include "Shader.h"
 #include "Mesh.h"
 #include "Texture.h"
 #include "free_camera.h"
+#include "Theme.h"
+#include "PerlinNoise.h"
+#include "ppm.h"
 
 using namespace AllCamera;
 using namespace std::chrono;
@@ -46,6 +53,8 @@ class startScene
 	Mesh* endMesh;
 	Texture* endTexture;
 	Transform endTransform;
+
+	theme* layout;
 
 	//values for size
 	int coordx;

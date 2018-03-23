@@ -11,12 +11,15 @@
 startScene::startScene() { }
 // Deconstructor
 startScene::~startScene() { }
+
+//for A*
 struct node 
 {
 	int x_coord, y_coord;
 };
 std::list<node> nodes;
 std::list <node> wanted_nodes;
+
 // Setup scene; seed is an optional param passed in by loadGameScene
 void startScene::Init(GLFWwindow* window)
 {
@@ -90,7 +93,7 @@ void startScene::CreateTerrain(const Texture &height_map, unsigned int width, un
 	std::vector<unsigned int> indices;
 	//// Extract the texture data from the image
 	// Extract the texture data from the image
-	glBindTexture(GL_TEXTURE_2D, height_map.get_id);
+	//glBindTexture(GL_TEXTURE_2D, height_map.get_id);
 	auto data = new vec4[coordx * coordy];
 	glGetTexImage(GL_TEXTURE_2D, 0, GL_RGBA, GL_FLOAT, (void*)data);
 
@@ -197,15 +200,16 @@ void startScene::CreateTerrain(const Texture &height_map, unsigned int width, un
 	}
 
 	// Add necessary buffers to the geometry
-	geom.add_buffer(positions, BUFFER_INDEXES::POSITION_BUFFER);
-	geom.add_buffer(normals, BUFFER_INDEXES::NORMAL_BUFFER);
-	geom.add_buffer(tex_coords, BUFFER_INDEXES::TEXTURE_COORDS_0);
-	geom.add_buffer(tex_weights, BUFFER_INDEXES::TEXTURE_COORDS_1);
-	geom.add_index_buffer(indices);
-	///add in geomtry class
-	// Delete data
-	delete[] data
+	//geom.add_buffer(positions, BUFFER_INDEXES::POSITION_BUFFER);
+	//geom.add_buffer(normals, BUFFER_INDEXES::NORMAL_BUFFER);
+	//geom.add_buffer(tex_coords, BUFFER_INDEXES::TEXTURE_COORDS_0);
+	//geom.add_buffer(tex_weights, BUFFER_INDEXES::TEXTURE_COORDS_1);
+	//geom.add_index_buffer(indices);
+	/////add in geomtry class
+	//// Delete data
+	delete[] data;
 }
+//A* Needs to comple
 void startScene::CreatePath(GLFWwindow* window) 
 {
 	//for (int i = 0; i < 30; i++) 
@@ -220,15 +224,36 @@ void startScene::CreatePath(GLFWwindow* window)
 
 	//}
 }
+
 void startScene::CreateScene(GLFWwindow* window)
 {
-	std::srand(time(0));
+
 	std::default_random_engine gen;
 	std::binomial_distribution<int> spped(11, 0.5);
 	std::binomial_distribution<int> dist(20000, 0.5);
 	coordx = dist(gen)+1000;
 	coordy = dist(gen)+1000;
 	camSpeed = 10 * spped(gen);
+	/*creates theme*/
+	layout = new theme();
+	int tye = rand() % 3 + 1;
+	switch (tye) 
+	{
+		case 1:
+			layout->set_Type(Type::Desert);
+			break;
+		case 2:
+			layout->set_Type(Type::City);
+			break;
+		case 3:
+			layout->set_Type(Type::Seaside);
+			break;
+		case 4:
+			layout->set_Type(Type::Village);
+			break;
+
+	}
+	std::srand(time(0));
 }
 
 void startScene::Algortithm(GLFWwindow* window) 
@@ -240,6 +265,8 @@ void startScene::Algortithm(GLFWwindow* window)
 	std::cout << "length of map = " << length_of_map << std::endl;
 	std::cout << "speed of player = (" << camSpeed << ")" << std::endl;
 	std::cout << "time = (" << time << ")" << std::endl;
+	std::cout << "Theme = (" << layout->get_Type() << ")" << std::endl;
+
 }
 void startScene::Loop(GLFWwindow* window)
 {

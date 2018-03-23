@@ -31,14 +31,15 @@
     <ClCompile Include="startScene.cpp" />
     <ClCompile Include="stb_image.c" />
     <ClCompile Include="Texture.cpp" />
+    <ClCompile Include="Theme.cpp" />
     <ClCompile Include="windowMgr.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Building.h" />
     <ClInclude Include="Camera.h" />
     <ClInclude Include="checkError.h" />
     <ClInclude Include="free_camera.h" />
     <ClInclude Include="glew_glfw.h" />
-    <ClInclude Include="geomtry.h" />
     <ClInclude Include="include\OpenGLDep\headers\PerlinNoise.h" />
     <ClInclude Include="include\OpenGLDep\headers\ppm.h" />
     <ClInclude Include="Mesh.h" />
@@ -48,6 +49,7 @@
     <ClInclude Include="startScene.h" />
     <ClInclude Include="stb_image.h" />
     <ClInclude Include="Texture.h" />
+    <ClInclude Include="Theme.h" />
     <ClInclude Include="Transform.h" />
     <ClInclude Include="windowMgr.h" />
   </ItemGroup>
