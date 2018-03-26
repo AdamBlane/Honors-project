@@ -14,14 +14,12 @@ class theme
 {
 	public:
 		theme();
-		~theme();
-		void create_Buildings(Type type);
-		const std::list <building>& get_Building() const { return Buildings; }
-
+		~theme() {};
+		void create_Buildings(Type type, int coordx, int coordy);
+		std::list <building*> Buildings;
 		void set_Type(const Type &value) { thing = value; }
 		const Type& get_Type() const { return thing; }
 
 	private:
-		std::list <building> Buildings;
 		Type thing;
 };

@@ -56,6 +56,10 @@ class startScene
 
 	theme* layout;
 
+	std::vector <Mesh*> Buildings;
+	std::vector <Texture*> Buildings_Tex;
+	std::vector <Transform> Buildings_Trans;
+
 	//values for size
 	int coordx;
 	int coordy;

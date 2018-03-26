@@ -42,6 +42,15 @@ void startScene::Init(GLFWwindow* window)
 	endMesh = new Mesh(Mesh::CUBOID, "..\\honors-project\\box.jpg", vec3(100.0f, 200.0f, coordy - 100.0f), 200.0f, 400.0f, 200.0f);
 	endTexture = new Texture("..\\honors-project\\ballBlue.jpg");
 
+	for (int i =0; i < layout->Buildings.size(); i++)
+	{
+		Mesh* temp = new Mesh(Mesh::CUBOID, "..\\honors-project\\box.jpg", vec3(500.0f, 0.0f, 500.0f), 200.0f, 0.0f, 200.0f);
+		Texture* tempTex = new Texture("..\\honors-project\\ballBlue.jpg");
+		//Transform temp_trans = new Transform(temp.);
+		Buildings.push_back(temp);
+		Buildings_Tex.push_back(tempTex);
+	}
+
 	plainTransform.setPos(vec3(coordx/2, 0, coordy/2));
 	freeCam = new free_camera();
 	freeCam->set_Posistion(vec3(0, 10, -10));
@@ -227,17 +236,17 @@ void startScene::CreatePath(GLFWwindow* window)
 
 void startScene::CreateScene(GLFWwindow* window)
 {
-
+	std::srand(time(NULL));
 	std::default_random_engine gen;
 	std::binomial_distribution<int> spped(11, 0.5);
 	std::binomial_distribution<int> dist(20000, 0.5);
 	coordx = dist(gen)+1000;
 	coordy = dist(gen)+1000;
 	camSpeed = 10 * spped(gen);
-	/*creates theme*/
+	//creates theme
 	layout = new theme();
 	int tye = rand() % 3 + 1;
-	switch (tye) 
+	switch (tye)
 	{
 		case 1:
 			layout->set_Type(Type::Desert);
@@ -251,9 +260,8 @@ void startScene::CreateScene(GLFWwindow* window)
 		case 4:
 			layout->set_Type(Type::Village);
 			break;
-
 	}
-	std::srand(time(0));
+	layout->create_Buildings(layout->get_Type(), coordx , coordy);
 }
 
 void startScene::Algortithm(GLFWwindow* window) 
@@ -352,6 +360,14 @@ void startScene::Render(GLFWwindow* window)
 	endTexture->Bind(0);
 	textureShader->Update(endTransform, mvp);
 	endMesh->Draw();
+
+	for (int i = 0; i < layout->Buildings.size(); i++)
+	{
+		Buildings_Tex.at(i)->Bind(0);
+		////figue out
+		//textureShader->Update(Buildings_Trans.at(i), mvp);
+		Buildings.at(i)->Draw();
+	}
 
 	textureShader->Update(shaderTrans, (freeCam->get_Projection() * freeCam->get_View()));
 	glfwSwapBuffers(window);
