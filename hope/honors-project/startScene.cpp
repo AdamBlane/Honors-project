@@ -15,7 +15,7 @@ startScene::~startScene() { }
 //for A*
 struct node 
 {
-	int x_coord, y_coord;
+	int x_coord, y_coord,distance,weight;
 };
 std::list<node> nodes;
 std::list <node> wanted_nodes;
@@ -221,17 +221,122 @@ void startScene::CreateTerrain(const Texture &height_map, unsigned int width, un
 //A* Needs to comple
 void startScene::CreatePath(GLFWwindow* window) 
 {
-	//for (int i = 0; i < 30; i++) 
-	//{
-	//	node a;
-	//	a.x_coord = rand() % coordx;
-	//	a.y_coord = rand() % coordy;
-	//	nodes.push_back(a);
-	//}
-	//while (nodes.size > 0) 
-	//{
+	std::vector<node> untriedNodes[2]; // list of open (not-yet-tried) nodes
+	int nodeIndex = 0;
+	node* node1;
+	node* node2;
+	int x, z, xdx, //The Current x plus a direction
+		zdz; //The Current z plus a direction
 
-	//}
+			 // reset the node maps
+	for (z = 0; z < zSize; ++z)
+	{
+		for (x = 0; x < xSize; ++x)
+		{
+			closedNodes[x][z] = 0;
+			openNodes[x][z] = 0;
+		}
+	}
+
+	// create the start node and push into list of open nodes
+	node1 = new Node(xStart, zStart, 0, 0);
+	node1->UpdatePriority(xFinish, zFinish);
+	untriedNodes[nodeIndex].push(*node1);
+	//openNodes[x][z] = x0->GetPriority(); // mark it on the open nodes map
+
+	// A* search
+	while (!untriedNodes[nodeIndex].empty())
+	{
+		// get the current node w/ the highest priority
+		// from the list of open nodes
+		node1 = new Node(untriedNodes[nodeIndex].top().GetxPos(), untriedNodes[nodeIndex].top().GetzPos(), untriedNodes[nodeIndex].top().GetDistance(), untriedNodes[nodeIndex].top().GetPriority());
+
+		x = node1->GetxPos();
+		z = node1->GetzPos();
+
+		untriedNodes[nodeIndex].pop(); // remove the node from the open list
+		openNodes[x][z] = 0;
+		// mark it on the closed nodes map
+		closedNodes[x][z] = 1;
+
+		// quit searching when the goal state is reached
+		if (x == xFinish && z == zFinish)
+		{
+			waypoints.clear();
+			// generate the path from finish to start
+			// by following the directions
+			while (!(x == xStart && z == zStart))
+			{
+				int j = directions[x][z];
+				x += dx[j];
+				z += dz[j];
+				waypoints.push_front(ivec2(x, z));
+			}
+
+			delete node1;
+			// empty the leftover nodes
+			while (!untriedNodes[nodeIndex].empty())
+				untriedNodes[nodeIndex].pop();
+			return true;
+		}
+
+		// generate moves (child nodes) in all possible directions
+		for (int i = 0; i < dir; i++)
+		{
+			xdx = x + dx[i];
+			zdz = z + dz[i];
+
+			if (!(xdx<0 || xdx>xSize - 1 || zdz<0 || zdz>zSize - 1 || nodeMap[xdx][zdz] == 1 || closedNodes[xdx][zdz] == 1))
+			{
+				// generate a child node
+				node2 = new Node(xdx, zdz, node1->GetDistance(),
+					node1->GetPriority());
+				node2->NextDistance(i);
+				node2->UpdatePriority(xFinish, zFinish);
+
+				// if it is not in the open list then add into that
+				if (openNodes[xdx][zdz] == 0)
+				{
+					openNodes[xdx][zdz] = node2->GetPriority();
+					untriedNodes[nodeIndex].push(*node2);
+					// mark its parent node direction
+					directions[xdx][zdz] = (i + dir / 2) % dir;
+				}
+				else if (openNodes[xdx][zdz] > node2->GetPriority())
+				{
+					// update the priority info
+					openNodes[xdx][zdz] = node2->GetPriority();
+					// update the parent direction info
+					directions[xdx][zdz] = (i + dir / 2) % dir;
+
+					// replace the node
+					// by emptying one node to the other one
+					// except the node to be replaced will be ignored
+					// and the new node will be pushed in instead
+					while (!(untriedNodes[nodeIndex].top().GetxPos() == xdx &&
+						untriedNodes[nodeIndex].top().GetzPos() == zdz))
+					{
+						untriedNodes[1 - nodeIndex].push(untriedNodes[nodeIndex].top());
+						untriedNodes[nodeIndex].pop();
+					}
+					untriedNodes[nodeIndex].pop(); // remove the wanted node
+
+												   // empty the larger size node to the smaller one
+					if (untriedNodes[nodeIndex].size() > untriedNodes[1 - nodeIndex].size()) nodeIndex = 1 - nodeIndex;
+					while (!untriedNodes[nodeIndex].empty())
+					{
+						untriedNodes[1 - nodeIndex].push(untriedNodes[nodeIndex].top());
+						untriedNodes[nodeIndex].pop();
+					}
+					nodeIndex = 1 - nodeIndex;
+					untriedNodes[nodeIndex].push(*node2); // add the better node instead
+				}
+				else delete node2;
+			}
+		}
+		delete node1;
+	}
+	return false; // no route found
 }
 
 void startScene::CreateScene(GLFWwindow* window)
