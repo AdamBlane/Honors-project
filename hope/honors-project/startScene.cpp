@@ -6,17 +6,15 @@
 #include <vector>
 #include <time.h>
 #include <list>
+#include <queue>
+#include "Node.h"
 
 // Default constructor
 startScene::startScene() { }
 // Deconstructor
 startScene::~startScene() { }
 
-//for A*
-struct node 
-{
-	int x_coord, y_coord,distance,weight;
-};
+
 std::list<node> nodes;
 std::list <node> wanted_nodes;
 
@@ -33,22 +31,22 @@ void startScene::Init(GLFWwindow* window)
 	//}
 	CreateNoise();
 	textureShader = new Shader("..\\honors-project\\textureShader");
-	plainMesh = new Mesh(Mesh::CUBOID, "..\\honors-project\\box.jpg", vec3(0.0f, 0.0f, 0.0f), coordx, 0.1f, coordy);
+	plainMesh = new Mesh(Mesh::PLANE, vec3(0.0f, 0.0f, 0.0f), coordx, 0.1f, coordy);
 	plainTexture = new Texture("..\\honors-project\\RESULT.png");
 
-	startMesh = new Mesh(Mesh::CUBOID, "..\\honors-project\\box.jpg", vec3(coordx - 100.0f, 200.0f, 100.0f), 200.0f, 400.0f, 200.0f);
+	startMesh = new Mesh(Mesh::CUBOID, vec3(coordx - 100.0f, 200.0f, 100.0f), 200.0f, 400.0f, 200.0f);
 	startTexture = new Texture("..\\honors-project\\ballRed.jpg");
 
-	endMesh = new Mesh(Mesh::CUBOID, "..\\honors-project\\box.jpg", vec3(100.0f, 200.0f, coordy - 100.0f), 200.0f, 400.0f, 200.0f);
+	endMesh = new Mesh(Mesh::CUBOID, vec3(100.0f, 200.0f, coordy - 100.0f), 200.0f, 400.0f, 200.0f);
 	endTexture = new Texture("..\\honors-project\\ballBlue.jpg");
 
 	for (int i =0; i < layout->Buildings.size(); i++)
 	{
-		Mesh* temp = new Mesh(Mesh::CUBOID, "..\\honors-project\\box.jpg", vec3(500.0f, 0.0f, 500.0f), 200.0f, 0.0f, 200.0f);
+		Mesh* temp = new Mesh(Mesh::CUBOID, layout->Buildings.at(i)->get_Posistion(), layout->Buildings.at(i)->get_Size().x, layout->Buildings.at(i)->get_Size().y, layout->Buildings.at(i)->get_Size().z);
 		Texture* tempTex = new Texture("..\\honors-project\\ballBlue.jpg");
-		//Transform temp_trans = new Transform(temp.);
 		Buildings.push_back(temp);
 		Buildings_Tex.push_back(tempTex);
+		Buildings_Trans.push_back(temp_trans);
 	}
 
 	plainTransform.setPos(vec3(coordx/2, 0, coordy/2));
@@ -221,122 +219,123 @@ void startScene::CreateTerrain(const Texture &height_map, unsigned int width, un
 //A* Needs to comple
 void startScene::CreatePath(GLFWwindow* window) 
 {
-	std::vector<node> untriedNodes[2]; // list of open (not-yet-tried) nodes
-	int nodeIndex = 0;
-	node* node1;
-	node* node2;
-	int x, z, xdx, //The Current x plus a direction
-		zdz; //The Current z plus a direction
+	//std::priority_queue<node> untriedNodes[2]; // list of open (not-yet-tried) nodes
+	//int nodeIndex = 0;
+	//node* node1;
+	//node* node2;
+	//int **closedNodes, **openNodes, **nodeMap, **direction;
+	//int x, y, xdx, //The Current x plus a direction
+	//	zdz; //The Current z plus a direction
 
-			 // reset the node maps
-	for (z = 0; z < zSize; ++z)
-	{
-		for (x = 0; x < xSize; ++x)
-		{
-			closedNodes[x][z] = 0;
-			openNodes[x][z] = 0;
-		}
-	}
+	//		 // reset the node maps
+	//for (y = 0; y < coordy; y++)
+	//{
+	//	for (x = 0; x < coordy; x++)
+	//	{
+	//		closedNodes[x][y] = 0;
+	//		openNodes[x][y] = 0;
+	//	}
+	//}
 
-	// create the start node and push into list of open nodes
-	node1 = new Node(xStart, zStart, 0, 0);
-	node1->UpdatePriority(xFinish, zFinish);
-	untriedNodes[nodeIndex].push(*node1);
-	//openNodes[x][z] = x0->GetPriority(); // mark it on the open nodes map
+	//// create the start node and push into list of open nodes
+	//node1 = new node(0, 0, 0, 0);
+	//////change when spawns move
+	//node1->UpdatePriority(coordx, coordy);
+	//untriedNodes[nodeIndex].push(*node1);
+	////openNodes[x][z] = x0->GetPriority(); // mark it on the open nodes map
 
-	// A* search
-	while (!untriedNodes[nodeIndex].empty())
-	{
-		// get the current node w/ the highest priority
-		// from the list of open nodes
-		node1 = new Node(untriedNodes[nodeIndex].top().GetxPos(), untriedNodes[nodeIndex].top().GetzPos(), untriedNodes[nodeIndex].top().GetDistance(), untriedNodes[nodeIndex].top().GetPriority());
+	//// A* search
+	//while (!untriedNodes[nodeIndex].empty())
+	//{
+	//	// get the current node w/ the highest priority
+	//	// from the list of open nodes
+	//	node1 = new node(untriedNodes[nodeIndex].top().getxPos(), untriedNodes[nodeIndex].top().getyPos(), untriedNodes[nodeIndex].top().getDistance(), untriedNodes[nodeIndex].top().getWeight());
 
-		x = node1->GetxPos();
-		z = node1->GetzPos();
+	//	x = node1->getxPos();
+	//	y = node1->getyPos();
 
-		untriedNodes[nodeIndex].pop(); // remove the node from the open list
-		openNodes[x][z] = 0;
-		// mark it on the closed nodes map
-		closedNodes[x][z] = 1;
+	//	untriedNodes[nodeIndex].pop(); // remove the node from the open list
+	//	openNodes[x][y] = 0;
+	//	// mark it on the closed nodes map
+	//	closedNodes[x][y] = 1;
 
-		// quit searching when the goal state is reached
-		if (x == xFinish && z == zFinish)
-		{
-			waypoints.clear();
-			// generate the path from finish to start
-			// by following the directions
-			while (!(x == xStart && z == zStart))
-			{
-				int j = directions[x][z];
-				x += dx[j];
-				z += dz[j];
-				waypoints.push_front(ivec2(x, z));
-			}
+	//	// quit searching when the goal state is reached
+	//	if (x == coordx && y == coordy)
+	//	{
+	//		waypoints.clear();
+	//		// generate the path from finish to start
+	//		// by following the directions
+	//		while (!(x == xStart && z == zStart))
+	//		{
+	//			int j = directions[x][z];
+	//			x += dx[j];
+	//			z += dz[j];
+	//			waypoints.push_front(ivec2(x, z));
+	//		}
 
-			delete node1;
-			// empty the leftover nodes
-			while (!untriedNodes[nodeIndex].empty())
-				untriedNodes[nodeIndex].pop();
-			return true;
-		}
+	//		delete node1;
+	//		// empty the leftover nodes
+	//		while (!untriedNodes[nodeIndex].empty())
+	//			untriedNodes[nodeIndex].pop();
+	//		return true;
+	//	}
 
-		// generate moves (child nodes) in all possible directions
-		for (int i = 0; i < dir; i++)
-		{
-			xdx = x + dx[i];
-			zdz = z + dz[i];
+	//	// generate moves (child nodes) in all possible directions
+	//	for (int i = 0; i < dir; i++)
+	//	{
+	//		xdx = x + dx[i];
+	//		zdz = z + dz[i];
 
-			if (!(xdx<0 || xdx>xSize - 1 || zdz<0 || zdz>zSize - 1 || nodeMap[xdx][zdz] == 1 || closedNodes[xdx][zdz] == 1))
-			{
-				// generate a child node
-				node2 = new Node(xdx, zdz, node1->GetDistance(),
-					node1->GetPriority());
-				node2->NextDistance(i);
-				node2->UpdatePriority(xFinish, zFinish);
+	//		if (!(xdx<0 || xdx>xSize - 1 || zdz<0 || zdz>zSize - 1 || nodeMap[xdx][zdz] == 1 || closedNodes[xdx][zdz] == 1))
+	//		{
+	//			// generate a child node
+	//			node2 = new Node(xdx, zdz, node1->GetDistance(),
+	//				node1->GetPriority());
+	//			node2->NextDistance(i);
+	//			node2->UpdatePriority(xFinish, zFinish);
 
-				// if it is not in the open list then add into that
-				if (openNodes[xdx][zdz] == 0)
-				{
-					openNodes[xdx][zdz] = node2->GetPriority();
-					untriedNodes[nodeIndex].push(*node2);
-					// mark its parent node direction
-					directions[xdx][zdz] = (i + dir / 2) % dir;
-				}
-				else if (openNodes[xdx][zdz] > node2->GetPriority())
-				{
-					// update the priority info
-					openNodes[xdx][zdz] = node2->GetPriority();
-					// update the parent direction info
-					directions[xdx][zdz] = (i + dir / 2) % dir;
+	//			// if it is not in the open list then add into that
+	//			if (openNodes[xdx][zdz] == 0)
+	//			{
+	//				openNodes[xdx][zdz] = node2->GetPriority();
+	//				untriedNodes[nodeIndex].push(*node2);
+	//				// mark its parent node direction
+	//				directions[xdx][zdz] = (i + dir / 2) % dir;
+	//			}
+	//			else if (openNodes[xdx][zdz] > node2->GetPriority())
+	//			{
+	//				// update the priority info
+	//				openNodes[xdx][zdz] = node2->GetPriority();
+	//				// update the parent direction info
+	//				directions[xdx][zdz] = (i + dir / 2) % dir;
 
-					// replace the node
-					// by emptying one node to the other one
-					// except the node to be replaced will be ignored
-					// and the new node will be pushed in instead
-					while (!(untriedNodes[nodeIndex].top().GetxPos() == xdx &&
-						untriedNodes[nodeIndex].top().GetzPos() == zdz))
-					{
-						untriedNodes[1 - nodeIndex].push(untriedNodes[nodeIndex].top());
-						untriedNodes[nodeIndex].pop();
-					}
-					untriedNodes[nodeIndex].pop(); // remove the wanted node
+	//				// replace the node
+	//				// by emptying one node to the other one
+	//				// except the node to be replaced will be ignored
+	//				// and the new node will be pushed in instead
+	//				while (!(untriedNodes[nodeIndex].top().GetxPos() == xdx &&
+	//					untriedNodes[nodeIndex].top().GetzPos() == zdz))
+	//				{
+	//					untriedNodes[1 - nodeIndex].push(untriedNodes[nodeIndex].top());
+	//					untriedNodes[nodeIndex].pop();
+	//				}
+	//				untriedNodes[nodeIndex].pop(); // remove the wanted node
 
-												   // empty the larger size node to the smaller one
-					if (untriedNodes[nodeIndex].size() > untriedNodes[1 - nodeIndex].size()) nodeIndex = 1 - nodeIndex;
-					while (!untriedNodes[nodeIndex].empty())
-					{
-						untriedNodes[1 - nodeIndex].push(untriedNodes[nodeIndex].top());
-						untriedNodes[nodeIndex].pop();
-					}
-					nodeIndex = 1 - nodeIndex;
-					untriedNodes[nodeIndex].push(*node2); // add the better node instead
-				}
-				else delete node2;
-			}
-		}
-		delete node1;
-	}
-	return false; // no route found
+	//											   // empty the larger size node to the smaller one
+	//				if (untriedNodes[nodeIndex].size() > untriedNodes[1 - nodeIndex].size()) nodeIndex = 1 - nodeIndex;
+	//				while (!untriedNodes[nodeIndex].empty())
+	//				{
+	//					untriedNodes[1 - nodeIndex].push(untriedNodes[nodeIndex].top());
+	//					untriedNodes[nodeIndex].pop();
+	//				}
+	//				nodeIndex = 1 - nodeIndex;
+	//				untriedNodes[nodeIndex].push(*node2); // add the better node instead
+	//			}
+	//			else delete node2;
+	//		}
+	//	}
+	//	delete node1;
+	//}
 }
 
 void startScene::CreateScene(GLFWwindow* window)
@@ -470,7 +469,7 @@ void startScene::Render(GLFWwindow* window)
 	{
 		Buildings_Tex.at(i)->Bind(0);
 		////figue out
-		//textureShader->Update(Buildings_Trans.at(i), mvp);
+		textureShader->Update(Buildings_Trans.at(i), mvp);
 		Buildings.at(i)->Draw();
 	}
 

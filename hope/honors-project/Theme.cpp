@@ -42,22 +42,52 @@ void theme::create_Buildings(Type type , int coordx, int coordz)
 		building* b = new building();
 		int x = rand()% coordx-40 + 40 , y = 0, z= rand() % coordz - 40 + 40;
 		int r = rand()% 99 + 1;
+		int scalex, scaley, scalez;
+
+
 		if (type == City && r <= 80) 
 		{
-			b->set_Type(type::Skyscraper);
+			b->set_Type(Skyscraper);
 		}
 		else if ((type == Village && r <= 70) || (type == Seaside && r <= 75) || (type == Desert && r <= 20))
 		{
-			b->set_Type(type::House);
+			b->set_Type(House);
 		}
 		else if ((type == Village && r >= 95) || (type == Seaside && r >= 80) || (type == Desert && r >= 35) || (type == City && r >= 95))
 		{
-			b->set_Type(type::Barrier);
+			b->set_Type(Barrier);
 		}
 		else 
 		{
-			b->set_Type(type::Car);
+			b->set_Type(Car);
 		}
+
+		switch (b->get_Type())
+		{
+			case(Car):
+				scalex = rand()% 30 + 30;
+				scaley = rand() % 30 + 30;
+				scalez = rand() % 40 + 30;
+				break;
+			case(Barrier):
+				scalex = rand() % 30 + 30;
+				scaley = rand() % 30 + 30;
+				scalez = rand() % 10 + 5;
+				break;
+			case(Skyscraper):
+				scalex = rand() % 400 + 100;
+				scaley = rand() % 400 + 400;
+				scalez = rand() % 400 + 100;
+				break;
+			case(House):
+				scalex = rand() % 200 + 100;
+				scaley = rand() % 200 + 100;
+				scalez = rand() % 200 + 100;
+				break;
+		}
+
+		b->set_Size(glm::vec3(scalex, scaley, scalez));
+		b->set_Posistion(glm::vec3(x, y, z));
 		Buildings.push_back(b);
 	}
 }

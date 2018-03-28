@@ -55,6 +55,7 @@ class startScene
 	Transform endTransform;
 
 	theme* layout;
+	Transform temp_trans;
 
 	std::vector <Mesh*> Buildings;
 	std::vector <Texture*> Buildings_Tex;

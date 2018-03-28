@@ -141,5 +141,4 @@ void Texture::Bind(unsigned int unit)
 	{
 		glBindTexture(GL_TEXTURE_2D, m_texture);
 	}
-
 }

@@ -43,6 +43,7 @@
     <ClInclude Include="include\OpenGLDep\headers\PerlinNoise.h" />
     <ClInclude Include="include\OpenGLDep\headers\ppm.h" />
     <ClInclude Include="Mesh.h" />
+    <ClInclude Include="Node.h" />
     <ClInclude Include="obj_loader.h" />
     <ClInclude Include="sceneMgr.h" />
     <ClInclude Include="Shader.h" />

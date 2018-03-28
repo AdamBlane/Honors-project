@@ -28,7 +28,6 @@ private:
 class Mesh
 {
 public:
-
 	//Enum to hold different types of geometry that could be builded
 	enum typeShape
 	{
@@ -38,40 +37,48 @@ public:
 		PLANE,
 		BOX,
 		CUBOID,
-		SKYBOX,
-		GOLF_HOLE_GROUND
-
+		SKYBOX
 	};
-	Mesh() {};
 
-	//General constructor -> not used at the moment
-	Mesh(Vertex* vertices, unsigned int numVertices, unsigned int* indices, unsigned int numIndices);
 
-	//Constructor to load a OBJ file from its file path
+	//Constructor to load an OBJ file from its file path
 	Mesh(const std::string& fileName);
 
-	//Constructor to generate a shape using geometry, taking type of shape, file path for texture, position and dimensions:
+	//Constructor to generate a shape using geometry, taking type of shape, position and dimensions:
 	//TRIANGLE: only 1 side is necessary
 	//QUAD: only 1 side is necessary
 	//RECTANGLE: only 2 sides are necessary
 	//PLANE: only 1 side is necessary
 	//BOX: only 1 side is necessary
 	//CUBOID: all 3 sides are necessary
-	Mesh(typeShape shape, std::string fileTexture, glm::vec3 newPosition, GLfloat size1, GLfloat size2 = 1.0f, GLfloat size3 = 1.0f, bool isFloor = false, bool isFluid = false);
+	Mesh(typeShape shape, glm::vec3 newPosition, GLfloat size1, GLfloat size2 = 1.0f, GLfloat size3 = 1.0f, bool isFloor = false, bool isFluid = false);
 
+	// Skybox constructor - this needs to be changed (see .cpp)
+	Mesh(Texture* tex);
 
-	Mesh(const std::vector<std::string> &filenames);
-
-	//Get position of geometry created by geometry builder
-	glm::vec3 getGeomPos();
+	//Get position of mesh geometry created by geometry builder
+	glm::vec3 GetGeomPos();
 
 	//converts degrees to radians
-	static double toRads(double degreesAngle);
+	static double DegtoRads(double degreesAngle);
 
-	//Texture for each Mesh
-	Texture *thisTexture;
+	//Texture for this Mesh
+	Texture thisTexture;
 
-	std::string filename;
+	// Skybox texture
+	Texture skyTex;
+
+	// Setter for mesh texture takes in a pointer to texture
+	void SetTexture(Texture* tex) { thisTexture = *tex; }
+
+	// Setter for mesh scale
+	void SetScale(GLfloat size1, GLfloat size2 = 1.0f, GLfloat size3 = 1.0f);
+
+	// Setter for mesh position
+	void SetPos(glm::vec3 pos);
+
+	void SetAsFloor(bool isFloor);
+	void SetAsFluid(bool isFluid);
 
 	bool isThisFloor = false;
 	bool isThisFluid = false;
@@ -84,12 +91,8 @@ public:
 
 
 private:
-	//Mesh(const Mesh& other);
-	void operator=(const Mesh& other);
 
 	typeShape thisShape = CUBOID;
-
-
 
 	void chooseGeometry();
 
@@ -100,10 +103,6 @@ private:
 	void box();
 	void cuboid();
 	void skyBox();
-
-	//this is broken. DON'T USE IT!!!!
-	void golfHole();
-
 
 	void generateMesh(Vertex* vertices, unsigned int numVertices, unsigned int* indices, unsigned int numIndices);
 
@@ -118,10 +117,16 @@ private:
 	GLfloat side1 = 1.0f;
 	GLfloat side2 = 3.0f;
 	GLfloat side3 = 1.0f;
-	GLfloat halfSide1 = 0.5f;
-	GLfloat halfSide2 = 0.5f;
-	GLfloat halfSide3 = 0.5f;
-	GLfloat thisHole = 1.4;
+	// Vertices creation only used half values of side data
+	GLfloat halfSide1;
+	GLfloat halfSide2;
+	GLfloat halfSide3;
+	// Setter for half sides
+	void SetHalfSides() {
+		halfSide1 = side1 / 2.0f;
+		halfSide2 = side2 / 2.0f;
+		halfSide3 = side3 / 2.0f;
+	}
 
 	enum
 	{
