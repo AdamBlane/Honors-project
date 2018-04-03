@@ -21,6 +21,11 @@ std::list <node> wanted_nodes;
 // Setup scene; seed is an optional param passed in by loadGameScene
 void startScene::Init(GLFWwindow* window)
 {
+	// Set GL properties 
+	glEnable(GL_DEPTH_TEST);
+	glEnable(GL_CULL_FACE);
+	glFrontFace(GL_CW);
+
 	glfwSetInputMode(window, GLFW_CURSOR, GLFW_CURSOR_DISABLED);
 	glfwSetCursorPos(window, cursor_x, cursor_y);
 	//for (int i = 0; i < 100; i++) 
@@ -42,7 +47,7 @@ void startScene::Init(GLFWwindow* window)
 
 	for (int i =0; i < layout->Buildings.size(); i++)
 	{
-		Mesh* temp = new Mesh(Mesh::CUBOID, layout->Buildings.at(i)->get_Posistion(), layout->Buildings.at(i)->get_Size().x, layout->Buildings.at(i)->get_Size().y, layout->Buildings.at(i)->get_Size().z);
+		Mesh* temp = new Mesh(Mesh::CUBOID, vec3(layout->Buildings.at(i)->get_Posistion().x, layout->Buildings.at(i)->get_Posistion().y + (layout->Buildings.at(i)->get_Size().y/2), layout->Buildings.at(i)->get_Posistion().z), layout->Buildings.at(i)->get_Size().x, layout->Buildings.at(i)->get_Size().y, layout->Buildings.at(i)->get_Size().z);
 		Texture* tempTex = new Texture("..\\honors-project\\ballBlue.jpg");
 		Buildings.push_back(temp);
 		Buildings_Tex.push_back(tempTex);
@@ -55,6 +60,9 @@ void startScene::Init(GLFWwindow* window)
 	freeCam->rotate(-10.0, 0.0);
 	freeCam->set_Target(vec3(0, 0, 0));
 	freeCam->set_projection(quarter_pi<float>(), (float)1600 / (float)900, 0.414f, 30000.0f);
+
+	glEnable(GL_BLEND);
+	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 }
 void startScene::CreateNoise() 
 {
@@ -384,6 +392,7 @@ void startScene::Loop(GLFWwindow* window)
 {
 	glClearColor(0.1f, 0.2f, 0.4f, 1.0f);
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+	glCullFace(GL_FRONT);
 	Input(window);
 	Update(window);
 	Render(window);
