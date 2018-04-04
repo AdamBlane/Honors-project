@@ -53,7 +53,74 @@ void startScene::Init(GLFWwindow* window)
 		Buildings_Tex.push_back(tempTex);
 		Buildings_Trans.push_back(temp_trans);
 	}
+	int a =0, b=0 ,c=0 ,d=0;
+	switch (sides) 
+	{
+		case 0:
+			break;
+		case 1:
+			a = rand() % 3 + 1;
+			break;
+		case 2:
+			a = rand() % 3 + 1;
+			b = rand() % 3 + 1;
+			while (a == b)
+			{
+				int b = rand() % 3 + 1;
+			}
+			break;
+		case 3:
+			a = rand() % 3 + 1;
+			b = rand() % 3 + 1;
+			c = rand() % 3 + 1;
+			while (a == b || b ==c)
+			{
+				b = rand() % 3 + 1;
+			}
+			while (a == c)
+			{
+				c = rand() % 3 + 1;
+			}
+			break;
+		case 4:
+			a = 1;
+			b = 2;
+			c = 3;
+			d = 4;
 
+	}
+	if (a == 1 || b == 1 || c == 1) 
+	{
+		Mesh* temp = new Mesh(Mesh::CUBOID, vec3(0.0f, 0.0f, coordy / 2), 0.0f, 1000.0f, coordy);
+		Texture* tempTex = new Texture("..\\honors-project\\ballRed.jpg");
+		Sides.push_back(temp);
+		Sides_Tex.push_back(tempTex);
+		Sides_Trans.push_back(temp_trans);
+	}
+	if (a == 2 || b == 2 || c == 2)
+	{
+		Mesh* temp = new Mesh(Mesh::CUBOID, vec3(coordx / 2, 0.0f, 0.0f),coordx, 1000.0f, 0.0f);
+		Texture* tempTex = new Texture("..\\honors-project\\ballRed.jpg");
+		Sides.push_back(temp);
+		Sides_Tex.push_back(tempTex);
+		Sides_Trans.push_back(temp_trans);
+	}
+	if (a == 3 || b == 3 || c == 3)
+	{
+		Mesh* temp = new Mesh(Mesh::CUBOID, vec3(0.0f, 0.0f, coordy / 2), 0.0f, 1000.0f, coordy);
+		Texture* tempTex = new Texture("..\\honors-project\\ballRed.jpg");
+		Sides.push_back(temp);
+		Sides_Tex.push_back(tempTex);
+		Sides_Trans.push_back(temp_trans);
+	}
+	if (a == 4 || b == 4 || c == 4 || d ==4)
+	{
+		Mesh* temp = new Mesh(Mesh::CUBOID, vec3(coordx / 2, 0.0f, 0.0f), coordx, 1000.0f, 0.0f);
+		Texture* tempTex = new Texture("..\\honors-project\\ballRed.jpg");
+		Sides.push_back(temp);
+		Sides_Tex.push_back(tempTex);
+		Sides_Trans.push_back(temp_trans);
+	}
 	plainTransform.setPos(vec3(coordx/2, 0, coordy/2));
 	freeCam = new free_camera();
 	freeCam->set_Posistion(vec3(0, 10, -10));
@@ -362,15 +429,19 @@ void startScene::CreateScene(GLFWwindow* window)
 	{
 		case 1:
 			layout->set_Type(Type::Desert);
+			sides = 0;
 			break;
 		case 2:
 			layout->set_Type(Type::City);
+			sides = rand() % 2 + 2;
 			break;
 		case 3:
 			layout->set_Type(Type::Seaside);
+			sides = rand() % 2;
 			break;
 		case 4:
 			layout->set_Type(Type::Village);
+			sides = rand() % 2 + 1;
 			break;
 	}
 	layout->create_Buildings(layout->get_Type(), coordx , coordy);
@@ -386,6 +457,7 @@ void startScene::Algortithm(GLFWwindow* window)
 	std::cout << "speed of player = (" << camSpeed << ")" << std::endl;
 	std::cout << "time = (" << time << ")" << std::endl;
 	std::cout << "Theme = (" << layout->get_Type() << ")" << std::endl;
+	std::cout << "Number of Sides = (" << sides << ")" << std::endl;
 
 }
 void startScene::Loop(GLFWwindow* window)
@@ -426,10 +498,6 @@ void startScene::Input(GLFWwindow* window)
 	if (glfwGetKey(window, GLFW_KEY_E))
 	{
 		freeCamPos = (vec3(0, -camSpeed, 0));
-	}
-	if (glfwGetKey(window, GLFW_KEY_M))
-	{
-		camSpeed = 100.0f;
 	}
 
 	freeCam->move(freeCamPos);
@@ -477,11 +545,15 @@ void startScene::Render(GLFWwindow* window)
 	for (int i = 0; i < layout->Buildings.size(); i++)
 	{
 		Buildings_Tex.at(i)->Bind(0);
-		////figue out
 		textureShader->Update(Buildings_Trans.at(i), mvp);
 		Buildings.at(i)->Draw();
 	}
-
+	for (int i = 0; i < sides; i++)
+	{
+		Sides_Tex.at(i)->Bind(0);
+		textureShader->Update(Sides_Trans.at(i), mvp);
+		Sides.at(i)->Draw();
+	}
 	textureShader->Update(shaderTrans, (freeCam->get_Projection() * freeCam->get_View()));
 	glfwSwapBuffers(window);
 	glfwPollEvents();

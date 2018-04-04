@@ -61,10 +61,15 @@ class startScene
 	std::vector <Texture*> Buildings_Tex;
 	std::vector <Transform> Buildings_Trans;
 
+	std::vector <Mesh*> Sides;
+	std::vector <Texture*> Sides_Tex;
+	std::vector <Transform> Sides_Trans;
+
 	//values for size
 	int coordx;
 	int coordy;
 	int camSpeed;
+	int sides;
 
 	// Setup scene. Last seed params is optional; = denotes default value
 	// If called from loadGameScene, requires seed value(as string)
