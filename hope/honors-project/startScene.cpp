@@ -15,8 +15,8 @@ startScene::startScene() { }
 startScene::~startScene() { }
 
 
-std::list<node> nodes;
-std::list <node> wanted_nodes;
+std::vector <node*> nodes;
+std::vector <node> wanted_nodes;
 
 // Setup scene; seed is an optional param passed in by loadGameScene
 void startScene::Init(GLFWwindow* window)
@@ -30,21 +30,29 @@ void startScene::Init(GLFWwindow* window)
 	glfwSetCursorPos(window, cursor_x, cursor_y);
 	//for (int i = 0; i < 100; i++) 
 	//{
-		CreateScene(window);
-		CreatePath(window);
-		Algortithm(window);
-	//}
+	CreateScene(window);
+	CreatePath(window);
+	Algortithm(window);
 	CreateNoise();
+	//}
+
 	textureShader = new Shader("..\\honors-project\\textureShader");
 	plainMesh = new Mesh(Mesh::PLANE, vec3(0.0f, 0.0f, 0.0f), coordx, 0.1f, coordy);
-	plainTexture = new Texture("..\\honors-project\\RESULT.png");
+	plainTexture = new Texture("..\\honors-project\\RESULT.ppm");
 
 	startMesh = new Mesh(Mesh::CUBOID, vec3(coordx - 100.0f, 200.0f, 100.0f), 200.0f, 400.0f, 200.0f);
 	startTexture = new Texture("..\\honors-project\\ballRed.jpg");
 
 	endMesh = new Mesh(Mesh::CUBOID, vec3(100.0f, 200.0f, coordy - 100.0f), 200.0f, 400.0f, 200.0f);
 	endTexture = new Texture("..\\honors-project\\ballBlue.jpg");
-
+	for (int i = 0; i < nodes.size(); i++) 
+	{
+		Mesh* temp = new Mesh(Mesh::BOX, vec3(nodes.at(i)->getxPos(), 0.0f, nodes.at(i)->getyPos()), 200.0f, 200.0f, 200.0f);
+		Texture* tempTex = new Texture("..\\honors-project\\redBlue.jpg");
+		Node_Mesh.push_back(temp);
+		Node_Tex.push_back(tempTex);
+		Node_Trans.push_back(temp_trans);
+	}
 	for (int i =0; i < layout->Buildings.size(); i++)
 	{
 		Mesh* temp = new Mesh(Mesh::CUBOID, vec3(layout->Buildings.at(i)->get_Posistion().x, layout->Buildings.at(i)->get_Posistion().y + (layout->Buildings.at(i)->get_Size().y/2), layout->Buildings.at(i)->get_Posistion().z), layout->Buildings.at(i)->get_Size().x, layout->Buildings.at(i)->get_Size().y, layout->Buildings.at(i)->get_Size().z);
@@ -66,7 +74,7 @@ void startScene::Init(GLFWwindow* window)
 			b = rand() % 3 + 1;
 			while (a == b)
 			{
-				int b = rand() % 3 + 1;
+				b = rand() % 3 + 1;
 			}
 			break;
 		case 3:
@@ -91,7 +99,7 @@ void startScene::Init(GLFWwindow* window)
 	}
 	if (a == 1 || b == 1 || c == 1) 
 	{
-		Mesh* temp = new Mesh(Mesh::CUBOID, vec3(0.0f, 0.0f, coordy / 2), 0.0f, 1000.0f, coordy);
+		Mesh* temp = new Mesh(Mesh::CUBOID, vec3(0.0f, 500.0f, coordy / 2), 0.0f, 1000.0f, coordy);
 		Texture* tempTex = new Texture("..\\honors-project\\ballRed.jpg");
 		Sides.push_back(temp);
 		Sides_Tex.push_back(tempTex);
@@ -99,7 +107,7 @@ void startScene::Init(GLFWwindow* window)
 	}
 	if (a == 2 || b == 2 || c == 2)
 	{
-		Mesh* temp = new Mesh(Mesh::CUBOID, vec3(coordx / 2, 0.0f, 0.0f),coordx, 1000.0f, 0.0f);
+		Mesh* temp = new Mesh(Mesh::CUBOID, vec3(coordx / 2, 500.0f, 0.0f),coordx, 1000.0f, 0.0f);
 		Texture* tempTex = new Texture("..\\honors-project\\ballRed.jpg");
 		Sides.push_back(temp);
 		Sides_Tex.push_back(tempTex);
@@ -107,7 +115,7 @@ void startScene::Init(GLFWwindow* window)
 	}
 	if (a == 3 || b == 3 || c == 3)
 	{
-		Mesh* temp = new Mesh(Mesh::CUBOID, vec3(0.0f, 0.0f, coordy / 2), 0.0f, 1000.0f, coordy);
+		Mesh* temp = new Mesh(Mesh::CUBOID, vec3(0.0f, 500.0f, coordy / 2), 0.0f, 1000.0f, coordy);
 		Texture* tempTex = new Texture("..\\honors-project\\ballRed.jpg");
 		Sides.push_back(temp);
 		Sides_Tex.push_back(tempTex);
@@ -115,7 +123,7 @@ void startScene::Init(GLFWwindow* window)
 	}
 	if (a == 4 || b == 4 || c == 4 || d ==4)
 	{
-		Mesh* temp = new Mesh(Mesh::CUBOID, vec3(coordx / 2, 0.0f, 0.0f), coordx, 1000.0f, 0.0f);
+		Mesh* temp = new Mesh(Mesh::CUBOID, vec3(coordx / 2, 500.0f, 0.0f), coordx, 1000.0f, 0.0f);
 		Texture* tempTex = new Texture("..\\honors-project\\ballRed.jpg");
 		Sides.push_back(temp);
 		Sides_Tex.push_back(tempTex);
@@ -146,12 +154,22 @@ void startScene::CreateNoise()
 			double x = (double)j / ((double)wi);
 			double y = (double)i / ((double)he);
 			double n = 1;
-		/*	if ((i <= j - 40 || i >= j + 40))
-			{*/
-				n = pn.noise(x/0.5 , y/0.5 , 0);
+			bool check = false;
+			for (int k = 0 ; k < nodes.size() ; k++)
+			{
+				if (j >= (nodes.at(k)->getxPos()/10) -20 && i >= (nodes.at(k)->getyPos()/10) - 20)
+				{
+					if (j <= (nodes.at(k)->getxPos() / 10) + 20 && i <= (nodes.at(k)->getyPos() / 10)+ 20)
+					{
+						check = true;
+					}
+				}
+			}
+			if (check == false) 
+			{
+				n = pn.noise(x / 0.5, y / 0.5, 0);
 				n = n - floor(n * n);
-
-			//}
+			}
 			image.r[kk] = floor(255 * n);
 			image.g[kk] = floor(255 * n);
 			image.b[kk] = floor(255 * n);
@@ -294,6 +312,28 @@ void startScene::CreateTerrain(const Texture &height_map, unsigned int width, un
 //A* Needs to comple
 void startScene::CreatePath(GLFWwindow* window) 
 {
+	while(nodes.size() < 30) 
+	{
+		int x = rand() % coordx;
+		int z = rand() % coordy;
+		bool check = false;
+		for(int i = 0; i < layout->Buildings.size(); i++)
+		{
+			if (x >= layout->Buildings.at(i)->get_Posistion().x && x <= layout->Buildings.at(i)->get_Posistion().x + layout->Buildings.at(i)->get_Size().x)
+			{
+				if (z >= layout->Buildings.at(i)->get_Posistion().z && z <= layout->Buildings.at(i)->get_Posistion().z + layout->Buildings.at(i)->get_Size().z) 
+				{
+					check = true;
+				}
+			}
+		}
+		if (!check == true) 
+		{
+			node* a = new node(x,z,3,3);
+			nodes.push_back(a);
+		}
+
+	}
 	//std::priority_queue<node> untriedNodes[2]; // list of open (not-yet-tried) nodes
 	//int nodeIndex = 0;
 	//node* node1;
@@ -553,6 +593,12 @@ void startScene::Render(GLFWwindow* window)
 		Sides_Tex.at(i)->Bind(0);
 		textureShader->Update(Sides_Trans.at(i), mvp);
 		Sides.at(i)->Draw();
+	}
+	for (int i = 0; i < nodes.size(); i++)
+	{
+		Node_Tex.at(i)->Bind(0);
+		textureShader->Update(Node_Trans.at(i), mvp);
+		Node_Mesh.at(i)->Draw();
 	}
 	textureShader->Update(shaderTrans, (freeCam->get_Projection() * freeCam->get_View()));
 	glfwSwapBuffers(window);

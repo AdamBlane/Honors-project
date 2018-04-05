@@ -65,24 +65,32 @@ void theme::create_Buildings(Type type , int coordx, int coordz)
 		switch (b->get_Type())
 		{
 			case(Car):
-				scalex = rand()% 130 + 130;
-				scaley = rand() % 130 + 130;
-				scalez = rand() % 140 + 130;
+				scalex = rand()% 200 + 130;
+				scaley = rand() % 200 + 130;
+				scalez = rand() % 200 + 130;
 				break;
 			case(Barrier):
-				scalex = rand() % 100 + 50;
-				scaley = rand() % 100 + 50;
+				scalex = rand() % 500 + 100;
+				scaley = rand() % 1 + 0;
+				if (scaley == 0) 
+				{
+					scaley = 100;
+				}
+				else 
+				{
+					scaley = 150;
+				}
 				scalez = rand() % 10 + 5;
 				break;
 			case(Skyscraper):
-				scalex = rand() % 400 + 200;
+				scalex = rand() % 500 + 500;
 				scaley = rand() % 4000 + 4000;
-				scalez = rand() % 400 + 200;
+				scalez = rand() % 500 + 500;
 				break;
 			case(House):
-				scalex = rand() % 400 + 200;
+				scalex = rand() % 700 + 500;
 				scaley = rand() % 400 + 200;
-				scalez = rand() % 400 + 200;
+				scalez = rand() % 700 + 500;
 				break;
 		}
 

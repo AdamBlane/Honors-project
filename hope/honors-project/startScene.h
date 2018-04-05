@@ -65,6 +65,10 @@ class startScene
 	std::vector <Texture*> Sides_Tex;
 	std::vector <Transform> Sides_Trans;
 
+	std::vector <Mesh*> Node_Mesh;
+	std::vector <Texture*> Node_Tex;
+	std::vector <Transform> Node_Trans;
+
 	//values for size
 	int coordx;
 	int coordy;
