@@ -1,0 +1,7 @@
+1. finsih disertation
+2.create poster
+3.print poster 
+4.add terrain
+5 update textures 
+6 finsh a*
+7. create algorithim 

@@ -1,33 +1,97 @@
-\documentclass{article}
+\documentclass[12pt,a4paper,oneside]{book}
+\usepackage[a4paper,%
+            left=35mm,right=20mm,top=20mm,bottom=20mm]{geometry}
+\usepackage{titlesec} 
+\usepackage{fancyhdr}
+\usepackage[utf8]{inputenc} 
 \usepackage{graphicx}
-\usepackage[utf8]{inputenc}
-\usepackage[english]{babel}
+\usepackage{booktabs} % for much better looking tables
+\usepackage{array} % for better arrays (eg matrices) in maths
+\usepackage{paralist} % very flexible & customisable lists (eg. enumerate/itemize, etc.)
+\usepackage{verbatim} % adds environment for commenting out blocks of text & for better verbatim
+\usepackage{subfig} % make it possible to include more than one captioned figure/table in a single 
+\usepackage[toc,page]{appendix}
+\usepackage{pdfpages}
+\usepackage{listings}
+\usepackage{color}
+\usepackage{graphicx}
+\usepackage{subfig}
+\usepackage{setspace}
+\onehalfspacing
+\usepackage{helvet}
 
+%Hyperlinks set to no colours/black
 \usepackage{hyperref}
 \hypersetup{
-	colorlinks=true,
-	linkcolor=blue,
-	filecolor=magenta,      
-	urlcolor=cyan,
+    colorlinks=false,
+    linkcolor=black,
+    filecolor=black,      
+    urlcolor=black,
 }
 
+\renewcommand{\familydefault}{\sfdefault}
+
+\definecolor{dkgreen}{rgb}{0,0.6,0}
+
+%header and footer settings
+\pagestyle{fancyplain}
+\fancyhf{}
+\renewcommand{\headrulewidth}{0.5pt}
+\renewcommand{\footrulewidth}{0.5pt}
+\setlength{\headheight}{15pt}
+\fancyhead[L]{Adam Blance - 40161070}
+\fancyhead[R]{ SOC10101 Honours Project}
+\fancyfoot[L]{}
+\fancyfoot[C]{\thepage}
+
+
+
+%set better section layout
+\makeatletter
+\renewcommand\subsection{\@startsection {subsection}{1}{2mm} % name, level, indent
+                               {3pt plus 2pt minus 1pt} % before skip
+                               {3pt plus 0pt} % after skip
+                               {\normalfont\bfseries}}
+\makeatother
+\makeatletter
+\renewcommand\section{\@startsection {section}{1}{0mm} % name, level, indent
+                               {4pt plus 2pt minus 1pt} % before skip
+                               {4pt plus 0pt} % after skip
+                               {\bfseries}}
+\makeatother
+
+
+%this starts the document
 \begin{document}
 
-\title{{}}
-\author{Adam Blance}
+\frontmatter
 
-\maketitle
+%you can import other documents into your main one, these layout the Title and Declarations on its own page.
+%you might need to change these to \ if your on Microsoft Windows.
+\input{./Dissertation-Title.tex}
+\input{./Dissertation-Dec.tex}
+\pagebreak
+\input{./Dissertation-DP.tex}
+\pagebreak
 
-\begin{abstract}
-The abstract text goes here.
-\end{abstract}
+\section*{Abstract}
+
+
+\tableofcontents 
+
+\listoftables
+
+\listoffigures
+
 \newpage
-\renewcommand{\abstractname}{Acknowledgements}
-\begin{abstract}
-Shout out to my bois 
-\end{abstract}
+\section*{Acknowledgements}
+
 \newpage
-\section{Introduction}
+
+\mainmatter
+
+%INTRO
+\chapter{Introduction}
 From the beginning of the project the objective has been to develop a mathematical equation to evaluate escort mission maps. Then to procedurally generate maps that can successfully follow the evaluation technique created. The dissertation produced underneath documents the work that was involved in achieving this.
 \subsection{Motivation}
 With video games being one of the largest markets in the world right now, gaming companies must be developing and releasing their games as quickly as possible. If there is any conceivable way for them speed up releasing their games, they should take these approaches.
@@ -63,19 +127,20 @@ When testing a map there are a large amount variables to be evaluated, as time i
 	\item Results – Displays the results from the tests carried out.
 	\item Conclusion – Summarises results, assess s	
 \end{itemize}
-\newpage
-\section{Background and Literature Review}
+
+%BACKGROUND
+\chapter{Background}
 In this section, an investigation into escort mission maps and how to evaluate them is presented. Requirements and challenges are presented, and in particular video game maps are examined. Procedural generation one of the main factors of this project is also examined in depth. Finally pathfinding and other evaluating techniques is presented, focusing on how to evaluate maps in video games. 
 \subsection{Co-operative First Person Shooters}
-First Person Shooters are a large video game genre that have dominated the market for over 20 years with one of the first titles being Quake in 1996 and other notable series including Call of Duty, Battlefield and 
+First Person Shooters are a large video game genre that have dominated the market for over 20 years with one of the first major titles being Quake in 1996 and other notable series including Call of Duty, Battlefield and Halo, with the objective of the game usually being to get the most eliminations. A subsection of this genre is the co-operative first person shooter. This type of game heavily relies on teamwork, with games being won by holding onto an objective or pushing a payload ----------------------------------------------------------------------
 \subsubsection{Escort Missions}
 An escort mission is a game-mode in cooperative first person shooter such as Overwatch and Loadout. In this mode there are two teams, the attacking and the defending team. The two teams have different aims in order to win. The attacking team attempts to escort the payload across the map to an objective while the defending team tries to stop them. It is difficult to pin down the first game to have escort missions. One of the more notable was in 2007 with Team Fortress 2. While it was not originally included in the game it was added in the first free update. It is important to note that the original Team Fortress had a game mode called Escort but this has many differences with its sequel, such as the payload being a controllable player and there being three teams. Other games that use this game mode include Global Agenda and Wolfenstein: Enemy Territory.    
 \subsection{Maps}
-In video games, maps are the term used to describe the area that the player can 
+In video games, maps are the term used to describe the area that the player can move around in. Different games will have different types of maps depending on how the developer wants the player to play the game. For instance an RPG like Skyrim or The Witcher will usually have a large map for the player to explore the world and find their own path, while other faster paced first person shooters like the Call of Duty franchise might rely on a more linear map to construct the most enjoyable experience for their players. It is very important for a programmer to constantly be planning and evaluating the map they are creating as this will directly affect how enjoyable the game they created is.
 \subsection{Escort Mission Maps}
 Escort mission maps are the play areas that escort missions are performed in. Between each game these maps can vary greatly so for this project, the definition of an escort mission map must be stated. The maps must have an attacking and defending spawn area. This is the place where the teams start at the beginning of the match and will return too whenever they die. The map must also have an unobstructed route that runs between the spawns, which the payload will be moved through. This route will be generated using pathfinding algorithm which is discussed below. 
 \subsection{Procedaul Generation}
-The term procedural generation is used in computing to describe a way of creating data algorithmically. It allows for 
+The term procedural generation is used in computing to describe a way of creating data algorithmically. It allows for -----------------------------------
 \subsubsection{Procedaully Generated Maps}
 It is very common in gaming to use procedural generation, as it allows companies to take shortcuts when creating the game, and allows them to focus on more time consuming aspects of the game such as; graphics and gameplay. Procedural generation has been used in many video games for a variety of things. This includes weapon generation in the Borderlands series and Spore which uses procedural generation to create animals and evolve them. However the most common use of procedural generation is to create the map. This has been used in many notable games including, Minecraft , No Man’s Sky and Dwarf Fortress. These create huge worlds for the player to roam around in and can allow the map to go on forever. Procedural generation will be used in the project on a much smaller scale then most games to generate the map but it will be used in conjunction with other techniques such as path-finding.  
 \subsubsection{Path-Finding}
@@ -94,16 +159,38 @@ Where G is cost of travelling to the node and the h cost also known as the Heuri
 The total cost is used by A* to guide the algorithm towards the goal. At each iteration of the algorithm the node with the lowest total cost is removed from the open list and its neighbours are evaluated. This involves searching the closed list to see if the neighbour has already been evaluated and checking if the node cannot be passed. If either of these cases are true then ignore the node, otherwise the node is checked to see if it exists in the open list, if it isn’t its F cost is calculated and the node is added to the open list. If the node already exists in the open list then its G cost is compared with the current lowest G cost, if the new G cost is lower than this is the better path. This process progresses until the goal has been evaluated and added to the open list or all nodes have been evaluated and the open list is empty, if this happens the goal cannot be reached from the start point.
 \newline
 \subsection{Evaulating Maps}
+
 \subsection{Related Work}
-\section{Methodolgy}
-\subsection{Introduction}
-This section looks at the methods used during the implementation of the project. 
-\section{Results}
+%METHODology
+\chapter{Methodology}
+\subsection{Noise Generation}
+%IMPLEMENTATION
+\chapter{Implementation}
+\subsection{Perlin Noise}
+\subsection{Theme}
+%EVALUATION
+\chapter{Evaluation}
+Evaluation rubbish goes here
 
-\section{Conclusion}
+%CONCLUSION
+\chapter{Conclusion}
+Conclusion rubbish goes here
 
+\newpage
 
 \bibliographystyle{plain}
-\bibliography{bib}
+\bibliography{bibfile}
+
+\newpage
+\begin{appendices}
+\section*{A Initial Project Overview Document}
+
+\section*{B Week 9 Interim Report}
+
+\section*{C Diary Sheets}
+
+\section*{D Timeline}
+
+\end{appendices}
 
 \end{document}
