@@ -4,11 +4,14 @@
 #include "include\glm-0.9.8.5\glm\glm\glm.hpp"
 #include "obj_loader.h"
 #include "Texture.h"
-
+#include <map>
+#include "geometry.h"
+#include <vector>
 // Class which hold Vertex Information
 class Vertex
 {
 public:
+	Vertex() {};
 	//Vertex class to hold Vertices positions and Texture coordinates
 	Vertex(const glm::vec3& pos, const glm::vec2& texCoord)
 	{
@@ -37,9 +40,12 @@ public:
 		PLANE,
 		BOX,
 		CUBOID,
-		SKYBOX
+		SKYBOX,
+		Terrain
 	};
 
+
+	void generateMeshs(Vertex* vertices, unsigned int numVertices, unsigned int* indices, unsigned int numIndice);
 
 	//Constructor to load an OBJ file from its file path
 	Mesh(const std::string& fileName);
@@ -53,6 +59,7 @@ public:
 	//CUBOID: all 3 sides are necessary
 	Mesh(typeShape shape, glm::vec3 newPosition, GLfloat size1, GLfloat size2 = 1.0f, GLfloat size3 = 1.0f, bool isFloor = false, bool isFluid = false);
 
+	Mesh(typeShape shape, glm::vec3 newPosition, GLfloat size1, std::vector<glm::vec3> positions, std::vector<glm::vec2> tex_coords,GLfloat size2 = 1.0f, GLfloat size3 = 1.0f, bool isFloor = false, bool isFluid = false);
 	// Skybox constructor - this needs to be changed (see .cpp)
 	Mesh(Texture* tex);
 
@@ -88,12 +95,14 @@ public:
 	void Draw();
 
 	virtual ~Mesh();
-
+	// Creates a mesh object with the provided geometry
 
 private:
 
+	void generateMesh(Vertex* vertices, unsigned int numVertices, unsigned int* indices, unsigned int numIndices);
 	typeShape thisShape = CUBOID;
 
+	
 	void chooseGeometry();
 
 	void triangle();
@@ -103,9 +112,8 @@ private:
 	void box();
 	void cuboid();
 	void skyBox();
-
-	void generateMesh(Vertex* vertices, unsigned int numVertices, unsigned int* indices, unsigned int numIndices);
-
+	void terrain(std::vector<glm::vec3> positions, std::vector<glm::vec2> tex_coords);
+	
 	//starting position of geometry
 	glm::vec3 position = glm::vec3(0.0f, 0.0f, 0.0f);
 
@@ -135,6 +143,13 @@ private:
 		INDEX_VB,
 		NUM_BUFFERS
 	};
+
+	// The geometry object of the mesh
+	geometry geometry;
+	// The minimal of the AABB defining the mesh
+	glm::vec3 minimal;
+	// The maximal of the AABB defining the mesh
+	glm::vec3 maximal;
 
 	GLuint m_vertexArrayObject;
 	GLuint m_vertexArrayBuffers[NUM_BUFFERS];

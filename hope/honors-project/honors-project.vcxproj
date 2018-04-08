@@ -39,6 +39,7 @@
     <ClInclude Include="Camera.h" />
     <ClInclude Include="checkError.h" />
     <ClInclude Include="free_camera.h" />
+    <ClInclude Include="geometry.h" />
     <ClInclude Include="glew_glfw.h" />
     <ClInclude Include="include\OpenGLDep\headers\PerlinNoise.h" />
     <ClInclude Include="include\OpenGLDep\headers\ppm.h" />

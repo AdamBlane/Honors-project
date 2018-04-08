@@ -2,6 +2,7 @@
 #include "Mesh.h"
 #include <vector>
 #include <math.h>
+#include <iostream>
 
 // Create mesh from given obj file
 Mesh::Mesh(const std::string& fileName)
@@ -11,7 +12,6 @@ Mesh::Mesh(const std::string& fileName)
 }
 
 // Create mesh of a certain shape
-// Matt - I have edited this by removing tex file path, any setting/init of texture within this constructor
 Mesh::Mesh(typeShape shape, glm::vec3 newPosition, GLfloat size1, GLfloat size2, GLfloat size3, bool isFloor, bool isFluid)
 {
 	//setting starting geometry properties
@@ -27,7 +27,20 @@ Mesh::Mesh(typeShape shape, glm::vec3 newPosition, GLfloat size1, GLfloat size2,
 	//calling method to create desired shape
 	chooseGeometry();
 }
+Mesh::Mesh(typeShape shape, glm::vec3 newPosition, GLfloat size1, std::vector<glm::vec3> positions, std::vector<glm::vec2> tex_coords, GLfloat size2 , GLfloat size3 , bool isFloor , bool isFluid) 
+{
+	//setting starting geometry properties
+	thisShape = shape;
+	position = newPosition;
+	side1 = size1;
+	side2 = size2;
+	side3 = size3;
+	SetHalfSides();
+	isThisFloor = isFloor;
+	isThisFluid = isFluid;
+	terrain(positions, tex_coords);
 
+}
 // Skybox constructor
 // TODO - needs editing such that it does not create a new texture, 
 // instead it takes an already initialised texture(s) as param
@@ -75,13 +88,11 @@ void Mesh::SetAsFloor(bool isFloor)
 	isThisFloor = isFloor;
 	chooseGeometry();
 }
-
 void Mesh::SetAsFluid(bool isFluid)
 {
 	isThisFluid = isFluid;
 	chooseGeometry();
 }
-
 // Deconstructor
 Mesh::~Mesh()
 {
@@ -118,13 +129,13 @@ void Mesh::chooseGeometry()
 		cuboid();
 		break;
 	}
-}
-
+} 
 void Mesh::triangle()
 {
 	//setting vertices and texture coodrinates for the shape 
 	//vertices are created in a counter-clock wise order, to face camera
-	Vertex vertices[] = {
+	Vertex vertices[] = 
+	{
 		//TR1
 		Vertex(glm::vec3(position.x - halfSide1, position.y - halfSide1, position.z), glm::vec2(0.0, 0.0)), //index 0
 		Vertex(glm::vec3(position.x + halfSide1, position.y - halfSide1, position.z), glm::vec2(1.0, 0.0)), //index 1
@@ -139,7 +150,6 @@ void Mesh::triangle()
 	//calling generate mesh method, taking array of vertices and indices and how many they are
 	generateMesh(vertices, sizeof(vertices) / sizeof(vertices[0]), indices, sizeof(indices) / sizeof(indices[0]));
 }
-
 void Mesh::quad()
 {
 	Vertex vertices[] = {
@@ -160,8 +170,6 @@ void Mesh::quad()
 	generateMesh(vertices, sizeof(vertices) / sizeof(vertices[0]), indices, sizeof(indices) / sizeof(indices[0]));
 
 }
-
-
 void Mesh::rectangle()
 {
 	Vertex vertices[] = {
@@ -184,6 +192,21 @@ void Mesh::rectangle()
 	generateMesh(vertices, sizeof(vertices) / sizeof(vertices[0]), indices, sizeof(indices) / sizeof(indices[0]));
 }
 
+void Mesh::terrain(std::vector<glm::vec3> positions, std::vector<glm::vec2> tex_coords)
+{
+	const int a = 1000;
+	Vertex vertecies[a] = {};
+	unsigned int indexs[a] = {};
+	for (unsigned int i = 0; i <a; i++)
+	{
+		unsigned int temp_index = 0;
+		vertecies[i] = Vertex(positions.at(i), tex_coords.at(i));
+		indexs[i] = temp_index;
+		temp_index++;
+
+	}
+	generateMesh(vertecies, sizeof(vertecies) / sizeof(vertecies[0]), indexs, sizeof(indexs) / sizeof(indexs[0]));
+}
 
 void Mesh::plane()
 {
@@ -204,7 +227,6 @@ void Mesh::plane()
 
 	generateMesh(vertices, sizeof(vertices) / sizeof(vertices[0]), indices, sizeof(indices) / sizeof(indices[0]));
 }
-
 void Mesh::box()
 {
 	//Counter-clock wise
@@ -442,7 +464,7 @@ void Mesh::skyBox()
 	generateMesh(vertices, sizeof(vertices) / sizeof(vertices[0]), indices, sizeof(indices) / sizeof(indices[0]));
 }
 
-void Mesh::generateMesh(Vertex * vertices, unsigned int numVertices, unsigned int * indices, unsigned int numIndices)
+void Mesh::generateMesh(Vertex* vertices, unsigned int numVertices, unsigned int* indices, unsigned int numIndices)
 {
 	IndexedModel model;
 
@@ -459,6 +481,24 @@ void Mesh::generateMesh(Vertex * vertices, unsigned int numVertices, unsigned in
 
 	InitMesh(model);
 
+}
+
+void Mesh::generateMeshs(Vertex* vertices, unsigned int numVertices, unsigned int* indices, unsigned int numIndices)
+{
+	IndexedModel model;
+
+	for (unsigned int i = 0; i < numVertices; i++)
+	{
+		model.positions.push_back(*vertices[i].GetPos());
+		model.texCoords.push_back(*vertices[i].GetTexCoord());
+	}
+
+	for (unsigned int i = 0; i < numIndices; i++)
+	{
+		model.indices.push_back(indices[i]);
+	}
+
+	InitMesh(model);
 }
 
 

@@ -33,9 +33,6 @@
     <ClCompile Include="windowMgr.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="startScene.cpp">
-      <Filter>Source Files\Scene Files</Filter>
-    </ClCompile>
     <ClCompile Include="Shader.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -68,6 +65,9 @@
     </ClCompile>
     <ClCompile Include="Theme.cpp">
       <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="startScene.cpp">
+      <Filter>Source Files\Scene Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -123,6 +123,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Node.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="geometry.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

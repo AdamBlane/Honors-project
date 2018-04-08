@@ -13,6 +13,7 @@
 #include <vector>
 #include <time.h>
 #include <list>
+#include "geometry.h"
 
 
 #include "Shader.h"
@@ -56,6 +57,7 @@ class startScene
 
 	theme* layout;
 	Transform temp_trans;
+	geometry terrain;
 
 	std::vector <Mesh*> Buildings;
 	std::vector <Texture*> Buildings_Tex;
@@ -86,5 +88,5 @@ class startScene
 	void CreateScene(GLFWwindow* window);
 	void CreatePath(GLFWwindow* window);
 	void CreateNoise();
-	void CreateTerrain(const Texture &height_map, unsigned int width, unsigned int depth, float height_scale);
+	void CreateTerrain(GLFWwindow* window , geometry &geom,const Texture *height_map, unsigned int width, unsigned int depth, float height_scale);
 };

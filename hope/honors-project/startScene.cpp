@@ -37,14 +37,18 @@ void startScene::Init(GLFWwindow* window)
 	//}
 
 	textureShader = new Shader("..\\honors-project\\textureShader");
-	plainMesh = new Mesh(Mesh::PLANE, vec3(0.0f, 0.0f, 0.0f), coordx, 0.1f, coordy);
-	plainTexture = new Texture("..\\honors-project\\RESULT.ppm");
+
+	plainTexture = new Texture("..\\honors-project\\RESULT.png");
+	CreateTerrain(window, terrain, plainTexture, 20, 20, 2.0f);
+
+
 
 	startMesh = new Mesh(Mesh::CUBOID, vec3(coordx - 100.0f, 200.0f, 100.0f), 200.0f, 400.0f, 200.0f);
 	startTexture = new Texture("..\\honors-project\\ballRed.jpg");
 
 	endMesh = new Mesh(Mesh::CUBOID, vec3(100.0f, 200.0f, coordy - 100.0f), 200.0f, 400.0f, 200.0f);
 	endTexture = new Texture("..\\honors-project\\ballBlue.jpg");
+
 	for (int i = 0; i < nodes.size(); i++) 
 	{
 		Mesh* temp = new Mesh(Mesh::BOX, vec3(nodes.at(i)->getxPos(), 0.0f, nodes.at(i)->getyPos()), 200.0f, 200.0f, 200.0f);
@@ -179,7 +183,8 @@ void startScene::CreateNoise()
 	image.write("RESULT.ppm");
 	
 }
-void startScene::CreateTerrain(const Texture &height_map, unsigned int width, unsigned int depth, float height_scale)
+
+void startScene::CreateTerrain(GLFWwindow* window , geometry &geom, const Texture *height_map, unsigned int width, unsigned int depth, float height_scale)
 {
 	//// Contains our position data
 	std::vector<vec3> positions;
@@ -193,43 +198,44 @@ void startScene::CreateTerrain(const Texture &height_map, unsigned int width, un
 	std::vector<unsigned int> indices;
 	//// Extract the texture data from the image
 	// Extract the texture data from the image
-	//glBindTexture(GL_TEXTURE_2D, height_map.get_id);
-	auto data = new vec4[coordx * coordy];
+	glBindTexture(GL_TEXTURE_2D, height_map->m_texture);
+	auto data = new vec4[coordx/10 * coordy/10];
 	glGetTexImage(GL_TEXTURE_2D, 0, GL_RGBA, GL_FLOAT, (void*)data);
 
 	// Determine ratio of height map to geometry
-	float width_point = static_cast<float>(width) / static_cast<float>(coordx);
-	float depth_point = static_cast<float>(depth) / static_cast<float>(coordy);
+	float width_point = static_cast<float>(width) / static_cast<float>(coordx/10);
+	float depth_point = static_cast<float>(depth) / static_cast<float>(coordy/10);
 
 	// Point to work on
 	vec3 point;
 
 	//  Iterate through each point, calculate vertex and add to vector
-	for (int x = 0; x < coordx; ++x)
+	for (int x = 0; x < coordy/50; ++x)
 	{
 		// Calculate x position of point
 		point.x = -(width / 2.0f) + (width_point * static_cast<float>(x));
 
-		for (int z = 0; z < coordy; ++z)
+		for (int z = 0; z < coordy/50; ++z)
 		{
 			// Calculate z position of point
 			point.z = -(depth / 2.0f) + (depth_point * static_cast<float>(z));
 			// Y position based on red component of height map data
-			point.y = data[(z * coordx) + x].y * height_scale;
+			point.y = data[(z * coordx/10) + x].y * height_scale;
 			// Add point to position data
 			positions.push_back(point);
+
 		}
 	}
 	// Part 1 - Add index data
-	for (unsigned int x = 0; x < coordx - 1; ++x)
+	for (unsigned int x = 0; x < coordx/50 - 1; ++x)
 	{
-		for (unsigned int y = 0; y < coordy - 1; ++y)
+		for (unsigned int y = 0; y < coordy/50 - 1; ++y)
 		{
 			// Get four corners of patch
-			unsigned int top_left = (y * coordx) + x;
-			unsigned int top_right = (y * coordx) + x + 1;
-			unsigned int bottom_left = ((y + 1) * coordx) + x;
-			unsigned int bottom_right = ((y + 1) * coordx) + x + 1;
+			unsigned int top_left = (y * coordx/50) + x;
+			unsigned int top_right = (y * coordx/50) + x + 1;
+			unsigned int bottom_left = ((y + 1) * coordx/50) + x;
+			unsigned int bottom_right = ((y + 1) * coordx/50) + x + 1;
 			// Push back indices for triangle 1
 			indices.push_back(top_left);
 			indices.push_back(bottom_right);
@@ -264,26 +270,26 @@ void startScene::CreateTerrain(const Texture &height_map, unsigned int width, un
 	for (auto &n : normals)
 		n = normalize(n);
 	//  Add texture coordinates for geometry
-	for (unsigned int x = 0; x < coordx; ++x)
+	for (unsigned int x = 0; x < coordx/50; ++x)
 	{
-		for (unsigned int z = 0; z < coordy; ++z)
+		for (unsigned int z = 0; z < coordy/50; ++z)
 		{
 			tex_coords.push_back(vec2(width_point * x, depth_point * z)* 0.05f);
 		}
 	}
 
 	// Part 4 - Calculate texture weights for each vertex
-	for (unsigned int x = 0; x < coordx; x++)
+	for (unsigned int x = 0; x < coordx/50; x++)
 	{
-		for (unsigned int z = 0; z < coordy; ++z)
+		for (unsigned int z = 0; z < coordy/50; ++z)
 		{
 
 			// Calculate tex weight
 			vec4 tex_weight(
-				clamp(1.0f - abs(data[(coordx * z) + x].y - 0.0f) / 0.25f, 0.0f, 1.0f),
-				clamp(1.0f - abs(data[(coordx * z) + x].y - 0.15f) / 0.25f, 0.0f, 1.0f),
-				clamp(1.0f - abs(data[(coordx * z) + x].y - 0.5f) / 0.25f, 0.0f, 1.0f),
-				clamp(1.0f - abs(data[(coordx * z) + x].y - 0.9f) / 0.25f, 0.0f, 1.0f));
+				clamp(1.0f - abs(data[(coordx/50 * z) + x].y - 0.0f) / 0.25f, 0.0f, 1.0f),
+				clamp(1.0f - abs(data[(coordx/50 * z) + x].y - 0.15f) / 0.25f, 0.0f, 1.0f),
+				clamp(1.0f - abs(data[(coordx/50 * z) + x].y - 0.5f) / 0.25f, 0.0f, 1.0f),
+				clamp(1.0f - abs(data[(coordx/50 * z) + x].y - 0.9f) / 0.25f, 0.0f, 1.0f));
 			// Sum the components of the vector
 			auto total = tex_weight.x + tex_weight.y + tex_weight.z + tex_weight.w;
 			// Divide weight by sum
@@ -298,13 +304,7 @@ void startScene::CreateTerrain(const Texture &height_map, unsigned int width, un
 		}
 		std::cout << x << "done " << std::endl;
 	}
-
-	// Add necessary buffers to the geometry
-	//geom.add_buffer(positions, BUFFER_INDEXES::POSITION_BUFFER);
-	//geom.add_buffer(normals, BUFFER_INDEXES::NORMAL_BUFFER);
-	//geom.add_buffer(tex_coords, BUFFER_INDEXES::TEXTURE_COORDS_0);
-	//geom.add_buffer(tex_weights, BUFFER_INDEXES::TEXTURE_COORDS_1);
-	//geom.add_index_buffer(indices);
+	plainMesh = new Mesh(Mesh::Terrain, vec3(coordx - 100.0f, 200.0f, 100.0f), 200.0f, positions, tex_coords, 400.0f, 200.0f);
 	/////add in geomtry class
 	//// Delete data
 	delete[] data;
@@ -570,6 +570,7 @@ void startScene::Render(GLFWwindow* window)
 	// If camera type is free camera then
 	mvp = freeCam->get_Projection() * freeCam->get_View();
 	textureShader->Bind();
+	std::cout << freeCam->get_Posistion().z << std::endl;
 	plainTexture->Bind(0);
 	textureShader->Update(plainTransform, mvp);
 	plainMesh->Draw();
