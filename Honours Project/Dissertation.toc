@@ -10,18 +10,19 @@
 \contentsline {subsubsection}{Escort Missions}{3}{subsubsection*.10}
 \contentsline {subsection}{\numberline {2.0.2}Maps}{4}{subsection.2.0.2}
 \contentsline {subsection}{\numberline {2.0.3}Escort Mission Maps}{4}{subsection.2.0.3}
-\contentsline {subsection}{\numberline {2.0.4}Procedural Generation}{4}{subsection.2.0.4}
+\contentsline {subsection}{\numberline {2.0.4}Procedural Generation in Video Games}{4}{subsection.2.0.4}
 \contentsline {subsubsection}{Procedurally Generated Maps}{4}{subsubsection*.11}
-\contentsline {subsubsection}{Path-Finding}{5}{subsubsection*.12}
-\contentsline {subsubsection}{Dijkstra\IeC {\textquoteright }s Algorithm}{5}{subsubsection*.13}
-\contentsline {subsubsection}{A Star Path-finding (A*)}{5}{subsubsection*.14}
-\contentsline {subsection}{\numberline {2.0.5}Evaluating Maps}{6}{subsection.2.0.5}
-\contentsline {subsection}{\numberline {2.0.6}Related Work}{6}{subsection.2.0.6}
+\contentsline {subsection}{\numberline {2.0.5}Path-Finding}{5}{subsection.2.0.5}
+\contentsline {subsubsection}{Dijkstra\IeC {\textquoteright }s Algorithm}{5}{subsubsection*.12}
+\contentsline {subsubsection}{A Star Path-finding (A*)}{5}{subsubsection*.13}
+\contentsline {subsection}{\numberline {2.0.6}Evaluating Maps}{6}{subsection.2.0.6}
+\contentsline {subsection}{\numberline {2.0.7}Related Work}{6}{subsection.2.0.7}
 \contentsline {chapter}{\numberline {3}Methodology}{7}{chapter.3}
 \contentsline {subsection}{\numberline {3.0.1}Gradient Noise}{7}{subsection.3.0.1}
-\contentsline {subsubsection}{Perlin Noise}{7}{subsubsection*.15}
+\contentsline {subsubsection}{Perlin Noise}{7}{subsubsection*.14}
 \contentsline {chapter}{\numberline {4}Implementation}{8}{chapter.4}
-\contentsline {subsection}{\numberline {4.0.1}Theme}{8}{subsection.4.0.1}
+\contentsline {subsection}{\numberline {4.0.1}Programming Environment}{8}{subsection.4.0.1}
+\contentsline {subsection}{\numberline {4.0.2}Theme}{8}{subsection.4.0.2}
 \contentsline {chapter}{\numberline {5}Evaluation}{9}{chapter.5}
 \contentsline {chapter}{\numberline {6}Conclusion}{10}{chapter.6}
-\contentsline {chapter}{Appendices}{12}{section*.17}
+\contentsline {chapter}{Appendices}{12}{section*.16}
