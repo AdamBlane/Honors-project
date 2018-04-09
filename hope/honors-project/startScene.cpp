@@ -170,16 +170,6 @@ void startScene::CreateNoise()
 			double y = (double)i / ((double)he);
 			double n = 1;
 			int check =  1;
-			for (int k = 0 ; k < nodes.size() ; k++)
-			{
-				if (j >= (nodes.at(k)->getxPos()/10) -10 && i >= (nodes.at(k)->getyPos()/10) - 10)
-				{
-					if (j <= (nodes.at(k)->getxPos() / 10) + 10 && i <= (nodes.at(k)->getyPos() / 10)+ 10)
-					{
-						check = 0;
-					}
-				}
-			}
 			for (int k = 0; k < layout->Buildings.size(); k++)
 			{
 				if (j >= (layout->Buildings.at(k)->get_Posistion().x/10) - layout->Buildings.at(k)->get_Size().x / 20 && i >= (layout->Buildings.at(k)->get_Posistion().z/ 10) - layout->Buildings.at(k)->get_Size().z / 20)
@@ -215,6 +205,16 @@ void startScene::CreateNoise()
 				if (j >= (route.at(k).x / 10) - 10 && i >= (route.at(k).y / 10) - 10)
 				{
 					if (j <= (route.at(k).x / 10) + 10 && i <= (route.at(k).y / 10) + 10)
+					{
+						check = 0;
+					}
+				}
+			}
+			for (int k = 0; k < nodes.size(); k++)
+			{
+				if (j >= (nodes.at(k)->getxPos() / 10) - 10 && i >= (nodes.at(k)->getyPos() / 10) - 10)
+				{
+					if (j <= (nodes.at(k)->getxPos() / 10) + 10 && i <= (nodes.at(k)->getyPos() / 10) + 10)
 					{
 						check = 0;
 					}

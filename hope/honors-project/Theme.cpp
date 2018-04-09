@@ -49,11 +49,11 @@ void theme::create_Buildings(Type type , int coordx, int coordz)
 		{
 			b->set_Type(Skyscraper);
 		}
-		else if ((type == Village && r <= 70) || (type == Seaside && r <= 75) || (type == Desert && r <= 20))
+		else if ((type == Village && r <= 50) || (type == Seaside && r <= 50) || (type == Desert && r <= 20))
 		{
 			b->set_Type(House);
 		}
-		else if ((type == Village && r >= 95) || (type == Seaside && r >= 80) || (type == Desert && r >= 35) || (type == City && r >= 95))
+		else if ((type == Village && r >= 90) || (type == Seaside && r >= 70) || (type == Desert && r >= 35) || (type == City && r >= 95))
 		{
 			b->set_Type(Barrier);
 		}
