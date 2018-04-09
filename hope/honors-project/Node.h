@@ -40,3 +40,8 @@ class node
 			return(d);
 		}
 };
+
+inline bool operator<(const node & a, const node & b)
+{
+	return a.getWeight() > b.getWeight();
+}

@@ -194,7 +194,7 @@ void Mesh::rectangle()
 
 void Mesh::terrain(std::vector<glm::vec3> positions, std::vector<glm::vec2> tex_coords)
 {
-	const int a = 1000;
+	const int a = 12000;
 	Vertex vertecies[a] = {};
 	unsigned int indexs[a] = {};
 	for (unsigned int i = 0; i <a; i++)

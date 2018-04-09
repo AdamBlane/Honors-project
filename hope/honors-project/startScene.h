@@ -14,8 +14,9 @@
 #include <time.h>
 #include <list>
 #include "geometry.h"
+#include <queue>
 
-
+#include "Node.h"
 #include "Shader.h"
 #include "Mesh.h"
 #include "Texture.h"
@@ -63,6 +64,11 @@ class startScene
 	std::vector <Texture*> Buildings_Tex;
 	std::vector <Transform> Buildings_Trans;
 
+
+	std::vector <Mesh*> HelathPacks;
+	std::vector <Texture*> HelathPacks_Tex;
+	std::vector <Transform> HelathPacks_Trans;
+
 	std::vector <Mesh*> Sides;
 	std::vector <Texture*> Sides_Tex;
 	std::vector <Transform> Sides_Trans;
@@ -76,6 +82,17 @@ class startScene
 	int coordy;
 	int camSpeed;
 	int sides;
+
+
+	std::priority_queue<node> untriedNodes[2]; // list of open (not-yet-tried) nodes
+	std::deque<ivec2> route; //The series of waypoins to be followed
+	int **nodeMap;
+	int **closedNodes; // map of closed (tried-out) nodes
+	int **openNodes; // map of open (not-yet-tried) nodes
+	int **direction; // map of directions
+	int nodeIndex = 0;
+	int directions = 8;
+	
 
 	// Setup scene. Last seed params is optional; = denotes default value
 	// If called from loadGameScene, requires seed value(as string)
