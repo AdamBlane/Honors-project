@@ -6,10 +6,31 @@
 \newblock
   \url{https://www.gamecrate.com/how-popular-overwatch-really-one-year-later/16618}.
 
+\bibitem{Roads}
+{E. Galin, A. Peytavie, N. Maréchal and E. Guérin}.
+\newblock {Procedural Generation of Roads}.
+\newblock
+  \url{https://onlinelibrary.wiley.com/doi/full/10.1111/j.1467-8659.2009.01612.x},
+  2017.
+
 \bibitem{LukeChristou}
 {Luke Christou}.
 \newblock {How do Overwatch League’s early viewing figures compare to the
   world’s biggest sports leagues?}
 \newblock \url{https://www.verdict.co.uk/overwatch-league-viewership/}, 2018.
+
+\bibitem{OpenGL}
+OpenGL.
+\newblock {OpenGL Overview}.
+\newblock \url{https://www.opengl.org/about/}.
+
+\bibitem{Fun}
+{Ricardo Lopes and Rafael Bidarra}.
+\newblock Adaptivity challenges in games and simulations: A survey.
+
+\bibitem{StefanGreut}
+{Stefan Greuter, Jeremy Parker, Nigel Stewart and Geoff Leach}.
+\newblock {Real-time procedural generation of `pseudo infinite' cities}.
+\newblock \url {https://dl.acm.org/citation.cfm?id=604490}.
 
 \end{thebibliography}

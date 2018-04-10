@@ -9,13 +9,15 @@
 \BOOKMARK [2][-]{subsection.2.0.3}{Escort Mission Maps}{subsection.2.0.1}% 9
 \BOOKMARK [2][-]{subsection.2.0.4}{Procedural Generation in Video Games}{subsection.2.0.1}% 10
 \BOOKMARK [2][-]{subsection.2.0.5}{Path-Finding}{subsection.2.0.1}% 11
-\BOOKMARK [2][-]{subsection.2.0.6}{Evaluating Maps}{subsection.2.0.1}% 12
+\BOOKMARK [2][-]{subsection.2.0.6}{Evaluations}{subsection.2.0.1}% 12
 \BOOKMARK [2][-]{subsection.2.0.7}{Related Work}{subsection.2.0.1}% 13
 \BOOKMARK [0][-]{chapter.3}{Methodology}{}% 14
 \BOOKMARK [1][-]{subsection.3.0.1}{Gradient Noise}{chapter.3}% 15
-\BOOKMARK [0][-]{chapter.4}{Implementation}{}% 16
-\BOOKMARK [1][-]{subsection.4.0.1}{Programming Environment}{chapter.4}% 17
-\BOOKMARK [2][-]{subsection.4.0.2}{Theme}{subsection.4.0.1}% 18
-\BOOKMARK [0][-]{chapter.5}{Evaluation}{}% 19
-\BOOKMARK [0][-]{chapter.6}{Conclusion}{}% 20
-\BOOKMARK [0][-]{section*.16}{Appendices}{}% 21
+\BOOKMARK [2][-]{subsection.3.0.2}{Binomial Distribution }{subsection.3.0.1}% 16
+\BOOKMARK [0][-]{chapter.4}{Implementation}{}% 17
+\BOOKMARK [1][-]{subsection.4.0.1}{Programming Environment}{chapter.4}% 18
+\BOOKMARK [2][-]{subsection.4.0.2}{Map Representation}{subsection.4.0.1}% 19
+\BOOKMARK [2][-]{subsection.4.0.3}{Thematics}{subsection.4.0.1}% 20
+\BOOKMARK [0][-]{chapter.5}{Evaluation}{}% 21
+\BOOKMARK [0][-]{chapter.6}{Conclusion}{}% 22
+\BOOKMARK [0][-]{section*.22}{Appendices}{}% 23

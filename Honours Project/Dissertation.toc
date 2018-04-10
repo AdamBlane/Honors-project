@@ -11,18 +11,25 @@
 \contentsline {subsection}{\numberline {2.0.2}Maps}{4}{subsection.2.0.2}
 \contentsline {subsection}{\numberline {2.0.3}Escort Mission Maps}{4}{subsection.2.0.3}
 \contentsline {subsection}{\numberline {2.0.4}Procedural Generation in Video Games}{4}{subsection.2.0.4}
-\contentsline {subsubsection}{Procedurally Generated Maps}{4}{subsubsection*.11}
+\contentsline {subsubsection}{Procedurally Generated Maps}{5}{subsubsection*.11}
 \contentsline {subsection}{\numberline {2.0.5}Path-Finding}{5}{subsection.2.0.5}
 \contentsline {subsubsection}{Dijkstra\IeC {\textquoteright }s Algorithm}{5}{subsubsection*.12}
-\contentsline {subsubsection}{A Star Path-finding (A*)}{5}{subsubsection*.13}
-\contentsline {subsection}{\numberline {2.0.6}Evaluating Maps}{6}{subsection.2.0.6}
-\contentsline {subsection}{\numberline {2.0.7}Related Work}{6}{subsection.2.0.7}
-\contentsline {chapter}{\numberline {3}Methodology}{7}{chapter.3}
-\contentsline {subsection}{\numberline {3.0.1}Gradient Noise}{7}{subsection.3.0.1}
-\contentsline {subsubsection}{Perlin Noise}{7}{subsubsection*.14}
-\contentsline {chapter}{\numberline {4}Implementation}{8}{chapter.4}
-\contentsline {subsection}{\numberline {4.0.1}Programming Environment}{8}{subsection.4.0.1}
-\contentsline {subsection}{\numberline {4.0.2}Theme}{8}{subsection.4.0.2}
-\contentsline {chapter}{\numberline {5}Evaluation}{9}{chapter.5}
-\contentsline {chapter}{\numberline {6}Conclusion}{10}{chapter.6}
-\contentsline {chapter}{Appendices}{12}{section*.16}
+\contentsline {subsubsection}{A Star Path-finding (A*)}{6}{subsubsection*.14}
+\contentsline {subsection}{\numberline {2.0.6}Evaluations}{7}{subsection.2.0.6}
+\contentsline {subsubsection}{Evaluating Maps}{7}{subsubsection*.15}
+\contentsline {subsection}{\numberline {2.0.7}Related Work}{8}{subsection.2.0.7}
+\contentsline {chapter}{\numberline {3}Methodology}{10}{chapter.3}
+\contentsline {subsection}{\numberline {3.0.1}Gradient Noise}{10}{subsection.3.0.1}
+\contentsline {subsubsection}{Perlin Noise}{10}{subsubsection*.16}
+\contentsline {subsection}{\numberline {3.0.2}Binomial Distribution }{10}{subsection.3.0.2}
+\contentsline {chapter}{\numberline {4}Implementation}{11}{chapter.4}
+\contentsline {subsection}{\numberline {4.0.1}Programming Environment}{11}{subsection.4.0.1}
+\contentsline {subsection}{\numberline {4.0.2}Map Representation}{11}{subsection.4.0.2}
+\contentsline {subsection}{\numberline {4.0.3}Thematics}{11}{subsection.4.0.3}
+\contentsline {subsubsection}{City}{11}{subsubsection*.17}
+\contentsline {subsubsection}{Desert}{11}{subsubsection*.18}
+\contentsline {subsubsection}{Village}{11}{subsubsection*.19}
+\contentsline {subsubsection}{Seaside}{11}{subsubsection*.20}
+\contentsline {chapter}{\numberline {5}Evaluation}{12}{chapter.5}
+\contentsline {chapter}{\numberline {6}Conclusion}{13}{chapter.6}
+\contentsline {chapter}{Appendices}{15}{section*.22}

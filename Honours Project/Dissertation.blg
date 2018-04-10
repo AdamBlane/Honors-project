@@ -3,50 +3,50 @@ Capacity: max_strings=100000, hash_size=100000, hash_prime=85009
 The top-level auxiliary file: Dissertation.aux
 The style file: plain.bst
 Database file #1: bibfile.bib
-I was expecting a `,' or a `}'---line 109 of file bibfile.bib
+I was expecting a `,' or a `}'---line 111 of file bibfile.bib
  :     
  :     title = {{Mantle White Paper}},
 (Error may have been on previous line)
 I'm skipping whatever remains of this entry
-You've used 2 entries,
+You've used 6 entries,
             2118 wiz_defined-function locations,
-            508 strings with 4399 characters,
-and the built_in function-call counts, 432 in all, are:
-= -- 39
-> -- 14
+            527 strings with 4929 characters,
+and the built_in function-call counts, 1241 in all, are:
+= -- 113
+> -- 42
 < -- 0
-+ -- 6
-- -- 4
-* -- 13
-:= -- 78
-add.period$ -- 6
-call.type$ -- 2
-change.case$ -- 8
++ -- 18
+- -- 12
+* -- 34
+:= -- 212
+add.period$ -- 17
+call.type$ -- 6
+change.case$ -- 24
 chr.to.int$ -- 0
-cite$ -- 2
-duplicate$ -- 14
-empty$ -- 45
-format.name$ -- 4
-if$ -- 92
+cite$ -- 6
+duplicate$ -- 42
+empty$ -- 133
+format.name$ -- 12
+if$ -- 270
 int.to.chr$ -- 0
-int.to.str$ -- 2
+int.to.str$ -- 6
 missing$ -- 0
-newline$ -- 13
-num.names$ -- 4
-pop$ -- 16
+newline$ -- 32
+num.names$ -- 12
+pop$ -- 48
 preamble$ -- 1
-purify$ -- 6
+purify$ -- 18
 quote$ -- 0
-skip$ -- 15
+skip$ -- 48
 stack$ -- 0
-substring$ -- 10
-swap$ -- 2
+substring$ -- 30
+swap$ -- 6
 text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 8
+type$ -- 24
 warning$ -- 0
-while$ -- 4
-width$ -- 3
-write$ -- 21
+while$ -- 12
+width$ -- 7
+write$ -- 56
 (There was 1 error message)
