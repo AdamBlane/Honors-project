@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/W32TeX) (preloaded format=pdflatex 2017.11.4)  10 APR 2018 06:17
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/W32TeX) (preloaded format=pdflatex 2017.11.4)  10 APR 2018 07:07
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -922,31 +922,27 @@ l.75 \input
 LaTeX Font Info:    Font shape `OT1/phv/bx/n' in size <24.88> not available
 (Font)              Font shape `OT1/phv/b/n' tried instead on input line 95.
 
-(./Dissertation.toc)
+(./Dissertation.toc [4
+
+])
 \tf@toc=\write4
 \openout4 = `Dissertation.toc'.
 
- [4
-
-] (./Dissertation.lot)
+ [5] (./Dissertation.lot)
 \tf@lot=\write5
 \openout5 = `Dissertation.lot'.
 
- [5
+ [6
 
 ] (./Dissertation.lof)
 \tf@lof=\write6
 \openout6 = `Dissertation.lof'.
 
- [6
 
-]
-[7]
+[7
+
+] [8]
 Chapter 1.
-
-Package hyperref Warning: Difference (2) between bookmark levels is greater 
-(hyperref)                than one, level fixed on input line 120.
-
 [1
 
 
@@ -964,10 +960,6 @@ Chapter 2.
 Underfull \hbox (badness 10000) in paragraph at lines 156--159
 
  []
-
-
-Package hyperref Warning: Difference (2) between bookmark levels is greater 
-(hyperref)                than one, level fixed on input line 159.
 
 
 Underfull \hbox (badness 10000) in paragraph at lines 165--168
@@ -991,7 +983,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 182--185
 
  []
 
-<images/Dijsk.png, id=190, 457.71pt x 190.7125pt>
+<images/Dijsk.png, id=262, 457.71pt x 190.7125pt>
 File: images/Dijsk.png Graphic file (type png)
 <use images/Dijsk.png>
 Package pdftex.def Info: images/Dijsk.png  used on input line 192. on input lin
@@ -1010,20 +1002,12 @@ Underfull \hbox (badness 10000) in paragraph at lines 214--217
 
 [7] [8] [9]
 Chapter 3.
-
-Package hyperref Warning: Difference (2) between bookmark levels is greater 
-(hyperref)                than one, level fixed on input line 237.
-
 [10
 
 ]
 Chapter 4.
 
-Package hyperref Warning: Difference (2) between bookmark levels is greater 
-(hyperref)                than one, level fixed on input line 247.
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 248--252
+Underfull \hbox (badness 10000) in paragraph at lines 252--256
 
  []
 
@@ -1054,24 +1038,24 @@ gamecrate . com /
 
 
 ]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 284.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 288.
  [16]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 284.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 288.
  (./Dissertation.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 284.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 284.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 288.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 288.
 Package rerunfilecheck Info: File `Dissertation.out' has not changed.
-(rerunfilecheck)             Checksum: 7CA7D918C60F9CB25CCD375025978348;1502.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 284.
+(rerunfilecheck)             Checksum: 4B1D874C2AD637F301515DD8497C76C4;2289.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 288.
  ) 
 Here is how much of TeX's memory you used:
- 11505 strings out of 492985
- 168959 string characters out of 6136284
+ 11517 strings out of 492985
+ 168962 string characters out of 6136284
  278354 words of memory out of 5000000
- 14801 multiletter control sequences out of 15000+600000
+ 14810 multiletter control sequences out of 15000+600000
  18736 words of font info for 41 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 44i,11n,43p,942b,373s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 44i,12n,43p,942b,369s stack positions out of 5000i,500n,10000p,200000b,80000s
 {d:/texlive/2017/texmf-dist/fonts/enc/dvips/base/8r.enc}<d:/texlive/2017/texm
 f-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb><d:/texlive/2017/texmf-dist/fo
 nts/type1/public/amsfonts/cm/cmmi12.pfb><d:/texlive/2017/texmf-dist/fonts/type1
@@ -1082,10 +1066,10 @@ cmr8.pfb><d:/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
 ve/2017/texmf-dist/fonts/type1/urw/helvetic/uhvb8a.pfb><d:/texlive/2017/texmf-d
 ist/fonts/type1/urw/helvetic/uhvr8a.pfb><d:/texlive/2017/texmf-dist/fonts/type1
 /urw/helvetic/uhvro8a.pfb>
-Output written on Dissertation.pdf (24 pages, 129154 bytes).
+Output written on Dissertation.pdf (25 pages, 131598 bytes).
 PDF statistics:
- 335 PDF objects out of 1000 (max. 8388607)
- 294 compressed objects within 3 object streams
- 79 named destinations out of 1000 (max. 500000)
- 190 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 399 PDF objects out of 1000 (max. 8388607)
+ 356 compressed objects within 4 object streams
+ 82 named destinations out of 1000 (max. 500000)
+ 302 words of extra memory for PDF output out of 10000 (max. 10000000)
 

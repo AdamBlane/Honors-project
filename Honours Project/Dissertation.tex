@@ -117,14 +117,14 @@ Finally I would like to thank the School of Computing for giving me the faciliti
 %INTRO
 \chapter{Introduction}
 From the beginning of the project the objective has been to develop a mathematical equation to evaluate escort mission maps. Then to procedurally generate maps that can successfully follow the evaluation technique created. The dissertation produced underneath documents the work that was involved in achieving this.
-\subsection{Motivation}
+\section{Motivation}
 With video games being one of the largest markets in the world right now, gaming companies must be developing and releasing their games as quickly as possible. If there is any conceivable way for them speed up releasing their games, they should take these approaches.
 \vspace{5mm} 
 \newline  
 One of the biggest genres of games currently is team based shooters. With one of the larger games in the genre being Overwatch with currently over 35 million players worldwide. \href{https://twitter.com/PlayOverwatch/status/919925924769906688}. This genre of game has a very different development cycle to other games relying on continual updates adding new maps and characters to keep players interested and continually playing. To release new maps and characters on a regular basis can be difficult especially if the game has a large competitive scene because the new feature \vspace{5mm} must be fully tested before released.
 \newline  
 With testing new features in games becoming the most time consuming part of the development cycle, companies must look into other ways to streamline the testing of games. In this project one of the possible ways to decrease the time taken to test maps is explored. If companies can use a mathematical formula to test the fairness of maps, rather than the more conventional user based testing which can take up to several weeks, would allow for companies to produce more content in a quicker time frame, generating a greater profit and allowing for better content to be produced in the future. 
-\subsection{Aims and Objectives}
+\section{Aims and Objectives}
 There are two main aims of the project, the first is to create, implement and evaluate an algorithm that assesses escort mission maps once this has been complete, the next aim is to plan and develop a piece of software that can successfully follow the algorithm produced. The objectives below have been selected in order to accomplish these aims.
 \begin{itemize}
 	\item Research relevant topics and papers.
@@ -132,21 +132,21 @@ There are two main aims of the project, the first is to create, implement and ev
 	\item Design an algorithm taking into account size, path of the payload and fairness. 
 	\item Develop a programme that can procedurally generate escort mission maps.	
 \end{itemize}
-\subsection{Scope}
-\subsubsection{Deliverable}
+\section{Scope}
+\subsection{Deliverable}
 The items to be delivered from this project are: An algorithm that can evaluate any escort mission map and inform the user of the strengths and weakness of the map; A C++ program that can procedurally generate maps that can be tested by the algorithm; the results and analysis of the surveys that examine the credibility of the evaluation algorithm.  
-\subsubsection{Boundaries and Constraints}
+\subsection{Boundaries and Constraints}
 When testing a map there are a large amount variables to be evaluated, as time is one of the limiting factors in this project, it was decided that 3 major factors would be tested. They are:
 \begin{itemize}
 	\item The size of the map.
 	\item The quality of the object that will be escorted (payload) path.
 	\item The overall balance\textbackslash fairness of the map 	
 \end{itemize}
-\subsection{Chapter Outlines}
+\section{Chapter Outlines}
 \begin{itemize}
 	\item Background - Discusses the research made into the topic.
 	\item Methodology – States the methods used throughout the implementation process.
-	\item Implementation - Details specific techniques and choices that were made during the 
+	\item Implementation - Details specific techniques and choices that were made during the Implementation phase.
 	\item Results – Displays the results from the tests carried out.
 	\item Conclusion – Summarises results that were collected , assess the successfulness of the data gathered and discusses future work.	
 \end{itemize}
@@ -156,35 +156,35 @@ When testing a map there are a large amount variables to be evaluated, as time i
 In this section, an investigation into escort mission maps and how to evaluate them is presented. Requirements and challenges are presented, and in particular video game maps are examined. Procedural generation one of the main factors of this project is also examined in depth. Finally path-finding and other evaluating techniques is presented, focusing on how to evaluate maps in video games. 
 \vspace{5mm} 
 \newline
-\subsection{Co-operative First Person Shooters}
+\section{Co-operative First Person Shooters}
 First Person Shooters are a large video game genre that have dominated the market for over 20 years with one of the first major titles being Quake in 1996 and other notable series including Call of Duty, Battlefield and Halo, with the objective of the game usually being to get the most eliminations. 
 \vspace{5mm} 
 \newline
 A subsection of this genre is the co-operative first person shooter. This type of game heavily relies on teamwork, with games being won by holding onto an objective or pushing a payload. These games are enjoyable to a wide player base, usually offering a variety of play styles or different characters to use. This attracts a wide player base which translates to a large amount of revenue streams for the company that produced these games; including E-Sports, merchandises and potential Spin-off games. This include Blizzards co-op game Overwatch hitting peak viewer-ship with 441,000 viewers on its English stream during its first day \cite{LukeChristou}
-\subsubsection{Escort Missions}
+\subsection{Escort Missions}
 An escort mission is a game-mode in cooperative first person shooter such as Overwatch and Loadout. In this mode there are two teams, the attacking and the defending team. The two teams have different aims in order to win. The attacking team attempts to escort the payload across the map to an objective while the defending team tries to stop them. It is difficult to pin down the first game to have escort missions. One of the more notable was in 2007 with Team Fortress 2. While it was not originally included in the game it was added in the first free update. It is important to note that the original Team Fortress had a game mode called Escort but this has many differences with its sequel, such as the payload being a controllable player and there being three teams. Other games that use this game mode include Global Agenda and Wolfenstein: Enemy Territory.    
 \vspace{5mm} 
 \newline
-\subsection{Maps}
+\section{Maps}
 In video games, maps are the term used to describe the area that the player can move around in. Different games will have different types of maps depending on how the developer wants the player to play the game. For instance an RPG like Skyrim or The Witcher will usually have a large map for the player to explore the world and find their own path, while other faster paced first person shooters like the Call of Duty franchise might rely on a more linear map to construct the most enjoyable experience for their players. It is very important for a programmer to constantly be planning and evaluating the map they are creating as this will directly affect how enjoyable the game they created is.
 \vspace{5mm} 
 \newline
-\subsection{Escort Mission Maps}
+\section{Escort Mission Maps}
 Escort mission maps are the play areas that escort missions are performed in. Between each game these maps can vary greatly so for this project, the definition of an escort mission map must be stated. The maps must have an attacking and defending spawn area. This is the place where the teams start at the beginning of the match and will return too whenever they die. The map must also have an unobstructed route that runs between the spawns, which the payload will be moved through. This route will be generated using path-finding algorithm which is discussed below.
 \vspace{5mm} 
 \newline 
-\subsection{Procedural Generation in Video Games}
+\section{Procedural Generation in Video Games}
 Typically when a game is being made their is a time constraint as the company will not have the resources to spend a large period of time developing their game. Usually data will have to be created manually which can be very time consuming, however several short-cuts can be made.
 \vspace{5mm} 
 \newline
 Procedural generation is a technique that can be used  to generate data algorithmically and can be used to greatly reduce the time taken for the creation of large systems within the game. This can lead to a less predictable game and can also reduce the memory size of the game. It has been used in several large title such as; an entire galaxy in No Man's Sky and was used in the weapon generation in the very popular Borderlands series.  
-\subsubsection{Procedurally Generated Maps}
+\subsection{Procedurally Generated Maps}
 It is very common in gaming to use procedural generation, as it allows companies to take short-cuts when creating the game, and allows them to focus on more time consuming aspects of the game such as; graphics and game-play. Procedural generation has been used in many video games for a variety of things. This includes weapon generation in the Borderlands series and Spore which uses procedural generation to create animals and evolve them. However the most common use of procedural generation is to create the map. This has been used in many notable games including, Minecraft , No Man’s Sky and Dwarf Fortress. These create huge worlds for the player to roam around in and can allow the map to go on forever. Procedural generation will be used in the project on a much smaller scale then most games to generate the map but it will be used in conjunction with other techniques such as path-finding.  
 \vspace{5mm} 
 \newline
-\subsection{Path-Finding}
+\section{Path-Finding}
 Many games today have implemented an advanced artificial intelligence for a variety of reasons, an important aspect of this path-finding. This is used for a variety of reasons such as enemy’s movement and being used for troop movements in real time strategy games. Path-finding is way for a computer to calculate the shortest route between two points. It does this by searching a graph by starting at one vertex and evaluating the neighbouring nodes. The most common of the path-finding algorithms is Dijkstra's algorithm.	
-\subsubsection{Dijkstra’s Algorithm}
+\subsection{Dijkstra’s Algorithm}
 Published by Edsger W. Dijkstra in 1959, Dijkstra’s algorithm is a way to calculate the shortest path between nodes on a graph. Solving the single-source shortest path problem. Nodes on a graph can represent either a 2-dimensional grid or points in a 3-D space. The most common example of a real life application of Dijkstra’s algorithm is being used in geographical maps to plot the fastest route between two cities, where each city is a node and the roads are associated with a weight. 
 \vspace{2mm} 
 \newline
@@ -193,7 +193,7 @@ Published by Edsger W. Dijkstra in 1959, Dijkstra’s algorithm is a way to calc
 	\caption{A weighted graph of connected nodes}
 \end{figure}
 The algorithm works by initially marking the distance from the starting point to every other vertex on the graph. All nodes are then set to unvisited and are stored  by priority within a queue. The next step would be to compare all unvisited neighbours and calculate the distance to travel between each node. For example, in figure 2.1 below if we are at the node A and wish to travel to node E, first we would look at the neighbouring nodes B and C. If the distance is less than the previous node than we add the current node to the path. Once all neighbouring nodes have been visited the current node is removed from the unvisited set and it will not be checked again. This process retreats until all nodes have been visited. At this time the graph will only contain the shortest paths from the source and a search can begin of the graph to find the shortest route to any node.
-\subsubsection{A Star Path-finding (A*)}
+\subsection{A Star Path-finding (A*)}
 The A* algorithm was first presented in 1968 by Peter E. Hart as an improvement on Nils Nilsson’s A1 algorithm. A1 was designed to be a heuristic approach to increase the speed of Dijkstra’s algorithm invented back in 1964. A* is a search based algorithm that attempts to calculate the most optimal route to a specified goal by travelling through a weighted graph. 
 \vspace{5mm} 
 \newline
@@ -208,13 +208,13 @@ The total cost is used by A* to guide the algorithm towards the goal. At each it
 The two main methods for calculating the heuristic value are Euclidean distance and the Manhattan distance. Euclidean distance uses  Pythagorean Theorem to calculate the distance between the two points. This is the more popular heuristic as it is impossible to incorrectly calculate the value. This is because the shortest path between two points will always be a straight line. The Manhattan distance calculates the distance by discovering the sum of the differences between the two nodes.
 \vspace{5mm} 
 \newline
-\subsection{Evaluations}
+\section{Evaluations}
 The process of evaluation can be done using several different techniques; Formative, Summative, Process and Impact. Formative evaluates the program during the development in order to make early improvements.A summative evaluation is conducted after the programme is released, this can be used to decide whether their should be extra content added or not. Process evaluation is used to determine if specific strategies used in the development cycle were useful and can be used to determine why the game has changed so much. The impact evaluation is a long term assessment to see how the game has affected the market over a long period of time. While the algorithm that is developed during this dissertation could be used for any one of these techniques it was decided that it would be used as a Formative evaluation as the algorithm could aim be most useful at this point because of its speed and real-time applications.  
-\subsubsection{Evaluating Maps}  
+\subsection{Evaluating Maps}  
  The process of evaluating maps can be very difficult. Each map must be tailored to enhance the player experience, while free-roam games aim to make the map as large  possible to encourage player exploration, other games have different priorities. This is especially the case in competitive shooters as the companies main aim to balance the game. This can be very hard as there are many aspects to creating a balanced game. A main part of this can include changing map objectives or reducing the size of the map. Each gaming company has their own private way of balancing these games but usually they will heavily rely on playing the map repeatedly, however this can lead to delayed release dates which can greatly affect the money they make of their game.
 \vspace{5mm} 
 \newline
-\subsection{Related Work}
+\section{Related Work}
 In the past couple of years the popularity of co-operative first person shooters has risen and more games have been using procedural generation. With popular titles such as Stardew Valley and No Man's Sky being released within the past year, however because of how competitive the video game market is these companies keep all their techniques and user data secret. The following documents will present some background on the techniques that are useful in this project.
 \vspace{5mm} 
 \newline
@@ -234,28 +234,32 @@ This function while not highly relevant to the topic of this project did have a 
 A very valuable paper to this project was Ricardo Lopes and Rafaels Bidarra's Adaptivity Challenges in Games and Simulations \cite{Fun}. This paper discusses the importance of adaptivity within games, while explaining that without adaptivity a company can alienate their player base and lose them to other games. While not the main focus of the article Lopes and Bidarra dedicate a section to game worlds. They reference many interesting investigations that researchers are currently conducting into procedural generating maps with a focus on giving more control to designers. Including the CityEngine which allows users to control the generation of a modern 3-D city.   ---------
 %METHODologhy
 \chapter{Methodology}
-\subsection{Gradient Noise}
+This chapter details the methods which will be used in the implementation stage. An overview will be provided of the techniques that were used and 
+\section{Gradient Noise}
 Gradient noise is a form of noise that is used to procedurally generate a texture 
-\subsubsection{Perlin Noise}
-\subsection{Binomial Distribution }
+\subsection{Perlin Noise}
 Perlin Noise was created 
+\section{Binomial Distribution }
+\section{A* Modifications}
+\section{Height Mapping}
+
 %IMPLEMENTATION
 \chapter{Implementation}
 This section contains an in depth description of both the creation of the evaluation algorithm and the implementation of the procedurally generated co-operative first person shooter map. We will present the thematic choices that were made to optimize the successfulness of the map generation and the graphical choices such as height mapping that were made to easily visualize the map that was generated. To ensure the successfulness of both of the deliverables a survey was created that would allow the algorithm to be tested against users.
 \vspace{5mm} 
 
-\subsection{Programming Environment}
+\section{Programming Environment}
 The applications were developed using Visual Studio 2017 Ultimate (Microsoft
 2017) with the algorithm and application being written in C++. The graphics framework that was used was a combination of OpenGl and GLM \cite{OpenGL}. This allowed easy graphic manipulation which was important as it allowed more time to be spent on other aspects of the project.Through adding a header file that was imported from Github that already contained the Perlin noise algorithm within it, this helped with the exporting of image files that made it possible to easily view the terrain that had been generated. The survey was created using Microsoft Word to simplify the editing process for the users.  
 \vspace{5mm} 
 \newline
-\subsection{Map Representation}
+\section{Map Representation}
 
-\subsection{Thematics}
-\subsubsection{City}
-\subsubsection{Desert}
-\subsubsection{Village}
-\subsubsection{Seaside}
+\section{Thematics}
+\subsection{City}
+\subsection{Desert}
+\subsection{Village}
+\subsection{Seaside}
 %EVALUATION
 \chapter{Evaluation}
 Evaluation rubbish goes here
