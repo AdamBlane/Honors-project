@@ -1,13 +1,7 @@
 1. finsih disertation
 2.create poster
 3.print poster 
-4.add terrain
-5 update textures 
-6 finsh a*
-7. create algorithim
-8. add health packs
-9 research  health pack placement 
-10 . create survey
-11 use firends to comlete survey 
-12 creae graphs for poster
+4 update textures 
+5. create algorithim
+6 creae graphs for poster
 

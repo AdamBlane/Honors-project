@@ -234,11 +234,14 @@ This function while not highly relevant to the topic of this project did have a 
 A very valuable paper to this project was Ricardo Lopes and Rafaels Bidarra's Adaptivity Challenges in Games and Simulations \cite{Fun}. This paper discusses the importance of adaptivity within games, while explaining that without adaptivity a company can alienate their player base and lose them to other games. While not the main focus of the article Lopes and Bidarra dedicate a section to game worlds. They reference many interesting investigations that researchers are currently conducting into procedural generating maps with a focus on giving more control to designers. Including the CityEngine which allows users to control the generation of a modern 3-D city.   ---------
 %METHODologhy
 \chapter{Methodology}
-This chapter details the methods which will be used in the implementation stage. An overview will be provided of the techniques that were used and 
+This chapter details the methods which will be used in the implementation stage. An overview will be provided of the techniques that were used and a discussion will be held on the representation that is used to display the survey along with the metrics that were used to measure the results.
 \section{Gradient Noise}
-Gradient noise is a form of noise that is used to procedurally generate a texture 
+To begin generating the texture that would be turned into the height map it was chosen that the dissertation would use gradient noise to accomplish this task. While other generation techniques such as value generation were considered. Value generation creates noise by computing a random gradient within the grid and then surrounding neighbouring pixels with similar pixels using linear interpolation. Gradient was chosen because value generation has no zero at the point of value and is considered by many to not look as appealing because filling the neighbouring pixels causes the noise to look very similar without much difference.
+\vspace{5mm} 
+\newline
+Gradient noise is a form of noise that is used to procedurally generate a texture. It accomplishes this similarly to value generation by generating random uniform white noise. However To calculate the surrounding pixels gradient noise uses the dot product of the gradient and which differs from the other ways of generating noises and allows more control for the programmer which was what was needed for this project because of the later edition that will be made to the texture that was generated. The next section discusses why Perlin noise was chosen over other alternatives. 
 \subsection{Perlin Noise}
-Perlin Noise was created 
+There
 \section{Binomial Distribution }
 \section{A* Modifications}
 \section{Height Mapping}
@@ -247,7 +250,7 @@ Perlin Noise was created
 \chapter{Implementation}
 This section contains an in depth description of both the creation of the evaluation algorithm and the implementation of the procedurally generated co-operative first person shooter map. We will present the thematic choices that were made to optimize the successfulness of the map generation and the graphical choices such as height mapping that were made to easily visualize the map that was generated. To ensure the successfulness of both of the deliverables a survey was created that would allow the algorithm to be tested against users.
 \vspace{5mm} 
-
+\newline
 \section{Programming Environment}
 The applications were developed using Visual Studio 2017 Ultimate (Microsoft
 2017) with the algorithm and application being written in C++. The graphics framework that was used was a combination of OpenGl and GLM \cite{OpenGL}. This allowed easy graphic manipulation which was important as it allowed more time to be spent on other aspects of the project.Through adding a header file that was imported from Github that already contained the Perlin noise algorithm within it, this helped with the exporting of image files that made it possible to easily view the terrain that had been generated. The survey was created using Microsoft Word to simplify the editing process for the users.  
@@ -256,6 +259,7 @@ The applications were developed using Visual Studio 2017 Ultimate (Microsoft
 \section{Map Representation}
 
 \section{Thematics}
+
 \subsection{City}
 \subsection{Desert}
 \subsection{Village}
