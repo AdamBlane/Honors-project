@@ -157,7 +157,7 @@ In this section, an investigation into escort mission maps and how to evaluate t
 \vspace{5mm} 
 \newline
 \section{Co-operative First Person Shooters}
-First Person Shooters are a large video game genre that have dominated the market for over 20 years with one of the first major titles being Quake in 1996 and other notable series including Call of Duty, Battlefield and Halo, with the objective of the game usually being to get the most eliminations. 
+Th with one of the first major titles being Quake in 1996 and other notable series including Call of Duty, Battlefield and Halo, with the objective of the game usually being to get the most eliminations. 
 \vspace{5mm} 
 \newline
 A subsection of this genre is the co-operative first person shooter. This type of game heavily relies on teamwork, with games being won by holding onto an objective or pushing a payload. These games are enjoyable to a wide player base, usually offering a variety of play styles or different characters to use. This attracts a wide player base which translates to a large amount of revenue streams for the company that produced these games; including E-Sports, merchandises and potential Spin-off games. This include Blizzards co-op game Overwatch hitting peak viewer-ship with 441,000 viewers on its English stream during its first day \cite{LukeChristou}
@@ -188,7 +188,7 @@ Many games today have implemented an advanced artificial intelligence for a vari
 Published by Edsger W. Dijkstra in 1959, Dijkstra’s algorithm is a way to calculate the shortest path between nodes on a graph. Solving the single-source shortest path problem. Nodes on a graph can represent either a 2-dimensional grid or points in a 3-D space. The most common example of a real life application of Dijkstra’s algorithm is being used in geographical maps to plot the fastest route between two cities, where each city is a node and the roads are associated with a weight. 
 \vspace{2mm} 
 \newline
-\begin{figure}
+\begin{figure}[h]
 	\includegraphics[width=\linewidth]{images/Dijsk.png}
 	\caption{A weighted graph of connected nodes}
 \end{figure}
@@ -208,8 +208,8 @@ The total cost is used by A* to guide the algorithm towards the goal. At each it
 The two main methods for calculating the heuristic value are Euclidean distance and the Manhattan distance. Euclidean distance uses  Pythagorean Theorem to calculate the distance between the two points. This is the more popular heuristic as it is impossible to incorrectly calculate the value. This is because the shortest path between two points will always be a straight line. The Manhattan distance calculates the distance by discovering the sum of the differences between the two nodes.
 \vspace{5mm} 
 \newline
-\section{Evaluations}
-The process of evaluation can be done using several different techniques; Formative, Summative, Process and Impact. Formative evaluates the program during the development in order to make early improvements.A summative evaluation is conducted after the programme is released, this can be used to decide whether their should be extra content added or not. Process evaluation is used to determine if specific strategies used in the development cycle were useful and can be used to determine why the game has changed so much. The impact evaluation is a long term assessment to see how the game has affected the market over a long period of time. While the algorithm that is developed during this dissertation could be used for any one of these techniques it was decided that it would be used as a Formative evaluation as the algorithm could aim be most useful at this point because of its speed and real-time applications.  
+\section{Evaluation}
+An evaluation is part of the development cycle where the company judges how well the company is doing. It is a very important stage in the development cycle that if performed wrong can seriously damage the company. The process of evaluation can be done using several different techniques; Formative, Summative, Process and Impact. Formative evaluates the program during the development in order to make early improvements.A summative evaluation is conducted after the programme is released, this can be used to decide whether their should be extra content added or not. Process evaluation is used to determine if specific strategies used in the development cycle were useful and can be used to determine why the game has changed so much. The impact evaluation is a long term assessment to see how the game has affected the market over a long period of time. While the algorithm that is developed during this dissertation could be used for any one of these techniques it was decided that it would be used as a Formative evaluation as the algorithm could aim be most useful at this point because of its speed and real-time applications.  
 \subsection{Evaluating Maps}  
  The process of evaluating maps can be very difficult. Each map must be tailored to enhance the player experience, while free-roam games aim to make the map as large  possible to encourage player exploration, other games have different priorities. This is especially the case in competitive shooters as the companies main aim to balance the game. This can be very hard as there are many aspects to creating a balanced game. A main part of this can include changing map objectives or reducing the size of the map. Each gaming company has their own private way of balancing these games but usually they will heavily rely on playing the map repeatedly, however this can lead to delayed release dates which can greatly affect the money they make of their game.
 \vspace{5mm} 
@@ -239,13 +239,61 @@ This chapter details the methods which will be used in the implementation stage.
 To begin generating the texture that would be turned into the height map it was chosen that the dissertation would use gradient noise to accomplish this task. While other generation techniques such as value generation were considered. Value generation creates noise by computing a random gradient within the grid and then surrounding neighbouring pixels with similar pixels using linear interpolation. Gradient was chosen because value generation has no zero at the point of value and is considered by many to not look as appealing because filling the neighbouring pixels causes the noise to look very similar without much difference.
 \vspace{5mm} 
 \newline
-Gradient noise is a form of noise that is used to procedurally generate a texture. It accomplishes this similarly to value generation by generating random uniform white noise. However To calculate the surrounding pixels gradient noise uses the dot product of the gradient and which differs from the other ways of generating noises and allows more control for the programmer which was what was needed for this project because of the later edition that will be made to the texture that was generated. The next section discusses why Perlin noise was chosen over other alternatives. 
+Gradient noise is a form of noise that is used to procedurally generate a texture. It accomplishes this similarly to value generation by generating random uniform white noise. However To calculate the surrounding pixels gradient noise uses the dot product of the gradient and which differs from the other ways of generating noises and allows more control for the programmer which was what was needed for this project because of the later edition that will be made to the texture that was generated. 
 \subsection{Perlin Noise}
-There
+Perlin noise was first developed in 1983 by Ken Perlin after he became annoyed with processed graphics that occurred at the time, we would later release a second paper improving on his original algorithm in 2002 \cite{Noise}. Since then it has been one of the most common forms of gradient noise, Perlin noise has many uses in computer graphics including blending textures together and generating difficult to render objects such as fire and smoke. The form of Perlin noise that was used during this project was from a GitHub user named Reputeless and his source code is explained below. ------------------------
+\vspace{5mm} 
+\newline
+The X,Y,Z calculate the grid cell co-ordinates that contain the point. The next step is to find the relative point of x,y,z by subtracting the floor of each value. From this point it the algorithm will calculate the weight of the interpolation needed by performing the fade function. at this point the 8 points of the cube must be hashed out, once this has been completed the weights of the interpolation are lerped together and the noise is exported. 
 \section{Binomial Distribution }
+During the creation of the application it was quickly discovered that truly random map generation would never work as it likely hood of the map being completely unusable and would not pass the evaluation algorithm. To surpass this problem binomial distribution was used.
+\begin{figure}[h]
+	\includegraphics[width=1.0\textwidth]{images/binomial.png}
+	\caption{A Binomial-Distribution Graph}
+\end{figure}
+\vspace{5mm} 
+\newline
+As shown above in figure 3.2, binomial distribution allows the probability of the central numbers to occur much more likely than the numbers that occur the further away from the median you travel. This was important to use within the project to greatly increase the chance of the map generator to producing a successful map. 
+\vspace{5mm} 
+\newline
 \section{A* Modifications}
-\section{Height Mapping}
-
+As described in section 2.5 A* algorithm was used in the map generation. This was to calculate the path that the payload travelled, however several modifications were made to the heuristic weight that was placed on each node. The reason for this was during the re-search into existing co-operative first person shooter maps\cite{Overwa}, a trend within each map was discovered each payload did not head along the shortest path. Instead it was down to the time which the payload took to reach each checkpoint. With the minimum time the payload took to complete each checkpoint being within five seconds of a minute. This changed the aim of the algorithm to not calculate the quickest route value but route which came closet to taking a minute to complete with the algorithm reflecting this change.
+\vspace{5mm} 
+\newline
+\section{Height-mapping}
+To easily visualize the maps that would be generated it was important to create a 3-D object from the noise generation. To do this a height-mapping would be used. Generating a mesh from a height map-----------------------  
+\section{Evaluation Algorithm}
+The first  stage of developing the evaluation algorithm was to state limits on equation, for this it was decided that the best result that the equation could produce was zero with the number getting larger the worse the map was. The equation was spilt into three parts each measuring a different aspect to the map. These were Size,Path and Balance once each was calculated the algorithm would add the values togethr to create a final map rating.   
+\subsection{Size}
+There were some difficulties when it came to designing the maps this was because the size of map is largely an arbitrary number which is highly depend on how quickly the player can cross the map. This lead the formula to be adapted from the physics formula: distance equals velocity multiplied by time. The final formula that was used was:  
+\begin{equation}
+\frac{(E(t)  - \frac{d}{v_c}))^2}{k}
+\end{equation} 
+Where  \(E(t) =\) the ideal time taken to complete the map which in this case was 60 seconds.
+ \(\frac{d}{v_c}  =\) distance divided by time, this was calculated by applying Pythagoras theorem to the square to calculate the hypotenuse which equalled the distance and the velocity which equalled the players speed. If \((E(t)  - \frac{d}{v_c}) =\) was a negative this would shown the map was too big, while a positive number would relay a map that was too small. The equation was then squared to remove the negative and create the number that could be added to the final result. \(k \) became a constant that the user could choose to control the result by whichever aspect was more important to the user,for this project the constant was valued at 50;
+\subsection{Path}
+The path algorithm uses the exact same formula as the size formula however the values change slightly as the player's velocity is no longer evaluated and in their place is the payload that would be escorted's velocity. Also \(E(t) \) has changed to better reflect the speed of the payload which moves much slower than the player. this is represented by a \(_p \) character. Similarly to size equation a negative value lets the user know that the payload's path is too long but this is removed in the final equation. The constant for the path also rated at 50 as it was valued at a similar importance to the size of the map.  
+\subsection{Balance}
+The balance equation was far more complicated than the other aspects of the equation as it is difficult to quantify what a balanced map is. To represent this several objects were spawned into the map including buildings and health packs and their value calculated.
+\begin{equation}
+\frac{(\sum(\frac{o_a  w}{d}) - \sum(\frac{o_d w}{d})) ^2}{k_3} 
+\end{equation}
+In this equation \(o\) represents the objects of impact in the scene. These are split between where or not they spawn on the attacking (\(o_a\)) or defending(\(o_d\)) side of the map with at this point they are multiplied by the heuristic weight (\(w\)). This is calculated by how important the object is to game, ie health packs would have a much higher weight than a barrier. This value is then divided by distance(\(d\)) away from spawn of each team and added together with all other objects that exist. This value is also squared to remove the negative that could exist if the the defending team has an unfair advantage. In this instance the third constant was much lower than the other constants at 25 as fairness was concluded to be the most important factor of those being tested.
+\subsection{Final Algorithm}
+Once these three equation were combined they resulted in the final evaluation algorithm being equal to:  
+\begin{equation}
+\frac{(E(t_c)  - \frac{d_c}{v_c}))^2}{k_1} + \frac{(E(t_p)  - \frac{d_p}{v_p}))^2}{k_2} + \frac{(\sum(\frac{o_a  w}{d}) - \sum(\frac{o_d w}{d})) ^2}{k_3} 
+\end{equation} 
+This equation was then applied to the maps that were generated.
+\section{Survey}
+The survey was created following the guidelines discussed in SL McLafferty's book; Key methods in geography\cite{Geog}. While this might not be considered relevant to computer graphics it does state very useful guidelines to follow when creating a survey including:
+\begin{itemize}
+\item Keep questions simple.
+\item Remove jargon.
+\item Avoid long and complex questions.
+\item Avoid biased and emotionally charged questions.
+\end{itemize}
+Using these guidelines a survey was created whit 6 questions that involved participants looking at a series of maps and answering questions based on their own background in playing co-operative fist person shooters. Once enough survey were to be filled out the results would be aggregated.    
 %IMPLEMENTATION
 \chapter{Implementation}
 This section contains an in depth description of both the creation of the evaluation algorithm and the implementation of the procedurally generated co-operative first person shooter map. We will present the thematic choices that were made to optimize the successfulness of the map generation and the graphical choices such as height mapping that were made to easily visualize the map that was generated. To ensure the successfulness of both of the deliverables a survey was created that would allow the algorithm to be tested against users.
@@ -253,25 +301,111 @@ This section contains an in depth description of both the creation of the evalua
 \newline
 \section{Programming Environment}
 The applications were developed using Visual Studio 2017 Ultimate (Microsoft
-2017) with the algorithm and application being written in C++. The graphics framework that was used was a combination of OpenGl and GLM \cite{OpenGL}. This allowed easy graphic manipulation which was important as it allowed more time to be spent on other aspects of the project.Through adding a header file that was imported from Github that already contained the Perlin noise algorithm within it, this helped with the exporting of image files that made it possible to easily view the terrain that had been generated. The survey was created using Microsoft Word to simplify the editing process for the users.  
+2017) with the algorithm and application being written in C++. The graphics framework that was used was a combination of OpenGl and GLM \cite{OpenGL}. This allowed easy graphic manipulation which was important as it allowed more time to be spent on other aspects of the project.Through adding a header file that was imported from Github that already contained the Perlin noise algorithm within it, this helped with the exporting of image files that made it possible to easily view the terrain that had been generated. The survey was created using Microsoft Word to simplify the editing process for the users.  Version control was used during this project though GitHub which allowed easy access to the dissertation from anywhere.
 \vspace{5mm} 
 \newline
 \section{Map Representation}
-
+As outlined in section 3.4 the terrain of the map would be mapped out using height mapping, however each node of the path, building and other map features had to be represented in the scene as well. To do this each object was represented by a cubiod mesh in the scene with its own texture to be able to differentiate between them. As it was not possible to show participants in the survey the 3-D model another way to represent the map had to be devised.
+\begin{figure}[h]
+	\includegraphics[width=\linewidth]{images/4.png}
+	\caption{One of the generated map presented in the survey}
+\end{figure}
+\vspace{5mm} 
+\newline 
+ As shown in the figure above, this was the way the maps were shown to participants in the survey. They were also shown the key which explained that white nodes were the path of the payloads path, grey square were health packs and black square were buildings and objects. Participants were also told that the attacking team spawned at the top right corner, while the defending team spawned on the opposite bottom left corner.
 \section{Thematics}
-
+To provide some variety between the maps, A system was designed that would apply a theme to each map that was generated that would allow different play styles to occur and each map theme would differ in the chance of different buildings to spawn. The four different buildings that could occur were; Skyscrapers, Houses, Cars and Barriers. The theme of the map also affected other parts of the map such as the spawning location of health packs which could spawn within a building changing the importance of that building by a large amount. The spawn rates are as follows: 
+\vspace{5mm} 
+\newline 
+\begin{tabular}{ |p{3cm}||p{2cm}|p{2cm}|p{2cm}|p{2cm}|  }
+	\hline
+	Theme& Skyscraper &Houses&Cars & Barriers\\
+	\hline
+	City   & 80\%    &0\% &   15\% & 5\%\\
+	Desert & 0\%    &20\% &   15\% & 65\%\\
+	Village &0\%    &50\% &   40\% & 10\%\\
+	Seaside  &0\%    &50\% &   20\% &30\%\\
+	\hline
+\end{tabular} 
+\vspace{5mm} 
+\newline
+The next sections detail other differences between the themes and the type of play style it attempts to replicate. 
 \subsection{City}
+The City theme was designed to add a large amount of verticality to the 
 \subsection{Desert}
 \subsection{Village}
 \subsection{Seaside}
-%EVALUATION
-\chapter{Evaluation}
-Evaluation rubbish goes here
 
+%EVALUATION
+\chapter{Results}
+Three maps from the generated were evaluated by both participants in the survey and the evaluation algorithm ar 
+\section {Map 1}
+\subsection{Survey Result}
+\subsubsection{Map Size}
+\begin{figure}[h]
+	\includegraphics[width=1.0\textwidth]{images/Size1.png}
+	\caption{Survey Data on Map Size}
+\end{figure}
+\subsubsection{Route}
+\begin{figure}[h]
+	\includegraphics[width=1.0\textwidth]{images/Route1.png}
+	\caption{Survey Data on Map Size}
+\end{figure}
+\subsubsection{Fairness}
+\begin{figure}[h]
+	\includegraphics[width=1.0\textwidth]{images/Fair1.png}
+	\caption{Survey Data on Map Size}
+\end{figure}
+\subsection{Evaluation Algorithm Result}
+\section {Map 2}
+\subsection{Survey Result}
+\subsubsection{Map Size}
+\begin{figure}[h]
+	\includegraphics[width=1.0\textwidth]{images/Size2.png}
+	\caption{Survey Data on Map Size}
+\end{figure}
+\subsubsection{Route}
+\begin{figure}[h]
+	\includegraphics[width=1.0\textwidth]{images/Route2.png}
+	\caption{Survey Data on Map Size}
+\end{figure}
+\subsubsection{Fairness}
+\begin{figure}[h]
+	\includegraphics[width=1.0\textwidth]{images/Fair2.png}
+	\caption{Survey Data on Map Size}
+\end{figure}
+\subsection{Evaluation Algorithm Result}
+\section {Map 3}
+\subsubsection{Map Size}
+\begin{figure}[h]
+	\includegraphics[width=1.0\textwidth]{images/Size3.png}
+	\caption{Survey Data on Map Size}
+\end{figure}
+\subsubsection{Route}
+\begin{figure}[h]
+	\includegraphics[width=1.0\textwidth]{images/Route3.png}
+	\caption{Survey Data on Map Size}
+\end{figure}
+\subsubsection{Fairness}
+\begin{figure}[h]
+	\includegraphics[width=1.0\textwidth]{images/Fair3.png}
+	\caption{Survey Data on Map Size}
+\end{figure}
+\subsection{Evaluation Algorithm Result}
 %CONCLUSION
 \chapter{Conclusion}
-Conclusion rubbish goes here
-
+\section{Discussion of Results}
+\section{Fulfilment of Aims and Objectives}
+This project has resulted in successful implementation of a procedural map generator that adheres to the  aims and 
+\section{Future Work}
+The procedural map generator could benefit greatly from several optimizations, firstly it could successfully be integrated with a parallelization techniques such as OpenMP or CUDA to speed up the time taken to generate the Perlin's noise or A* algorithm which both take a large time to create. 
+\vspace{5mm} 
+\newline
+Another improvement that could be made could be to implement individual models for the objects that reside in the scene because of the lack of knowledge for creating these models in MAYA or blender, however this could add a great extra aspect to the 3-D scene that was created.
+\vspace{5mm} 
+\newline
+The evaluation algorithm could also benefit from several optimizations, while the algorithm was purposely created to be open ended, different parts of the map could be tested such as the choke points   
+\section{Critical Assessment of Project} 
 \newpage
 
 \bibliographystyle{plain}

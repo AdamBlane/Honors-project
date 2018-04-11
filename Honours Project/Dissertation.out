@@ -15,7 +15,7 @@
 \BOOKMARK [1][-]{section.2.5}{Path-Finding}{chapter.2}% 15
 \BOOKMARK [2][-]{subsection.2.5.1}{Dijkstra\220s Algorithm}{section.2.5}% 16
 \BOOKMARK [2][-]{subsection.2.5.2}{A Star Path-finding \(A*\)}{section.2.5}% 17
-\BOOKMARK [1][-]{section.2.6}{Evaluations}{chapter.2}% 18
+\BOOKMARK [1][-]{section.2.6}{Evaluation}{chapter.2}% 18
 \BOOKMARK [2][-]{subsection.2.6.1}{Evaluating Maps}{section.2.6}% 19
 \BOOKMARK [1][-]{section.2.7}{Related Work}{chapter.2}% 20
 \BOOKMARK [0][-]{chapter.3}{Methodology}{}% 21
@@ -23,15 +23,33 @@
 \BOOKMARK [2][-]{subsection.3.1.1}{Perlin Noise}{section.3.1}% 23
 \BOOKMARK [1][-]{section.3.2}{Binomial Distribution }{chapter.3}% 24
 \BOOKMARK [1][-]{section.3.3}{A* Modifications}{chapter.3}% 25
-\BOOKMARK [1][-]{section.3.4}{Height Mapping}{chapter.3}% 26
-\BOOKMARK [0][-]{chapter.4}{Implementation}{}% 27
-\BOOKMARK [1][-]{section.4.1}{Programming Environment}{chapter.4}% 28
-\BOOKMARK [1][-]{section.4.2}{Map Representation}{chapter.4}% 29
-\BOOKMARK [1][-]{section.4.3}{Thematics}{chapter.4}% 30
-\BOOKMARK [2][-]{subsection.4.3.1}{City}{section.4.3}% 31
-\BOOKMARK [2][-]{subsection.4.3.2}{Desert}{section.4.3}% 32
-\BOOKMARK [2][-]{subsection.4.3.3}{Village}{section.4.3}% 33
-\BOOKMARK [2][-]{subsection.4.3.4}{Seaside}{section.4.3}% 34
-\BOOKMARK [0][-]{chapter.5}{Evaluation}{}% 35
-\BOOKMARK [0][-]{chapter.6}{Conclusion}{}% 36
-\BOOKMARK [0][-]{section*.10}{Appendices}{}% 37
+\BOOKMARK [1][-]{section.3.4}{Height-mapping}{chapter.3}% 26
+\BOOKMARK [1][-]{section.3.5}{Evaluation Algorithm}{chapter.3}% 27
+\BOOKMARK [2][-]{subsection.3.5.1}{Size}{section.3.5}% 28
+\BOOKMARK [2][-]{subsection.3.5.2}{Path}{section.3.5}% 29
+\BOOKMARK [2][-]{subsection.3.5.3}{Balance}{section.3.5}% 30
+\BOOKMARK [2][-]{subsection.3.5.4}{Final Algorithm}{section.3.5}% 31
+\BOOKMARK [1][-]{section.3.6}{Survey}{chapter.3}% 32
+\BOOKMARK [0][-]{chapter.4}{Implementation}{}% 33
+\BOOKMARK [1][-]{section.4.1}{Programming Environment}{chapter.4}% 34
+\BOOKMARK [1][-]{section.4.2}{Map Representation}{chapter.4}% 35
+\BOOKMARK [1][-]{section.4.3}{Thematics}{chapter.4}% 36
+\BOOKMARK [2][-]{subsection.4.3.1}{City}{section.4.3}% 37
+\BOOKMARK [2][-]{subsection.4.3.2}{Desert}{section.4.3}% 38
+\BOOKMARK [2][-]{subsection.4.3.3}{Village}{section.4.3}% 39
+\BOOKMARK [2][-]{subsection.4.3.4}{Seaside}{section.4.3}% 40
+\BOOKMARK [0][-]{chapter.5}{Results}{}% 41
+\BOOKMARK [1][-]{section.5.1}{Map 1}{chapter.5}% 42
+\BOOKMARK [2][-]{subsection.5.1.1}{Survey Result}{section.5.1}% 43
+\BOOKMARK [2][-]{subsection.5.1.2}{Evaluation Algorithm Result}{section.5.1}% 44
+\BOOKMARK [1][-]{section.5.2}{Map 2}{chapter.5}% 45
+\BOOKMARK [2][-]{subsection.5.2.1}{Survey Result}{section.5.2}% 46
+\BOOKMARK [2][-]{subsection.5.2.2}{Evaluation Algorithm Result}{section.5.2}% 47
+\BOOKMARK [1][-]{section.5.3}{Map 3}{chapter.5}% 48
+\BOOKMARK [2][-]{subsection.5.3.1}{Evaluation Algorithm Result}{section.5.3}% 49
+\BOOKMARK [0][-]{chapter.6}{Conclusion}{}% 50
+\BOOKMARK [1][-]{section.6.1}{Discussion of Results}{chapter.6}% 51
+\BOOKMARK [1][-]{section.6.2}{Fulfilment of Aims and Objectives}{chapter.6}% 52
+\BOOKMARK [1][-]{section.6.3}{Future Work}{chapter.6}% 53
+\BOOKMARK [1][-]{section.6.4}{Critical Assessment of Project}{chapter.6}% 54
+\BOOKMARK [0][-]{section*.30}{Appendices}{}% 55

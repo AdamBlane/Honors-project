@@ -6,6 +6,13 @@
 \newblock
   \url{https://www.gamecrate.com/how-popular-overwatch-really-one-year-later/16618}.
 
+\bibitem{Overwa}
+{Blizzard}.
+\newblock {Overwatch}.
+\newblock
+  \url{https://eu.shop.battle.net/en-gb/product/overwatch?utm_term=overwatch&adv.n=Blizzard%20United%20Kingdom&utm_source=google&utm_medium=cpc&utm_content=31246011160&utm_campaign=MEC_397454200&gclid=CjwKCAjwwbHWBRBWEiwAMIV7Ez9I8rybnlaKt47oPJBnPGqyO2LmnnTPfgxsVfiEfY62ILuAk6xgshoCUTkQAvD_BwE},
+  2016.
+
 \bibitem{Roads}
 {E. Galin, A. Peytavie, N. Maréchal and E. Guérin}.
 \newblock {Procedural Generation of Roads}.
@@ -13,11 +20,21 @@
   \url{https://onlinelibrary.wiley.com/doi/full/10.1111/j.1467-8659.2009.01612.x},
   2017.
 
+\bibitem{Noise}
+{Gordon Mah Ung}.
+\newblock {Improving noise}.
+\newblock \url{https://dl.acm.org/citation.cfm?id=566636}, 2002.
+
 \bibitem{LukeChristou}
 {Luke Christou}.
 \newblock {How do Overwatch League’s early viewing figures compare to the
   world’s biggest sports leagues?}
 \newblock \url{https://www.verdict.co.uk/overwatch-league-viewership/}, 2018.
+
+\bibitem{Geog}
+SL~McLafferty.
+\newblock Conducting questionnaire surveys.
+\newblock Technical report.
 
 \bibitem{OpenGL}
 OpenGL.

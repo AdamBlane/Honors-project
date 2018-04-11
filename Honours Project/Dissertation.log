@@ -1,12 +1,14 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6350 64-bit) (preloaded format=pdflatex 2018.4.7)  10 APR 2018 15:25
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/W32TeX) (preloaded format=pdflatex 2017.11.4)  11 APR 2018 07:58
 entering extended mode
+ restricted \write18 enabled.
+ %&-line parsing enabled.
 **./Dissertation.tex
-(Dissertation.tex
+(./Dissertation.tex
 LaTeX2e <2017-04-15>
-Babel <3.10> and hyphenation patterns for 75 language(s) loaded.
-("C:\Program Files\MiKTeX 2.9\tex\latex\base\book.cls"
+Babel <3.15> and hyphenation patterns for 84 language(s) loaded.
+(d:/texlive/2017/texmf-dist/tex/latex/base/book.cls
 Document Class: book 2014/09/29 v1.4h Standard LaTeX document class
-("C:\Program Files\MiKTeX 2.9\tex\latex\base\bk12.clo"
+(d:/texlive/2017/texmf-dist/tex/latex/base/bk12.clo
 File: bk12.clo 2014/09/29 v1.4h Standard LaTeX file (size option)
 )
 \c@part=\count79
@@ -22,21 +24,21 @@ File: bk12.clo 2014/09/29 v1.4h Standard LaTeX file (size option)
 \belowcaptionskip=\skip42
 \bibindent=\dimen102
 )
-("C:\Program Files\MiKTeX 2.9\tex\latex\geometry\geometry.sty"
+(d:/texlive/2017/texmf-dist/tex/latex/geometry/geometry.sty
 Package: geometry 2010/09/12 v5.6 Page Geometry
 
-("C:\Program Files\MiKTeX 2.9\tex\latex\graphics\keyval.sty"
+(d:/texlive/2017/texmf-dist/tex/latex/graphics/keyval.sty
 Package: keyval 2014/10/28 v1.15 key=value parser (DPC)
 \KV@toks@=\toks14
 )
-("C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\ifpdf.sty"
+(d:/texlive/2017/texmf-dist/tex/generic/oberdiek/ifpdf.sty
 Package: ifpdf 2017/03/15 v3.2 Provides the ifpdf switch
 )
-("C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\ifvtex.sty"
+(d:/texlive/2017/texmf-dist/tex/generic/oberdiek/ifvtex.sty
 Package: ifvtex 2016/05/16 v1.6 Detect VTeX and its facilities (HO)
 Package ifvtex Info: VTeX not detected.
 )
-("C:\Program Files\MiKTeX 2.9\tex\generic\ifxetex\ifxetex.sty"
+(d:/texlive/2017/texmf-dist/tex/generic/ifxetex/ifxetex.sty
 Package: ifxetex 2010/09/12 v0.6 Provides ifxetex conditional
 )
 \Gm@cnth=\count88
@@ -51,9 +53,8 @@ Package: ifxetex 2010/09/12 v0.6 Provides ifxetex conditional
 \Gm@layouthoffset=\dimen109
 \Gm@layoutvoffset=\dimen110
 \Gm@dimlist=\toks15
-
-("C:\Program Files\MiKTeX 2.9\tex\latex\geometry\geometry.cfg"))
-("C:\Program Files\MiKTeX 2.9\tex\latex\titlesec\titlesec.sty"
+)
+(d:/texlive/2017/texmf-dist/tex/latex/titlesec/titlesec.sty
 Package: titlesec 2016/03/21 v2.10.2 Sectioning titles
 \ttl@box=\box26
 \beforetitleunit=\skip43
@@ -65,7 +66,7 @@ Package: titlesec 2016/03/21 v2.10.2 Sectioning titles
 \titlewidthlast=\dimen114
 \titlewidthfirst=\dimen115
 )
-("C:\Program Files\MiKTeX 2.9\tex\latex\fancyhdr\fancyhdr.sty"
+(d:/texlive/2017/texmf-dist/tex/latex/fancyhdr/fancyhdr.sty
 Package: fancyhdr 2017/06/30 v3.9a Extensive control of page headers and footer
 s
 \f@nch@headwidth=\skip45
@@ -78,19 +79,19 @@ s
 \f@nch@O@olf=\skip52
 \f@nch@O@orf=\skip53
 )
-("C:\Program Files\MiKTeX 2.9\tex\latex\base\inputenc.sty"
+(d:/texlive/2017/texmf-dist/tex/latex/base/inputenc.sty
 Package: inputenc 2015/03/17 v1.2c Input encoding file
 \inpenc@prehook=\toks17
 \inpenc@posthook=\toks18
 
-("C:\Program Files\MiKTeX 2.9\tex\latex\base\utf8.def"
+(d:/texlive/2017/texmf-dist/tex/latex/base/utf8.def
 File: utf8.def 2017/01/28 v1.1t UTF-8 support for inputenc
 Now handling font encoding OML ...
 ... no UTF-8 mapping file for font encoding OML
 Now handling font encoding T1 ...
 ... processing UTF-8 mapping file for font encoding T1
 
-("C:\Program Files\MiKTeX 2.9\tex\latex\base\t1enc.dfu"
+(d:/texlive/2017/texmf-dist/tex/latex/base/t1enc.dfu
 File: t1enc.dfu 2017/01/28 v1.1t UTF-8 support for inputenc
    defining Unicode char U+00A0 (decimal 160)
    defining Unicode char U+00A1 (decimal 161)
@@ -331,7 +332,7 @@ File: t1enc.dfu 2017/01/28 v1.1t UTF-8 support for inputenc
 Now handling font encoding OT1 ...
 ... processing UTF-8 mapping file for font encoding OT1
 
-("C:\Program Files\MiKTeX 2.9\tex\latex\base\ot1enc.dfu"
+(d:/texlive/2017/texmf-dist/tex/latex/base/ot1enc.dfu
 File: ot1enc.dfu 2017/01/28 v1.1t UTF-8 support for inputenc
    defining Unicode char U+00A0 (decimal 160)
    defining Unicode char U+00A1 (decimal 161)
@@ -372,7 +373,7 @@ File: ot1enc.dfu 2017/01/28 v1.1t UTF-8 support for inputenc
 Now handling font encoding OMS ...
 ... processing UTF-8 mapping file for font encoding OMS
 
-("C:\Program Files\MiKTeX 2.9\tex\latex\base\omsenc.dfu"
+(d:/texlive/2017/texmf-dist/tex/latex/base/omsenc.dfu
 File: omsenc.dfu 2017/01/28 v1.1t UTF-8 support for inputenc
    defining Unicode char U+00A7 (decimal 167)
    defining Unicode char U+00B6 (decimal 182)
@@ -396,36 +397,28 @@ Now handling font encoding U ...
    defining Unicode char U+2122 (decimal 8482)
    defining Unicode char U+2423 (decimal 9251)
 ))
-("C:\Program Files\MiKTeX 2.9\tex\latex\graphics\graphicx.sty"
-Package: graphicx 2014/10/28 v1.0g Enhanced LaTeX Graphics (DPC,SPQR)
+(d:/texlive/2017/texmf-dist/tex/latex/graphics/graphicx.sty
+Package: graphicx 2017/06/01 v1.1a Enhanced LaTeX Graphics (DPC,SPQR)
 
-("C:\Program Files\MiKTeX 2.9\tex\latex\graphics\graphics.sty"
-Package: graphics 2017/04/14 v1.1b Standard LaTeX Graphics (DPC,SPQR)
+(d:/texlive/2017/texmf-dist/tex/latex/graphics/graphics.sty
+Package: graphics 2017/06/25 v1.2c Standard LaTeX Graphics (DPC,SPQR)
 
-("C:\Program Files\MiKTeX 2.9\tex\latex\graphics\trig.sty"
+(d:/texlive/2017/texmf-dist/tex/latex/graphics/trig.sty
 Package: trig 2016/01/03 v1.10 sin cos tan (DPC)
 )
-("C:\Program Files\MiKTeX 2.9\tex\latex\graphics-cfg\graphics.cfg"
+(d:/texlive/2017/texmf-dist/tex/latex/graphics-cfg/graphics.cfg
 File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
 )
 Package graphics Info: Driver file: pdftex.def on input line 99.
 
-("C:\Program Files\MiKTeX 2.9\tex\latex\graphics-def\pdftex.def"
-File: pdftex.def 2017/01/12 v0.06k Graphics/color for pdfTeX
-
-("C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\infwarerr.sty"
-Package: infwarerr 2016/05/16 v1.4 Providing info/warning/error messages (HO)
-)
-("C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\ltxcmds.sty"
-Package: ltxcmds 2016/05/16 v1.23 LaTeX kernel commands for general use (HO)
-)
-\Gread@gobject=\count91
+(d:/texlive/2017/texmf-dist/tex/latex/graphics-def/pdftex.def
+File: pdftex.def 2017/06/24 v1.0g Graphics/color driver for pdftex
 ))
 \Gin@req@height=\dimen116
 \Gin@req@width=\dimen117
 )
-("C:\Program Files\MiKTeX 2.9\tex\latex\booktabs\booktabs.sty"
-Package: booktabs 2005/04/14 v1.61803 publication quality tables
+(d:/texlive/2017/texmf-dist/tex/latex/booktabs/booktabs.sty
+Package: booktabs 2016/04/27 v1.618033 publication quality tables
 \heavyrulewidth=\dimen118
 \lightrulewidth=\dimen119
 \cmidrulewidth=\dimen120
@@ -436,15 +429,15 @@ Package: booktabs 2005/04/14 v1.61803 publication quality tables
 \cmidrulesep=\dimen125
 \cmidrulekern=\dimen126
 \defaultaddspace=\dimen127
-\@cmidla=\count92
-\@cmidlb=\count93
+\@cmidla=\count91
+\@cmidlb=\count92
 \@aboverulesep=\dimen128
 \@belowrulesep=\dimen129
-\@thisruleclass=\count94
-\@lastruleclass=\count95
+\@thisruleclass=\count93
+\@lastruleclass=\count94
 \@thisrulewidth=\dimen130
 )
-("C:\Program Files\MiKTeX 2.9\tex\latex\tools\array.sty"
+(d:/texlive/2017/texmf-dist/tex/latex/tools/array.sty
 Package: array 2016/10/06 v2.4d Tabular extension package (FMi)
 \col@sep=\dimen131
 \extrarowheight=\dimen132
@@ -452,7 +445,7 @@ Package: array 2016/10/06 v2.4d Tabular extension package (FMi)
 \extratabsurround=\skip54
 \backup@length=\skip55
 )
-("C:\Program Files\MiKTeX 2.9\tex\latex\paralist\paralist.sty"
+(d:/texlive/2017/texmf-dist/tex/latex/paralist/paralist.sty
 Package: paralist 2017/01/22 v2.7 Extended list environments
 \pltopsep=\skip56
 \plpartopsep=\skip57
@@ -460,19 +453,19 @@ Package: paralist 2017/01/22 v2.7 Extended list environments
 \plparsep=\skip59
 \pl@lab=\toks20
 )
-("C:\Program Files\MiKTeX 2.9\tex\latex\tools\verbatim.sty"
+(d:/texlive/2017/texmf-dist/tex/latex/tools/verbatim.sty
 Package: verbatim 2014/10/28 v1.5q LaTeX2e package for verbatim enhancements
 \every@verbatim=\toks21
 \verbatim@line=\toks22
 \verbatim@in@stream=\read1
 )
-("C:\Program Files\MiKTeX 2.9\tex\latex\subfig\subfig.sty"
+(d:/texlive/2017/texmf-dist/tex/latex/subfig/subfig.sty
 Package: subfig 2005/06/28 ver: 1.3 subfig package
 
-("C:\Program Files\MiKTeX 2.9\tex\latex\caption\caption.sty"
+(d:/texlive/2017/texmf-dist/tex/latex/caption/caption.sty
 Package: caption 2016/02/21 v3.3-144 Customizing captions (AR)
 
-("C:\Program Files\MiKTeX 2.9\tex\latex\caption\caption3.sty"
+(d:/texlive/2017/texmf-dist/tex/latex/caption/caption3.sty
 Package: caption3 2016/05/22 v1.7-166 caption3 kernel (AR)
 Package caption3 Info: TeX engine: e-TeX on input line 67.
 \captionmargin=\dimen133
@@ -483,57 +476,63 @@ Package caption3 Info: TeX engine: e-TeX on input line 67.
 \caption@parindent=\dimen138
 \caption@hangindent=\dimen139
 )
-\c@ContinuedFloat=\count96
+\c@ContinuedFloat=\count95
 )
-\c@KVtest=\count97
+\c@KVtest=\count96
 \sf@farskip=\skip60
 \sf@captopadj=\dimen140
 \sf@capskip=\skip61
 \sf@nearskip=\skip62
-\c@subfigure=\count98
-\c@subfigure@save=\count99
-\c@lofdepth=\count100
-\c@subtable=\count101
-\c@subtable@save=\count102
-\c@lotdepth=\count103
+\c@subfigure=\count97
+\c@subfigure@save=\count98
+\c@lofdepth=\count99
+\c@subtable=\count100
+\c@subtable@save=\count101
+\c@lotdepth=\count102
 \sf@top=\skip63
 \sf@bottom=\skip64
 )
-("C:\Program Files\MiKTeX 2.9\tex\latex\appendix\appendix.sty"
+(d:/texlive/2017/texmf-dist/tex/latex/appendix/appendix.sty
 Package: appendix 2009/09/02 v1.2b extra appendix facilities
-\c@@pps=\count104
-\c@@ppsavesec=\count105
-\c@@ppsaveapp=\count106
+\c@@pps=\count103
+\c@@ppsavesec=\count104
+\c@@ppsaveapp=\count105
 )
-("C:\Program Files\MiKTeX 2.9\tex\latex\pdfpages\pdfpages.sty"
+(d:/texlive/2017/texmf-dist/tex/latex/pdfpages/pdfpages.sty
 Package: pdfpages 2017/10/31 v0.5l Insert pages of external PDF documents (AM)
 
-("C:\Program Files\MiKTeX 2.9\tex\latex\base\ifthen.sty"
+(d:/texlive/2017/texmf-dist/tex/latex/base/ifthen.sty
 Package: ifthen 2014/09/29 v1.1c Standard LaTeX ifthen package (DPC)
 )
-("C:\Program Files\MiKTeX 2.9\tex\latex\tools\calc.sty"
+(d:/texlive/2017/texmf-dist/tex/latex/tools/calc.sty
 Package: calc 2014/10/28 v4.3 Infix arithmetic (KKT,FJ)
-\calc@Acount=\count107
-\calc@Bcount=\count108
+\calc@Acount=\count106
+\calc@Bcount=\count107
 \calc@Adimen=\dimen141
 \calc@Bdimen=\dimen142
 \calc@Askip=\skip65
 \calc@Bskip=\skip66
 LaTeX Info: Redefining \setlength on input line 80.
 LaTeX Info: Redefining \addtolength on input line 81.
-\calc@Ccount=\count109
+\calc@Ccount=\count108
 \calc@Cskip=\skip67
 )
-("C:\Program Files\MiKTeX 2.9\tex\latex\eso-pic\eso-pic.sty"
+(d:/texlive/2017/texmf-dist/tex/latex/eso-pic/eso-pic.sty
 Package: eso-pic 2015/07/21 v2.0g eso-pic (RN)
 
-("C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\atbegshi.sty"
+(d:/texlive/2017/texmf-dist/tex/generic/oberdiek/atbegshi.sty
 Package: atbegshi 2016/06/09 v1.18 At begin shipout hook (HO)
+
+(d:/texlive/2017/texmf-dist/tex/generic/oberdiek/infwarerr.sty
+Package: infwarerr 2016/05/16 v1.4 Providing info/warning/error messages (HO)
 )
-("C:\Program Files\MiKTeX 2.9\tex\latex\xcolor\xcolor.sty"
+(d:/texlive/2017/texmf-dist/tex/generic/oberdiek/ltxcmds.sty
+Package: ltxcmds 2016/05/16 v1.23 LaTeX kernel commands for general use (HO)
+))
+(d:/texlive/2017/texmf-dist/tex/latex/xcolor/xcolor.sty
 Package: xcolor 2016/05/11 v2.12 LaTeX color extensions (UK)
 
-("C:\Program Files\MiKTeX 2.9\tex\latex\graphics-cfg\color.cfg"
+(d:/texlive/2017/texmf-dist/tex/latex/graphics-cfg/color.cfg
 File: color.cfg 2016/01/02 v1.6 sample color configuration
 )
 Package xcolor Info: Driver file: pdftex.def on input line 225.
@@ -550,79 +549,79 @@ Package xcolor Info: Model `wave' substituted by `hsb' on input line 1371.
 \AM@pagewidth=\dimen143
 \AM@pageheight=\dimen144
 
-("C:\Program Files\MiKTeX 2.9\tex\latex\pdfpages\pppdftex.def"
+(d:/texlive/2017/texmf-dist/tex/latex/pdfpages/pppdftex.def
 File: pppdftex.def 2017/10/31 v0.5l Pdfpages driver for pdfTeX (AM)
 )
 \AM@pagebox=\box27
 \AM@global@opts=\toks23
 \AM@toc@title=\toks24
-\c@AM@survey=\count110
+\c@AM@survey=\count109
 \AM@templatesizebox=\box28
 )
-("C:\Program Files\MiKTeX 2.9\tex\latex\listings\listings.sty"
-\lst@mode=\count111
+(d:/texlive/2017/texmf-dist/tex/latex/listings/listings.sty
+\lst@mode=\count110
 \lst@gtempboxa=\box29
 \lst@token=\toks25
-\lst@length=\count112
+\lst@length=\count111
 \lst@currlwidth=\dimen145
-\lst@column=\count113
-\lst@pos=\count114
+\lst@column=\count112
+\lst@pos=\count113
 \lst@lostspace=\dimen146
 \lst@width=\dimen147
-\lst@newlines=\count115
-\lst@lineno=\count116
+\lst@newlines=\count114
+\lst@lineno=\count115
 \lst@maxwidth=\dimen148
 
-("C:\Program Files\MiKTeX 2.9\tex\latex\listings\lstmisc.sty"
+(d:/texlive/2017/texmf-dist/tex/latex/listings/lstmisc.sty
 File: lstmisc.sty 2015/06/04 1.6 (Carsten Heinz)
-\c@lstnumber=\count117
-\lst@skipnumbers=\count118
+\c@lstnumber=\count116
+\lst@skipnumbers=\count117
 \lst@framebox=\box30
 )
-("C:\Program Files\MiKTeX 2.9\tex\latex\listings\listings.cfg"
+(d:/texlive/2017/texmf-dist/tex/latex/listings/listings.cfg
 File: listings.cfg 2015/06/04 1.6 listings configuration
 ))
 Package: listings 2015/06/04 1.6 (Carsten Heinz)
 
-("C:\Program Files\MiKTeX 2.9\tex\latex\setspace\setspace.sty"
+(d:/texlive/2017/texmf-dist/tex/latex/setspace/setspace.sty
 Package: setspace 2011/12/19 v6.7a set line spacing
 )
-("C:\Program Files\MiKTeX 2.9\tex\latex\psnfss\helvet.sty"
+(d:/texlive/2017/texmf-dist/tex/latex/psnfss/helvet.sty
 Package: helvet 2005/04/12 PSNFSS-v9.2a (WaS) 
 )
-("C:\Program Files\MiKTeX 2.9\tex\latex\mathtools\mathtools.sty"
-Package: mathtools 2018/01/08 v1.21 mathematical typesetting tools
+(d:/texlive/2017/texmf-dist/tex/latex/mathtools/mathtools.sty
+Package: mathtools 2017/10/30 v1.20 mathematical typesetting tools
 
-("C:\Program Files\MiKTeX 2.9\tex\latex\mathtools\mhsetup.sty"
+(d:/texlive/2017/texmf-dist/tex/latex/mathtools/mhsetup.sty
 Package: mhsetup 2017/03/31 v1.3 programming setup (MH)
 )
-("C:\Program Files\MiKTeX 2.9\tex\latex\amsmath\amsmath.sty"
-Package: amsmath 2016/11/05 v2.16a AMS math features
+(d:/texlive/2017/texmf-dist/tex/latex/amsmath/amsmath.sty
+Package: amsmath 2017/09/02 v2.17a AMS math features
 \@mathmargin=\skip68
 
 For additional information on amsmath, use the `?' option.
-("C:\Program Files\MiKTeX 2.9\tex\latex\amsmath\amstext.sty"
+(d:/texlive/2017/texmf-dist/tex/latex/amsmath/amstext.sty
 Package: amstext 2000/06/29 v2.01 AMS text
 
-("C:\Program Files\MiKTeX 2.9\tex\latex\amsmath\amsgen.sty"
+(d:/texlive/2017/texmf-dist/tex/latex/amsmath/amsgen.sty
 File: amsgen.sty 1999/11/30 v2.0 generic functions
 \@emptytoks=\toks26
 \ex@=\dimen149
 ))
-("C:\Program Files\MiKTeX 2.9\tex\latex\amsmath\amsbsy.sty"
+(d:/texlive/2017/texmf-dist/tex/latex/amsmath/amsbsy.sty
 Package: amsbsy 1999/11/29 v1.2d Bold Symbols
 \pmbraise@=\dimen150
 )
-("C:\Program Files\MiKTeX 2.9\tex\latex\amsmath\amsopn.sty"
+(d:/texlive/2017/texmf-dist/tex/latex/amsmath/amsopn.sty
 Package: amsopn 2016/03/08 v2.02 operator names
 )
-\inf@bad=\count119
+\inf@bad=\count118
 LaTeX Info: Redefining \frac on input line 213.
-\uproot@=\count120
-\leftroot@=\count121
+\uproot@=\count119
+\leftroot@=\count120
 LaTeX Info: Redefining \overline on input line 375.
-\classnum@=\count122
-\DOTSCASE@=\count123
+\classnum@=\count121
+\DOTSCASE@=\count122
 LaTeX Info: Redefining \ldots on input line 472.
 LaTeX Info: Redefining \dots on input line 475.
 LaTeX Info: Redefining \cdots on input line 596.
@@ -631,15 +630,15 @@ LaTeX Info: Redefining \cdots on input line 596.
 \big@size=\dimen151
 LaTeX Font Info:    Redeclaring font encoding OML on input line 712.
 LaTeX Font Info:    Redeclaring font encoding OMS on input line 713.
-\macc@depth=\count124
-\c@MaxMatrixCols=\count125
+\macc@depth=\count123
+\c@MaxMatrixCols=\count124
 \dotsspace@=\muskip10
-\c@parentequation=\count126
-\dspbrk@lvl=\count127
+\c@parentequation=\count125
+\dspbrk@lvl=\count126
 \tag@help=\toks27
-\row@=\count128
-\column@=\count129
-\maxfields@=\count130
+\row@=\count127
+\column@=\count128
+\maxfields@=\count129
 \andhelp@=\toks28
 \eqnshift@=\dimen152
 \alignsep@=\dimen153
@@ -658,7 +657,7 @@ LaTeX Info: Thecontrolsequence`\('isalreadyrobust on input line 129.
 LaTeX Info: Thecontrolsequence`\)'isalreadyrobust on input line 129.
 LaTeX Info: Thecontrolsequence`\['isalreadyrobust on input line 129.
 LaTeX Info: Thecontrolsequence`\]'isalreadyrobust on input line 129.
-\g_MT_multlinerow_int=\count131
+\g_MT_multlinerow_int=\count130
 \l_MT_multwidth_dim=\dimen158
 \origjot=\skip71
 \l_MT_shortvdotswithinadjustabove_dim=\dimen159
@@ -668,14 +667,14 @@ LaTeX Info: Thecontrolsequence`\]'isalreadyrobust on input line 129.
 \l_MT_above_shortintertext_sep=\dimen163
 \l_MT_below_shortintertext_sep=\dimen164
 )
-("C:\Program Files\MiKTeX 2.9\tex\latex\hyperref\hyperref.sty"
+(d:/texlive/2017/texmf-dist/tex/latex/hyperref/hyperref.sty
 Package: hyperref 2017/03/14 v6.85a Hypertext links for LaTeX
 
-("C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\hobsub-hyperref.sty"
+(d:/texlive/2017/texmf-dist/tex/generic/oberdiek/hobsub-hyperref.sty
 Package: hobsub-hyperref 2016/05/16 v1.14 Bundle oberdiek, subset hyperref (HO)
 
 
-("C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\hobsub-generic.sty"
+(d:/texlive/2017/texmf-dist/tex/generic/oberdiek/hobsub-generic.sty
 Package: hobsub-generic 2016/05/16 v1.14 Bundle oberdiek, subset generic (HO)
 Package: hobsub 2016/05/16 v1.14 Construct package bundles (HO)
 Package hobsub Info: Skipping package `infwarerr' (already loaded).
@@ -714,24 +713,24 @@ Package hobsub Info: Skipping package `atbegshi' (already loaded).
 Package: refcount 2016/05/16 v3.5 Data extraction from label references (HO)
 Package: hycolor 2016/05/16 v1.8 Color options for hyperref/bookmark (HO)
 )
-("C:\Program Files\MiKTeX 2.9\tex\latex\oberdiek\auxhook.sty"
+(d:/texlive/2017/texmf-dist/tex/latex/oberdiek/auxhook.sty
 Package: auxhook 2016/05/16 v1.4 Hooks for auxiliary files (HO)
 )
-("C:\Program Files\MiKTeX 2.9\tex\latex\oberdiek\kvoptions.sty"
+(d:/texlive/2017/texmf-dist/tex/latex/oberdiek/kvoptions.sty
 Package: kvoptions 2016/05/16 v3.12 Key value format for package options (HO)
 )
 \@linkdim=\dimen165
-\Hy@linkcounter=\count132
-\Hy@pagecounter=\count133
+\Hy@linkcounter=\count131
+\Hy@pagecounter=\count132
 
-("C:\Program Files\MiKTeX 2.9\tex\latex\hyperref\pd1enc.def"
+(d:/texlive/2017/texmf-dist/tex/latex/hyperref/pd1enc.def
 File: pd1enc.def 2017/03/14 v6.85a Hyperref: PDFDocEncoding definition (HO)
 Now handling font encoding PD1 ...
 ... no UTF-8 mapping file for font encoding PD1
 )
-\Hy@SavedSpaceFactor=\count134
+\Hy@SavedSpaceFactor=\count133
 
-("C:\Program Files\MiKTeX 2.9\tex\latex\00miktex\hyperref.cfg"
+(d:/texlive/2017/texmf-dist/tex/latex/latexconfig/hyperref.cfg
 File: hyperref.cfg 2002/06/06 v1.2 hyperref configuration of TeXLive
 )
 Package hyperref Info: Hyper figures OFF on input line 4498.
@@ -741,15 +740,15 @@ Package hyperref Info: Plain pages OFF on input line 4513.
 Package hyperref Info: Backreferencing OFF on input line 4518.
 Package hyperref Info: Implicit mode ON; LaTeX internals redefined.
 Package hyperref Info: Bookmarks ON on input line 4751.
-\c@Hy@tempcnt=\count135
+\c@Hy@tempcnt=\count134
 
-("C:\Program Files\MiKTeX 2.9\tex\latex\url\url.sty"
+(d:/texlive/2017/texmf-dist/tex/latex/url/url.sty
 \Urlmuskip=\muskip11
 Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
 )
 LaTeX Info: Redefining \url on input line 5104.
 \XeTeXLinkMargin=\dimen166
-\Fld@menulength=\count136
+\Fld@menulength=\count135
 \Field@Width=\dimen167
 \Fld@charsize=\dimen168
 Package hyperref Info: Hyper figures OFF on input line 6358.
@@ -761,19 +760,19 @@ Package hyperref Info: Link coloring with OCG OFF on input line 6383.
 Package hyperref Info: PDF/A mode OFF on input line 6388.
 LaTeX Info: Redefining \ref on input line 6428.
 LaTeX Info: Redefining \pageref on input line 6432.
-\Hy@abspage=\count137
-\c@Item=\count138
-\c@Hfootnote=\count139
+\Hy@abspage=\count136
+\c@Item=\count137
+\c@Hfootnote=\count138
 )
 
 Package hyperref Message: Driver (autodetected): hpdftex.
 
-("C:\Program Files\MiKTeX 2.9\tex\latex\hyperref\hpdftex.def"
+(d:/texlive/2017/texmf-dist/tex/latex/hyperref/hpdftex.def
 File: hpdftex.def 2017/03/14 v6.85a Hyperref driver for pdfTeX
-\Fld@listcount=\count140
-\c@bookmark@seq@number=\count141
+\Fld@listcount=\count139
+\c@bookmark@seq@number=\count140
 
-("C:\Program Files\MiKTeX 2.9\tex\latex\oberdiek\rerunfilecheck.sty"
+(d:/texlive/2017/texmf-dist/tex/latex/oberdiek/rerunfilecheck.sty
 Package: rerunfilecheck 2016/05/16 v1.8 Rerun checks for auxiliary files (HO)
 Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
 82.
@@ -782,7 +781,7 @@ Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
 )
 Package hyperref Info: Option `colorlinks' set `false' on input line 31.
 
-(Dissertation.aux)
+(./Dissertation.aux)
 \openout1 = `Dissertation.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 66.
@@ -800,7 +799,7 @@ LaTeX Font Info:    ... okay on input line 66.
 LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 66.
 LaTeX Font Info:    ... okay on input line 66.
 LaTeX Font Info:    Try loading font information for OT1+phv on input line 66.
- ("C:\Program Files\MiKTeX 2.9\tex\latex\psnfss\ot1phv.fd"
+ (d:/texlive/2017/texmf-dist/tex/latex/psnfss/ot1phv.fd
 File: ot1phv.fd 2001/06/04 scalable font definitions for OT1/phv.
 )
 *geometry* driver: auto-detecting
@@ -837,32 +836,36 @@ File: ot1phv.fd 2001/06/04 scalable font definitions for OT1/phv.
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-("C:\Program Files\MiKTeX 2.9\tex\context\base\supp-pdf.mkii"
+(d:/texlive/2017/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count142
+\scratchcounter=\count141
 \scratchdimen=\dimen169
 \scratchbox=\box33
-\nofMPsegments=\count143
-\nofMParguments=\count144
+\nofMPsegments=\count142
+\nofMParguments=\count143
 \everyMPshowfont=\toks31
-\MPscratchCnt=\count145
+\MPscratchCnt=\count144
 \MPscratchDim=\dimen170
-\MPnumerator=\count146
-\makeMPintoPDFobject=\count147
+\MPnumerator=\count145
+\makeMPintoPDFobject=\count146
 \everyMPtoPDFconversion=\toks32
-) ("C:\Program Files\MiKTeX 2.9\tex\latex\oberdiek\epstopdf-base.sty"
+) (d:/texlive/2017/texmf-dist/tex/latex/oberdiek/epstopdf-base.sty
 Package: epstopdf-base 2016/05/15 v2.6 Base part for package epstopdf
 
-("C:\Program Files\MiKTeX 2.9\tex\latex\oberdiek\grfext.sty"
+(d:/texlive/2017/texmf-dist/tex/latex/oberdiek/grfext.sty
 Package: grfext 2016/05/16 v1.2 Manage graphics extensions (HO)
 )
 Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
 38.
 Package grfext Info: Graphics extension search list:
-(grfext)             [.png,.pdf,.jpg,.mps,.jpeg,.jbig2,.jb2,.PNG,.PDF,.JPG,.JPE
+(grfext)             [.pdf,.png,.jpg,.mps,.jpeg,.jbig2,.jb2,.PDF,.PNG,.JPG,.JPE
 G,.JBIG2,.JB2,.eps]
 (grfext)             \AppendGraphicsExtensions on input line 456.
-)
+
+(d:/texlive/2017/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
+File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
+e
+))
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: subfig package v1.3 is loaded.
 Package caption Info: hyperref package is loaded.
@@ -870,34 +873,34 @@ Package caption Info: listings package is loaded.
 Package caption Info: End \AtBeginDocument code.
 \AtBeginShipoutBox=\box34
 
-("C:\Program Files\MiKTeX 2.9\tex\latex\oberdiek\pdflscape.sty"
+(d:/texlive/2017/texmf-dist/tex/latex/oberdiek/pdflscape.sty
 Package: pdflscape 2016/05/14 v0.11 Display of landscape pages in PDF (HO)
 
-("C:\Program Files\MiKTeX 2.9\tex\latex\graphics\lscape.sty"
+(d:/texlive/2017/texmf-dist/tex/latex/graphics/lscape.sty
 Package: lscape 2000/10/22 v3.01 Landscape Pages (DPC)
 )
 Package pdflscape Info: Auto-detected driver: pdftex on input line 81.
 )
-\c@lstlisting=\count148
+\c@lstlisting=\count147
 Package hyperref Info: Link coloring OFF on input line 66.
 
-("C:\Program Files\MiKTeX 2.9\tex\latex\hyperref\nameref.sty"
+(d:/texlive/2017/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2016/05/21 v2.44 Cross-referencing by name of section
 
-("C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\gettitlestring.sty"
+(d:/texlive/2017/texmf-dist/tex/generic/oberdiek/gettitlestring.sty
 Package: gettitlestring 2016/05/16 v1.5 Cleanup title references (HO)
 )
-\c@section@level=\count149
+\c@section@level=\count148
 )
 LaTeX Info: Redefining \ref on input line 66.
 LaTeX Info: Redefining \pageref on input line 66.
 LaTeX Info: Redefining \nameref on input line 66.
 
-(Dissertation.out) (Dissertation.out)
+(./Dissertation.out) (./Dissertation.out)
 \@outlinefile=\write3
 \openout3 = `Dissertation.out'.
 
- (Dissertation-Title.tex
+ (./Dissertation-Title.tex
 LaTeX Font Info:    Font shape `OT1/phv/bx/n' in size <17.28> not available
 (Font)              Font shape `OT1/phv/b/n' tried instead on input line 7.
 LaTeX Font Info:    Font shape `OT1/phv/m/it' in size <14.4> not available
@@ -906,7 +909,8 @@ LaTeX Font Info:    Font shape `OT1/phv/m/it' in size <14.4> not available
 
 
 
-{C:/ProgramData/MiKTeX/2.9/pdftex/config/pdftex.map}]) (Dissertation-Dec.tex
+{d:/texlive/2017/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]) (./Dissertatio
+n-Dec.tex
 LaTeX Font Info:    Font shape `OT1/phv/bx/n' in size <12> not available
 (Font)              Font shape `OT1/phv/b/n' tried instead on input line 2.
 )pdfTeX warning (ext4): destination with the same identifier (name{page.i}) has
@@ -914,30 +918,30 @@ LaTeX Font Info:    Font shape `OT1/phv/bx/n' in size <12> not available
 <to be read again> 
                    \relax 
 l.75 \input
-           {./Dissertation-DP.tex} [1] (Dissertation-DP.tex) [2] [3]
+           {./Dissertation-DP.tex} [1] (./Dissertation-DP.tex) [2] [3]
 LaTeX Font Info:    Font shape `OT1/phv/bx/n' in size <24.88> not available
 (Font)              Font shape `OT1/phv/b/n' tried instead on input line 95.
 
-(Dissertation.toc [4
+(./Dissertation.toc [4
 
 ])
 \tf@toc=\write4
 \openout4 = `Dissertation.toc'.
 
- [5] (Dissertation.lot)
+ [5] (./Dissertation.lot)
 \tf@lot=\write5
 \openout5 = `Dissertation.lot'.
 
  [6
 
-] (Dissertation.lof)
+] (./Dissertation.lof)
 \tf@lof=\write6
 \openout6 = `Dissertation.lof'.
 
- [7
 
-]
-[8]
+[7
+
+] [8]
 Chapter 1.
 [1
 
@@ -945,7 +949,7 @@ Chapter 1.
 ]
 LaTeX Font Info:    Try loading font information for OMS+phv on input line 130.
 
- ("C:\Program Files\MiKTeX 2.9\tex\latex\psnfss\omsphv.fd"
+ (d:/texlive/2017/texmf-dist/tex/latex/psnfss/omsphv.fd
 File: omsphv.fd 
 )
 LaTeX Font Info:    Font shape `OMS/phv/m/n' in size <12> not available
@@ -974,16 +978,22 @@ Underfull \hbox (badness 10000) in paragraph at lines 173--176
 
  []
 
-[4]
+
 Underfull \hbox (badness 10000) in paragraph at lines 182--185
 
  []
 
-<images/Dijsk.png, id=260, 457.71pt x 190.7125pt>
+[4]
+<images/Dijsk.png, id=375, 457.71pt x 190.7125pt>
 File: images/Dijsk.png Graphic file (type png)
- <use images/Dijsk.png>
-Package pdftex.def Info: images/Dijsk.png used on input line 192.
-(pdftex.def)             Requested size: 441.01773pt x 183.76576pt.
+<use images/Dijsk.png>
+Package pdftex.def Info: images/Dijsk.png  used on input line 192. on input lin
+e 192.
+Package pdftex.def Info: Requested size: 441.01773pt x 183.76576pt on input lin
+e 192.
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
 
 [5]
 Underfull \hbox (badness 10000) in paragraph at lines 201--211
@@ -1000,28 +1010,151 @@ Chapter 3.
 [10
 
 ]
+<images/binomial.png, id=416, 722.7pt x 397.485pt>
+File: images/binomial.png Graphic file (type png)
+<use images/binomial.png>
+Package pdftex.def Info: images/binomial.png  used on input line 251. on input 
+line 251.
+Package pdftex.def Info: Requested size: 441.01773pt x 242.56253pt on input lin
+e 251.
+
+Underfull \hbox (badness 10000) in paragraph at lines 249--259
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 260--263
+
+ []
+
+[11 <./images/binomial.png>] [12] [13] [14]
 Chapter 4.
 
-Underfull \hbox (badness 10000) in paragraph at lines 251--254
+Underfull \hbox (badness 10000) in paragraph at lines 299--302
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 255--259
+Underfull \hbox (badness 10000) in paragraph at lines 303--307
 
  []
 
-[11
+<images/4.png, id=444, 1110.1475pt x 1104.125pt>
+File: images/4.png Graphic file (type png)
+<use images/4.png>
+Package pdftex.def Info: images/4.png  used on input line 310. on input line 31
+0.
+Package pdftex.def Info: Requested size: 441.01773pt x 438.62646pt on input lin
+e 310.
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[15
 
 ]
+Overfull \hbox (2.9861pt too wide) in paragraph at lines 322--322
+[]|\OT1/phv/m/n/12 Skyscraper| 
+ []
+
+[16 <./images/4.png>] [17]
 Chapter 5.
-[12
+<images/Size1.png, id=461, 362.10281pt x 217.5628pt>
+File: images/Size1.png Graphic file (type png)
+<use images/Size1.png>
+Package pdftex.def Info: images/Size1.png  used on input line 346. on input lin
+e 346.
+Package pdftex.def Info: Requested size: 441.01773pt x 264.98138pt on input lin
+e 346.
+<images/Route1.png, id=462, 362.10281pt x 217.5628pt>
+File: images/Route1.png Graphic file (type png)
+<use images/Route1.png>
+Package pdftex.def Info: images/Route1.png  used on input line 351. on input li
+ne 351.
+Package pdftex.def Info: Requested size: 441.01773pt x 264.98138pt on input lin
+e 351.
 
-]
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+<images/Fair1.png, id=463, 361.35pt x 214.55156pt>
+File: images/Fair1.png Graphic file (type png)
+<use images/Fair1.png>
+Package pdftex.def Info: images/Fair1.png  used on input line 356. on input lin
+e 356.
+Package pdftex.def Info: Requested size: 441.01773pt x 261.85727pt on input lin
+e 356.
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+<images/Size2.png, id=464, 364.36125pt x 218.31563pt>
+File: images/Size2.png Graphic file (type png)
+<use images/Size2.png>
+Package pdftex.def Info: images/Size2.png  used on input line 364. on input lin
+e 364.
+Package pdftex.def Info: Requested size: 441.01773pt x 264.25598pt on input lin
+e 364.
+[18
+
+ <./images/Size1.png>]
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+<images/Route2.png, id=470, 361.35pt x 216.05719pt>
+File: images/Route2.png Graphic file (type png)
+<use images/Route2.png>
+Package pdftex.def Info: images/Route2.png  used on input line 369. on input li
+ne 369.
+Package pdftex.def Info: Requested size: 441.01773pt x 263.69485pt on input lin
+e 369.
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+<images/Fair2.png, id=471, 362.10281pt x 217.5628pt>
+File: images/Fair2.png Graphic file (type png)
+<use images/Fair2.png>
+Package pdftex.def Info: images/Fair2.png  used on input line 374. on input lin
+e 374.
+Package pdftex.def Info: Requested size: 441.01773pt x 264.98138pt on input lin
+e 374.
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+<images/Size3.png, id=472, 362.10281pt x 217.5628pt>
+File: images/Size3.png Graphic file (type png)
+<use images/Size3.png>
+Package pdftex.def Info: images/Size3.png  used on input line 381. on input lin
+e 381.
+Package pdftex.def Info: Requested size: 441.01773pt x 264.98138pt on input lin
+e 381.
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+<images/Route3.png, id=473, 362.10281pt x 217.5628pt>
+File: images/Route3.png Graphic file (type png)
+<use images/Route3.png>
+Package pdftex.def Info: images/Route3.png  used on input line 386. on input li
+ne 386.
+Package pdftex.def Info: Requested size: 441.01773pt x 264.98138pt on input lin
+e 386.
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+<images/Fair3.png, id=474, 362.10281pt x 217.5628pt>
+File: images/Fair3.png Graphic file (type png)
+<use images/Fair3.png>
+Package pdftex.def Info: images/Fair3.png  used on input line 391. on input lin
+e 391.
+Package pdftex.def Info: Requested size: 441.01773pt x 264.98138pt on input lin
+e 391.
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[19 <./images/Route1.png>] [20 <./images/Fair1.png> <./images/Size2.png>]
+[21 <./images/Route2.png> <./images/Fair2.png>] [22 <./images/Size3.png> <./ima
+ges/Route3.png>] [23 <./images/Fair3.png>]
 Chapter 6.
-[13
+[24
 
-] (Dissertation.bbl
+] (./Dissertation.bbl
 Underfull \hbox (badness 10000) in paragraph at lines 4--8
 []\OT1/phv/m/n/12 Angelo M. D'Argenio.  HOW POP-U-LAR IS OVER-WATCH, RE-
  []
@@ -1032,43 +1165,75 @@ Underfull \hbox (badness 10000) in paragraph at lines 4--8
 gamecrate . com /
  []
 
-) [14
 
-] [15
+Underfull \hbox (badness 10000) in paragraph at lines 10--15
+[]\OT1/phv/m/n/12 Blizzard.  Over-watch.  []$\OT1/cmtt/m/n/12 https : / / eu . 
+shop . battle . net / en-[]gb /
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 10--15
+\OT1/cmtt/m/n/12 product / overwatch ? utm _ term = overwatch & adv . n = Blizz
+ard %
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 10--15
+\OT1/cmtt/m/n/12 20United % 20Kingdom & utm _ source = google & utm _ medium = 
+cpc & utm _
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 10--15
+\OT1/cmtt/m/n/12 content = 31246011160 & utm _ campaign = MEC _ 397454200 & gcl
+id =
+ []
+
+
+Overfull \hbox (121.60115pt too wide) in paragraph at lines 10--15
+\OT1/cmtt/m/n/12 CjwKCAjwwbHWBRBWEiwAMIV7Ez9I8rybnlaKt47oPJBnPGqyO2LmnnTPfgxsVf
+iEfY62ILuAk6xgshoCUTkQAvD _
+ []
+
+) [25
+
+] [26
 
 
 ]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 292.
- [16]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 292.
- (Dissertation.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 292.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 292.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 426.
+ [27]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 426.
+ (./Dissertation.aux)
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 426.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 426.
 Package rerunfilecheck Info: File `Dissertation.out' has not changed.
-(rerunfilecheck)             Checksum: F6069657B185C0E386FE3D280F9F0D28;2326.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 292.
+(rerunfilecheck)             Checksum: 9EB4ECF502D4B1CB8EB94D63DCEAF701;3467.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 426.
  ) 
 Here is how much of TeX's memory you used:
- 11570 strings out of 493323
- 169825 string characters out of 3139058
- 281982 words of memory out of 3000000
- 14838 multiletter control sequences out of 15000+200000
- 18736 words of font info for 41 fonts, out of 3000000 for 9000
+ 11653 strings out of 492985
+ 171114 string characters out of 6136284
+ 278435 words of memory out of 5000000
+ 14880 multiletter control sequences out of 15000+600000
+ 18736 words of font info for 41 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 44i,12n,43p,943b,369s stack positions out of 5000i,500n,10000p,200000b,50000s
-{C:/Program Files/MiKTeX 2.9/fonts/enc/dvips/base/8r.enc}<C:/Program Files/Mi
-KTeX 2.9/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Program Files/MiKTeX 2.9
-/fonts/type1/public/amsfonts/cm/cmmi12.pfb><C:/Program Files/MiKTeX 2.9/fonts/t
-ype1/public/amsfonts/cm/cmmi8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/publ
-ic/amsfonts/cm/cmr12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfon
-ts/cm/cmr8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy
-10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmtt12.pfb><
-C:/Program Files/MiKTeX 2.9/fonts/type1/urw/helvetic/uhvb8a.pfb><C:/Program Fil
-es/MiKTeX 2.9/fonts/type1/urw/helvetic/uhvr8a.pfb><C:/Program Files/MiKTeX 2.9/
-fonts/type1/urw/helvetic/uhvro8a.pfb>
-Output written on Dissertation.pdf (25 pages, 168831 bytes).
+ 44i,12n,43p,1157b,369s stack positions out of 5000i,500n,10000p,200000b,80000s
+{d:/texlive/2017/texmf-dist/fonts/enc/dvips/base/8r.enc}<d:/texlive/2017/texm
+f-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb><d:/texlive/2017/texmf-dist/fo
+nts/type1/public/amsfonts/cm/cmmi12.pfb><d:/texlive/2017/texmf-dist/fonts/type1
+/public/amsfonts/cm/cmmi6.pfb><d:/texlive/2017/texmf-dist/fonts/type1/public/am
+sfonts/cm/cmmi8.pfb><d:/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/
+cmr12.pfb><d:/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb><
+d:/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><d:/texliv
+e/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb><d:/texlive/2017/te
+xmf-dist/fonts/type1/urw/helvetic/uhvb8a.pfb><d:/texlive/2017/texmf-dist/fonts/
+type1/urw/helvetic/uhvr8a.pfb><d:/texlive/2017/texmf-dist/fonts/type1/urw/helve
+tic/uhvro8a.pfb>
+Output written on Dissertation.pdf (36 pages, 297887 bytes).
 PDF statistics:
- 394 PDF objects out of 1000 (max. 8388607)
- 82 named destinations out of 1000 (max. 500000)
- 302 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 612 PDF objects out of 1000 (max. 8388607)
+ 542 compressed objects within 6 object streams
+ 137 named destinations out of 1000 (max. 500000)
+ 501 words of extra memory for PDF output out of 10000 (max. 10000000)
 
