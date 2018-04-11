@@ -238,7 +238,7 @@ c(p,\dot{p}, \ddot{p}) = \displaystyle\sum_{i=0}^{i=n} \mu_i\circ\kappa_i(p,\dot
 This function while not highly relevant to the topic of this project did have a interesting concept that could be applied to the application. This was the value \(\mu_i\). This is the transfer function that allows the user to control the influence of the parameters being passed through the heuristic algorithm which could be modified to allow the computer to control the A* algorithm. 
 \vspace{5mm} 
 \newline
-A very valuable paper to this project was Ricardo Lopes and Rafaels Bidarra's Adaptivity Challenges in Games and Simulations \cite{Fun}. This paper discusses the importance of adaptivity within games, while explaining that without adaptivity a company can alienate their player base and lose them to other games. While not the main focus of the article Lopes and Bidarra dedicate a section to game worlds. They reference many interesting investigations that researchers are currently conducting into procedural generating maps with a focus on giving more control to designers. Including the CityEngine which allows users to control the generation of a modern 3-D city.   ---------
+A very valuable paper to this project was Ricardo Lopes and Rafaels Bidarra's Adaptivity Challenges in Games and Simulations \cite{Fun}. This paper discusses the importance of adaptivity within games, while explaining that without adaptivity a company can alienate their player base and lose them to other games. While not the main focus of the article Lopes and Bidarra dedicate a section to game worlds. They reference many interesting investigations that researchers are currently conducting into procedural generating maps with a focus on giving more control to designers. Including the CityEngine which allows users to control the generation of a modern 3-D city. 
 %METHODologhy
 \chapter{Methodology}
 This chapter details the methods which will be used in the implementation stage. An overview will be provided of the techniques that were used and a discussion will be held on the representation that is used to display the survey along with the metrics that were used to measure the results.
@@ -272,7 +272,7 @@ As described in section 2.5 A* algorithm was used in the map generation. This wa
 \vspace{5mm} 
 \newline
 \section{Height-mapping}
-To easily visualize the maps that would be generated it was important to create a 3-D object from the noise generation. To do this a height-mapping would be used. Generating a mesh from a height map-----------------------  
+To easily visualize the maps that would be generated it was important to create a 3-D object from the noise generation. To do this a height-mapping would be used. Generating a mesh from a height map involves calculating the vertexs and indices of the  height-map depending on the shade of the texture. Once the vertexs and positions have been calculated,  the  mesh can be exported into an object loader to generate within the scene.  
 \section{Evaluation Algorithm}
 The first  stage of developing the evaluation algorithm was to state limits on equation, for this it was decided that the best result that the equation could produce was zero with the number getting larger the worse the map was. The equation was spilt into three parts each measuring a different aspect to the map. These were Size,Path and Balance once each was calculated the algorithm would add the values togethr to create a final map rating.   
 \subsection{Size}
@@ -342,8 +342,7 @@ To provide some variety between the maps, A system was designed that would apply
 \newline
 The next sections detail other differences between the themes and the type of play style it attempts to replicate. 
 \subsection{Types of Theme}
-Each one of the four types of theme have their own playstyle, while the city offers a verticalilty spawing in large 
-
+While the theme of the map does not affect two parts of the evaluation algorithm it is the main contributor to the third part of the calculation which during these tests was deemed to be the most important of the evaluation algorithm with the location of buildings and health packs making up a large part of the algorithm, each theme balances the map in their own way; The City cause a lot of close combat fighting with skyscrapers blocking off the many escape routes. This is nearly the opposite of Desert which offers wide open planes with cover being very difficult to find in certain parts of the map. The other two  themes are the average between the two other themes which allow a balance to be struck between the two extremes. 
 %EVALUATION
 \chapter{Results}
 Three maps from the generated to be evaluated by both participants in the survey and the evaluation algorithm detailed in section 3.5
@@ -383,25 +382,33 @@ The output of the evaluation algorithm states that map is considered to be far t
 	\includegraphics[width=1.0\textwidth]{images/map2.png}
 	\caption{Nosie of the Second Map}
 \end{figure}
+The second  map is set as the village theme this caused more houses to be able to spawn in. Also in this map several health packs spawn within houses, if this occured in a real map players would fight much closer to these rooms as they provide cover as well as health. Therefore the heuristic weight of these health packs have been adjusted accordingly. 
 \subsection{Survey Result}
 \subsubsection{Map Size}
 \begin{figure}[H]
 	\includegraphics[width=1.0\textwidth]{images/Size2.png}
 	\caption{Survey Data on the Second Map's Size}
 \end{figure}
+Within this figure the size of the map seems to be very close to being a good size with none of the surveyed participants stating that the map was too big or too small.
 \subsubsection{Route}
 \begin{figure}[H]
 	\includegraphics[width=1.0\textwidth]{images/Route2.png}
 	\caption{Survey Data on the Second Map's Route}
 \end{figure}
+
 \subsubsection{Fairness}
 \begin{figure}[H]
 	\includegraphics[width=1.0\textwidth]{images/Fair2.png}
 	\caption{Survey Data on the Second Map's Fairness}
 \end{figure}
 \subsection{Evaluation Algorithm Result}
+\begin{figure}[H]
+	\includegraphics[width=0.5\textwidth]{images/a.png}
+	\caption{The Evaluation Algorthm Rating of the Second Map}
+\end{figure}
+The evaluation of the map is given a very high rating this is largely because of how unbalanced the map is, while the map has equal health packs on either side both of the defending exist within cover while the attackers health packs exist very close together in the open which is not ideal for the attackers. Similarly to the first map the map is far too large to properly be considered to be a success however the path is very good on this map taking nearly exactly the right time to complete the map. 
 \section {Map 3}
-The third map was also a desert theme however 
+The third map was also a desert theme however unlike the first map this map contains far more barriers and lacks the amount of houses that existed in the first one. The only health pack that exists down in the bottom right corner nearly equal distance between the two spawns. 
 \begin{figure}[H]
 	\includegraphics[width=1.0\textwidth]{images/map3.png}
 	\caption{Survey Data on Map Size}
@@ -426,18 +433,27 @@ The third map was also a desert theme however
 	\includegraphics[width=0.5\textwidth]{images/alg.png}
 	\caption{The Evaluation Algorthm Rating the Third Map }
 \end{figure}
+While the might be the worst map for paths and distance the balance of this map is nearly the ideal value. This is because as stated above the only health pack exists nearly equal between the two spawns however while it is slightly closer to the defending spawn the attackers spawn offsets this by having two buildings within close proximity to the spawn allowing for the most balanced map that was tested to occur.
 %CONCLUSION
 \chapter{Conclusion}
 \section{Discussion of Results}
-From the set of results that are extrapolated from the first map, there is several positives to be taken from this data. Firstly the algorithm and the survey agree that the map is far too large to be considered a successful map however it 
-
-\newline
-From the results that have been gathered it 
-
+From the set of results that are extrapolated from the first map, there is several positives to be taken from this data. Firstly the algorithm and the survey agree that the map is far too large to be considered a successful map however it is much more important that the equation agrees with the survey rather than the algorithm agree with the map generator. In the case of the route from map 1 this was the best value that was received from the test with the survey and the algorithm agreeing that the path was close to being the ideal value. This was very uplifting to here as the map generation slightly struggles to create consistently good maps.
+\vspace{5mm} 
+\newline 
+For the second set of results the biggest inconsistency occurred here with the size of the map being similar to map 1 the survey adjudged it to be an adequate size however the algorithm judged it too be too big again and it is probably the correct assumption to make that the algorithm is correct and maybe it should be considered to conduct more surveys to be able to be sure.
+\vspace{5mm} 
+\newline 
+Map 3 was the most successful of all the maps in regards to fairness which during this test was deemed to be the most important factor being tested therefore it is not unreasonable to say that this was the most successful map hands down, this combined with the fact that none of the maps correctly generated the size and this must be changed at a future date to generate the correct values, however this is a simple enough fix and would greatly improve the procedural map generator. 
+\vspace{5mm} 
+\newline   
+From the results that have been gathered it would be easy to say that while the evaluation algorithm is working as intended and its counter-part the procedural map generator was not working as well as it could be, and while this is most likely the case it is important to note that the map generator stared off by producing maps that were rated at over 15,000 which now to be producing maps that go under the 3,000 is a big achievement and with more time could be able to produce much lower rated maps. 
+\vspace{5mm} 
+\newline 
 \section{Fulfilment of Aims and Objectives}
-This project has resulted in successful implementation of a procedural map generator that adheres to the aims and objectives that were set during the initial planning phase. The tests that were designed tested each map 
+ This project has resulted in successful implementation of a procedural map generator that adheres to the aims and objectives that were set during the initial planning phase. The tests that were designed tested each map the way that was initially planned to collect three metrics size, path and fairness.  
+ \vspace{5mm} 
 \newline
-The results collected from these tests allowed us to gain an understanding of how the evaluation algorithm performed and behaved when faced with different types of obstacles allowing us to 
+The results collected from these tests allowed us to gain an understanding of how the evaluation algorithm performed and behaved when faced with different types of obstacles allowing us to to edit and change the formula easily and be able to correctly judge how well the procedural map generation was performing, this in turn lead to a much more successful project than  was expected after the procedural map generator continually under-performed. 
 
 \section{Future Work}
 The procedural map generator could benefit greatly from several optimizations, firstly it could successfully be integrated with a parallelization techniques such as OpenMP or CUDA to speed up the time taken to generate the Perlin's noise or A* algorithm which both take a large time to create. 
@@ -448,6 +464,7 @@ Another improvement that could be made could be to implement individual models f
 \newline
 The evaluation algorithm could also benefit from several optimizations, while the algorithm was purposely created to be open ended, different parts of the map could be tested such as the choke points.   
 \section{Critical Assessment of Project} 
+I believe that the evaluation algorithm works better than I had ever expected however I was extremely disappointed with the performance of the map generation device as this caused countless problems along the way, however I still believe that I chose all the correct techniques when creating the system and the reason for the underperformance was poor planning not allowing for enough time just in case errors occurred.  This was the main regret from all  this entire project was not enough planning and this will have affected the quality of my dissertation.
 \newpage
 
 \bibliographystyle{plain}
