@@ -20,6 +20,7 @@
 \onehalfspacing
 \usepackage{helvet}
 \usepackage{mathtools}
+\usepackage{float}
 
 %Hyperlinks set to no colours/black
 \usepackage{hyperref}
@@ -91,7 +92,7 @@ Being able to evaluate certain types of maps can be a very useful tool for game 
  The implementation provides a detailed description of the creation process of the evaluation algorithm. A description is provided on the creation of the procedural generated map that was also created. The challenges that were encountered during these tasks are also highlighted.
   \vspace{5mm} 
  \newline 
- Analysing the results we were able to draw a number of conclusions;--------------------------------------------------AAAAAA
+Analysing the results we were able to draw a number of conclusions; we found that the procedural map generation could successfully pass as professionally made escort mission maps. We also proved that the evaluation algorithm could produce an evaluation of similar calibre to a user review.
 \tableofcontents 
 
 \listoftables
@@ -117,13 +118,17 @@ Finally I would like to thank the School of Computing for giving me the faciliti
 %INTRO
 \chapter{Introduction}
 From the beginning of the project the objective has been to develop a mathematical equation to evaluate escort mission maps. Then to procedurally generate maps that can successfully follow the evaluation technique created. The dissertation produced underneath documents the work that was involved in achieving this.
+\vspace{5mm} 
+\newline
 \section{Motivation}
 With video games being one of the largest markets in the world right now, gaming companies must be developing and releasing their games as quickly as possible. If there is any conceivable way for them speed up releasing their games, they should take these approaches.
 \vspace{5mm} 
 \newline  
-One of the biggest genres of games currently is team based shooters. With one of the larger games in the genre being Overwatch with currently over 35 million players worldwide. \href{https://twitter.com/PlayOverwatch/status/919925924769906688}. This genre of game has a very different development cycle to other games relying on continual updates adding new maps and characters to keep players interested and continually playing. To release new maps and characters on a regular basis can be difficult especially if the game has a large competitive scene because the new feature \vspace{5mm} must be fully tested before released.
+One of the biggest genres of games currently is team based shooters. With one of the larger games in the genre being Overwatch with currently over 35 million players worldwide.\cite{Overt} This genre of game has a very different development cycle to other games relying on continual updates adding new maps and characters to keep players interested and continually playing. To release new maps and characters on a regular basis can be difficult especially if the game has a large competitive scene because the new feature \vspace{5mm} must be fully tested before released.
 \newline  
 With testing new features in games becoming the most time consuming part of the development cycle, companies must look into other ways to streamline the testing of games. In this project one of the possible ways to decrease the time taken to test maps is explored. If companies can use a mathematical formula to test the fairness of maps, rather than the more conventional user based testing which can take up to several weeks, would allow for companies to produce more content in a quicker time frame, generating a greater profit and allowing for better content to be produced in the future. 
+\vspace{5mm} 
+\newline
 \section{Aims and Objectives}
 There are two main aims of the project, the first is to create, implement and evaluate an algorithm that assesses escort mission maps once this has been complete, the next aim is to plan and develop a piece of software that can successfully follow the algorithm produced. The objectives below have been selected in order to accomplish these aims.
 \begin{itemize}
@@ -132,6 +137,7 @@ There are two main aims of the project, the first is to create, implement and ev
 	\item Design an algorithm taking into account size, path of the payload and fairness. 
 	\item Develop a programme that can procedurally generate escort mission maps.	
 \end{itemize}
+\vspace{5mm} 
 \section{Scope}
 \subsection{Deliverable}
 The items to be delivered from this project are: An algorithm that can evaluate any escort mission map and inform the user of the strengths and weakness of the map; A C++ program that can procedurally generate maps that can be tested by the algorithm; the results and analysis of the surveys that examine the credibility of the evaluation algorithm.  
@@ -142,6 +148,7 @@ When testing a map there are a large amount variables to be evaluated, as time i
 	\item The quality of the object that will be escorted (payload) path.
 	\item The overall balance\textbackslash fairness of the map 	
 \end{itemize}
+\vspace{5mm} 
 \section{Chapter Outlines}
 \begin{itemize}
 	\item Background - Discusses the research made into the topic.
@@ -188,7 +195,7 @@ Many games today have implemented an advanced artificial intelligence for a vari
 Published by Edsger W. Dijkstra in 1959, Dijkstra’s algorithm is a way to calculate the shortest path between nodes on a graph. Solving the single-source shortest path problem. Nodes on a graph can represent either a 2-dimensional grid or points in a 3-D space. The most common example of a real life application of Dijkstra’s algorithm is being used in geographical maps to plot the fastest route between two cities, where each city is a node and the roads are associated with a weight. 
 \vspace{2mm} 
 \newline
-\begin{figure}[h]
+\begin{figure}[H]
 	\includegraphics[width=\linewidth]{images/Dijsk.png}
 	\caption{A weighted graph of connected nodes}
 \end{figure}
@@ -241,7 +248,11 @@ To begin generating the texture that would be turned into the height map it was 
 \newline
 Gradient noise is a form of noise that is used to procedurally generate a texture. It accomplishes this similarly to value generation by generating random uniform white noise. However To calculate the surrounding pixels gradient noise uses the dot product of the gradient and which differs from the other ways of generating noises and allows more control for the programmer which was what was needed for this project because of the later edition that will be made to the texture that was generated. 
 \subsection{Perlin Noise}
-Perlin noise was first developed in 1983 by Ken Perlin after he became annoyed with processed graphics that occurred at the time, we would later release a second paper improving on his original algorithm in 2002 \cite{Noise}. Since then it has been one of the most common forms of gradient noise, Perlin noise has many uses in computer graphics including blending textures together and generating difficult to render objects such as fire and smoke. The form of Perlin noise that was used during this project was from a GitHub user named Reputeless and his source code is explained below. ------------------------
+Perlin noise was first developed in 1983 by Ken Perlin after he became annoyed with processed graphics that occurred at the time, we would later release a second paper improving on his original algorithm in 2002 \cite{Noise}. Since then it has been one of the most common forms of gradient noise, Perlin noise has many uses in computer graphics including blending textures together and generating difficult to render objects such as fire and smoke. The form of Perlin noise that was used during this project was from a GitHub user named Reputeless and his source code is explained below.
+\begin{figure}[h]
+	\includegraphics[width=1.0\textwidth]{images/code.png}
+	\caption{Perlin Noise Calculations}
+\end{figure}
 \vspace{5mm} 
 \newline
 The X,Y,Z calculate the grid cell co-ordinates that contain the point. The next step is to find the relative point of x,y,z by subtracting the floor of each value. From this point it the algorithm will calculate the weight of the interpolation needed by performing the fade function. at this point the 8 points of the cube must be hashed out, once this has been completed the weights of the interpolation are lerped together and the noise is exported. 
@@ -330,73 +341,104 @@ To provide some variety between the maps, A system was designed that would apply
 \vspace{5mm} 
 \newline
 The next sections detail other differences between the themes and the type of play style it attempts to replicate. 
-\subsection{City}
-The City theme was designed to add a large amount of verticality to the 
-\subsection{Desert}
-\subsection{Village}
-\subsection{Seaside}
+\subsection{Types of Theme}
+Each one of the four types of theme have their own playstyle, while the city offers a verticalilty spawing in large 
 
 %EVALUATION
 \chapter{Results}
-Three maps from the generated were evaluated by both participants in the survey and the evaluation algorithm ar 
+Three maps from the generated to be evaluated by both participants in the survey and the evaluation algorithm detailed in section 3.5
 \section {Map 1}
+The first map that was tested had a desert theme however unlike most desert maps that can be generated this map contined a large amount of houses that could be used as cover for either team.  
+\begin{figure}[H]
+	\includegraphics[width=0.7\textwidth]{images/map1.png}
+	\caption{The First Map Presented as the Survey}
+\end{figure}
 \subsection{Survey Result}
 \subsubsection{Map Size}
-\begin{figure}[h]
+\begin{figure}[H]
 	\includegraphics[width=1.0\textwidth]{images/Size1.png}
-	\caption{Survey Data on Map Size}
+	\caption{Survey Data on the First Map Size}
 \end{figure}
+As shown in the graph above the map was considered to be larger than it needed to be. 
 \subsubsection{Route}
-\begin{figure}[h]
+\begin{figure}[H]
 	\includegraphics[width=1.0\textwidth]{images/Route1.png}
-	\caption{Survey Data on Map Size}
+	\caption{Survey Data on First Map Route}
 \end{figure}
+As shown in the graph above the map was considered to slightly biased towards the attacking team.
 \subsubsection{Fairness}
-\begin{figure}[h]
+\begin{figure}[H]
 	\includegraphics[width=1.0\textwidth]{images/Fair1.png}
-	\caption{Survey Data on Map Size}
+	\caption{Survey Data on First Map Balance}
 \end{figure}
+Similarly to the previous survey it was considered slightly biased towards the attacking team.
 \subsection{Evaluation Algorithm Result}
+\begin{figure}[H]
+\includegraphics[width=0.5\textwidth]{images/algorithm.png}
+\caption{The Evaluation Algorthm Rating the First Map }
+\end{figure}
+The output of the evaluation algorithm states that map is considered to be far too big to be a competitive map however it also states that the path is nearly perfect with the lowest score of the three variables however the fairness value is probably too high stating that the attacking team has an too great an unfair advantage to consider this a successful generation.
 \section {Map 2}
+\begin{figure}[H]
+	\includegraphics[width=1.0\textwidth]{images/map2.png}
+	\caption{Nosie of the Second Map}
+\end{figure}
 \subsection{Survey Result}
 \subsubsection{Map Size}
-\begin{figure}[h]
+\begin{figure}[H]
 	\includegraphics[width=1.0\textwidth]{images/Size2.png}
-	\caption{Survey Data on Map Size}
+	\caption{Survey Data on the Second Map's Size}
 \end{figure}
 \subsubsection{Route}
-\begin{figure}[h]
+\begin{figure}[H]
 	\includegraphics[width=1.0\textwidth]{images/Route2.png}
-	\caption{Survey Data on Map Size}
+	\caption{Survey Data on the Second Map's Route}
 \end{figure}
 \subsubsection{Fairness}
-\begin{figure}[h]
+\begin{figure}[H]
 	\includegraphics[width=1.0\textwidth]{images/Fair2.png}
-	\caption{Survey Data on Map Size}
+	\caption{Survey Data on the Second Map's Fairness}
 \end{figure}
 \subsection{Evaluation Algorithm Result}
 \section {Map 3}
-\subsubsection{Map Size}
-\begin{figure}[h]
-	\includegraphics[width=1.0\textwidth]{images/Size3.png}
+The third map was also a desert theme however 
+\begin{figure}[H]
+	\includegraphics[width=1.0\textwidth]{images/map3.png}
 	\caption{Survey Data on Map Size}
+\end{figure}
+\subsubsection{Map Size}
+\begin{figure}[H]
+	\includegraphics[width=1.0\textwidth]{images/Size3.png}
+	\caption{Survey Data on the Third Map's Size}
 \end{figure}
 \subsubsection{Route}
-\begin{figure}[h]
+\begin{figure}[H]
 	\includegraphics[width=1.0\textwidth]{images/Route3.png}
-	\caption{Survey Data on Map Size}
+	\caption{Survey Data on the Third Map's Route}
 \end{figure}
 \subsubsection{Fairness}
-\begin{figure}[h]
+\begin{figure}[H]
 	\includegraphics[width=1.0\textwidth]{images/Fair3.png}
-	\caption{Survey Data on Map Size}
+	\caption{Survey Data on the Third Map's Fairness}
 \end{figure}
 \subsection{Evaluation Algorithm Result}
+\begin{figure}[H]
+	\includegraphics[width=0.5\textwidth]{images/alg.png}
+	\caption{The Evaluation Algorthm Rating the Third Map }
+\end{figure}
 %CONCLUSION
 \chapter{Conclusion}
 \section{Discussion of Results}
+From the set of results that are extrapolated from the first map, there is several positives to be taken from this data. Firstly the algorithm and the survey agree that the map is far too large to be considered a successful map however it 
+
+\newline
+From the results that have been gathered it 
+
 \section{Fulfilment of Aims and Objectives}
-This project has resulted in successful implementation of a procedural map generator that adheres to the  aims and 
+This project has resulted in successful implementation of a procedural map generator that adheres to the aims and objectives that were set during the initial planning phase. The tests that were designed tested each map 
+\newline
+The results collected from these tests allowed us to gain an understanding of how the evaluation algorithm performed and behaved when faced with different types of obstacles allowing us to 
+
 \section{Future Work}
 The procedural map generator could benefit greatly from several optimizations, firstly it could successfully be integrated with a parallelization techniques such as OpenMP or CUDA to speed up the time taken to generate the Perlin's noise or A* algorithm which both take a large time to create. 
 \vspace{5mm} 
@@ -404,7 +446,7 @@ The procedural map generator could benefit greatly from several optimizations, f
 Another improvement that could be made could be to implement individual models for the objects that reside in the scene because of the lack of knowledge for creating these models in MAYA or blender, however this could add a great extra aspect to the 3-D scene that was created.
 \vspace{5mm} 
 \newline
-The evaluation algorithm could also benefit from several optimizations, while the algorithm was purposely created to be open ended, different parts of the map could be tested such as the choke points   
+The evaluation algorithm could also benefit from several optimizations, while the algorithm was purposely created to be open ended, different parts of the map could be tested such as the choke points.   
 \section{Critical Assessment of Project} 
 \newpage
 
@@ -414,12 +456,100 @@ The evaluation algorithm could also benefit from several optimizations, while th
 \newpage
 \begin{appendices}
 \section*{A Initial Project Overview Document}
-
+\subsection*{Title of Project}
+Evaluation of Procedural generation of Escort Maps
+\subsection*{Overview of Project Content and Milestones}
+Team based shooters are some of the most popular games currently with Overwatch being one of the biggest of these games. A game mode of team based shooters is Escort missions where the attacking team must push a payload to a certain distance while the defending team tries to stop them.
+\vspace{5mm} 
+\newline
+The aim of this project is to design an algorithm that rates the maps escort missions are played on and design an application that procedurally generates a map that adheres to the algorithm. 
+\vspace{5mm} 
+\newline
+Milestones:
+\newline
+Decide on what makes a successful escort mission map by looking at pre-existing maps.
+\newline
+Design an algorithm that uses the information from the milestone before. 
+\newline
+Create a system that procedurally generates escort mission maps.
+\newline
+Use the algorithm to improve the system that was built. 
+\subsection*{The Main Deliverable(s):}
+An algorithm that can evaluate escort mission maps.
+\newline
+An application that can procedurally generate a map 
+\newline
+The final dissertation of the findings from this project 
+\subsection*{The Target Audience for the Deliverable(s):}
+The main audience for this project would be companies or developers who are interested in creating a game that uses escort missions as a game mode and could use the algorithm to improve the maps they created.
+\subsection*{The Work to be Undertaken:}
+The work to be undertaken will be to create an algorithm that can define whether a map is good nor not. This will involve testing several published maps and reading papers on this subject. From there the algorithm will start to be created taking into account map size, the payloads path and balancing for the attacking and defending team. This algorithm will then be implemented in a c++ program to create maps and discard the unsuccessful maps. Basic art assets will also be produced for the map i.e. the payload and building blocks. The findings will then recorded in a paper and on a poster.
+\subsection*{Additional Information / Knowledge Required:}
+Extra information will be needed in several fields such as researching more existing maps to get a better idea of these maps have in common. More research will also be done in procedural generation.
+\subsection*{Information Sources that Provide a Context for the Project:}
+Adaptively Challenges in Games
+\newline
+What makes a game good?
+\newline
+Procedurally generating cities 
+Yoav I. H.Parish, Pascal Müller
+\subsection*{The Importance of the Project:}
+Why this project is important is to be used by companies and individuals creating maps for team based shooters to be able to rate their map before the player testing phase and to streamline the testing phase as the user would already have an idea if the map would be successful or not.
+\subsection*{The Key Challenge(s) to be Overcome:}
+A major challenge in this project will be learning procedural generation as I have never used procedural before another issue will be defining what a good map is, as this up to a point is completely subjective and while one person may enjoy a map someone else might not.
+\vspace{5mm} 
+\newline
 \section*{B Week 9 Interim Report}
+Aims and Objectives:
+There are two main aims of the project, the first is to create, implement and evaluate an algorithm that assesses escort mission maps once this has been complete, the next aim is to plan and develop a piece of software that can successfully follow the algorithm produced. The objectives below have been selected in order to accomplish these aims.
+Research relevant topics and papers.
+Create or use an existing framework that can be used to develop the map.
+Design an algorithm taking into account size, path of the payload and fairness.
+Develop a programme that can procedurally generate escort mission maps.
+
+\subsection*{Progress:}
+The first part of this project that was decided on was the plan of work. It was decided that the algorithm and the scene would be developed simultaneously because this would allow it to be easier to edit the program if changes were made to the algorithm at a later date. Once this had been complete it was time to plan out how the algorithm would work. The idea for the algorithm would be that 0 would be the best possible map the greater the number the worse the map would be. Work then began on the first part of the algorithm which was how to calculate the ideal size of the map. While size is difficult to calculate as there is no standardized measurements however what can be measured is time so in several pre-existing maps, the time taken to walk from point A to B was measured to see if any patterns could be noticed. Every map took 1 minute plus or minus 10\% to complete this allowed an ideal time to be calculated and could be inserted into the formula that had been already decided on.
+\newline
+\((E(t)-(d/v)^2)/k\)
+\newline
+E(t) = ideal time 
+d is distance of plane
+v is speed of player 
+k is a constant that will be dependent on how important size of the map is
+Above is the size formula that has been decided on. Once this was complete it was time to decide on which framework would be worked on. The decision was decided to work inside. It was decided to work with the graphics framework. The reasoning for this was mainly down to personal preference as it was a framework that had been used before and was considered robust enough to handle the work that was needed. 
+Work then began with the graphics frame work a simple program was set up to create a randomly generated plane that would change its size every time it ran. After this work began on generating then path that the escorting object would follow began. 
+Research began into existing pathfinding algorithms and the most common pathfinding algorithm that was found was A* this could be used with a grid that was rendered on top of the plane that had already been created. The A* algorithm also needed nodes to create a path through it was decided that the nodes would be procedurally generated using a procedural generation algorithm found online called Auburn’s fast noise this has a variety of different procedural generation so the preferable generations would be call or value as these offer an obvious distinction between nodes and blank space. 
+Implementation of these techniques was began.
+Some future planning that has been done is planning the pipeline of how that map will be created. It would go through several stages like so
+Spawn a plane of varying size.
+Spawn start and end points for the payload.
+Procedurally generate nodes for the path of the object.
+Use the A* algorithm to plot the route.
+Smooth the path drawn at stage 4.
+Procedurally generate a level above and below the plane.
+Attach walkways and connectors too the three levels.
+Spawn in obstacles and buildings.
+This is also similar to how the plan to develop this application works.   
+
+\subsection*{Plan:}
+The plan that was decided on was too create the algorithm and application simultaneously so that the application stays close to the algorithm. This means that once it has been decided on how certain part of the algorithm works that part of the system which it tests will be coded. No dates where attached these tasks accept for general guidelines Therefore this is how the plan/task list will look:
+Research how the algorithm works 
+Create algorithm for the size of map
+Re-search Procedural generation and which framework to use
+Create basic plane with restrictions that follow the algorithm
+Create algorithm for start and end point.
+Render in start and end points
+Create rating system for the path of the payload
+Add in the path between start and end point 
+Create an algorithm that rates the balance of the map 
+Add in dead-zones and chokepoints into the map. 
+
+\subsection*{Evaluation:}
+The way that this project will be evaluated is through two major ways the first being that the maps will be evaluated will be through users testing the maps that are generated by the programme the users will all have experience with playing escort mission maps and will fill out a survey after looking through the maps. The survey will be closed questions with questions such as: What do you think of the size of the map? Would you enjoy playing this map? If the users rate the map similar to the algorithm then it would be judged to be a successful. From this point if the algorithm is classed as successful the procedurally generated maps will use the algorithm to generate better maps. The other way that the project will be evaluated is through testing pre-existing maps through the algorithm that has been created. While this is not the main way of testing the project it will allow a final evaluation for the project and add consistency to the results that were produced.    
 
 \section*{C Diary Sheets}
 
-\section*{D Timeline}
+\section*{D Consent Forms and Questionaires}
 
 \end{appendices}
 
